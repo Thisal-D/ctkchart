@@ -8,6 +8,7 @@
 ### <li>ctkchart Library is a Python library that simplifies the process of creating line charts in tkinter and customtkinter GUI applications.</li>
 
 https://github.com/Thisal-D/ctkchart/assets/93121062/b67b80ee-8dd7-41f4-a575-8961e1f1c028
+
 https://github.com/Thisal-D/ctkchart/assets/93121062/2260c55c-46d4-4424-9eb7-8c2c56721a33
 
 ## Examples
