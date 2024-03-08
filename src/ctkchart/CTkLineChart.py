@@ -311,10 +311,11 @@ class CTkLineChart():
       
       self.__track_theme_changes()
       
+      
    def __track_theme_changes(self) -> None:
       def __track_theme_changes_loop():
-         if self.__theme !=  self.master._get_appearance_mode():
-            self.__theme = self.master._get_appearance_mode()
+         if self.__theme !=  customtkinter.get_appearance_mode():
+            self.__theme = customtkinter.get_appearance_mode()
             self.__configure_widget_for_theme_changes()
             self.__call_reshow_data()
          self.master.after(2000,__track_theme_changes_loop)
@@ -1088,7 +1089,7 @@ class CTkLineChart():
    
    def __get_color_by_theme(self, color_s: tuple | str) -> str:
       if type(color_s) == tuple:
-         if self.__theme == "light":
+         if self.__theme == "Light":
             return color_s[0]
          else:
             return color_s[1]
