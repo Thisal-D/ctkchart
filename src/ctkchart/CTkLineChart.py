@@ -318,7 +318,7 @@ class CTkLineChart():
             self.__theme = customtkinter.get_appearance_mode()
             self.__configure_widget_for_theme_changes()
             self.__call_reshow_data()
-         self.master.after(2000,__track_theme_changes_loop)
+         self.master.after(1000,__track_theme_changes_loop)
       __track_theme_changes_loop()
       
       
