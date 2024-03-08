@@ -45,8 +45,6 @@ https://github.com/Thisal-D/ctkchart/assets/93121062/6fb3cba4-909b-46bc-a259-17d
 2. Creating a CTkLine
 3. Display of data
 <br>
-<br>
-
 
 # 1 . Creating a CTkLineChart
  
