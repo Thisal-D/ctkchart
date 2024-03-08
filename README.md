@@ -2,11 +2,13 @@
 
 ### <a href="#contributing">Contributing to ctkchart</a>
 
-
 # ctkchart - 0.0.1 (beta)
 
-### <li>ctkchart Library is a Python library that simplifies the process of creating line charts in tkinter and customtkinter GUI applications.</li>
+https://github.com/Thisal-D/ctkchart/assets/93121062/05d01144-ad3e-4d7c-aa61-df79acf2e1c7
 
+https://github.com/Thisal-D/ctkchart/assets/93121062/6fb3cba4-909b-46bc-a259-17db5279a1e1
+
+### <li>ctkchart Library is a Python library that simplifies the process of creating line charts in tkinter and customtkinter GUI applications.</li>
 
 <br>
 
@@ -303,29 +305,11 @@ loop()
 root.mainloop()
 ```
 
-<div align="center">
-
 
 </div>
 
-<br>
-<hr>
-<br>
-
-
-### go to PyPi
-- # PyPi.org   :   <a href="https://pypi.org/project/ctkchart" target="_blank" ><i>ctkchart</i></a>
-
-### go to GitHub
-- # GitHub.com   :  <a href="https://github.com/Thisal-D/ctkchart" target="_blank" ><i>ctkchart</i></a>
-
-
-</div>
-
-<br>
 <br>
  
-
 <div id="contributing">
 
 ### <a href="#top"> Go to top </a>
@@ -366,3 +350,11 @@ By contributing, you agree that your contributions will be licensed under the pr
 Thank you for your contribution!
 
 </div>
+
+
+### go to PyPi
+- # PyPi.org   :   <a href="https://pypi.org/project/ctkchart" target="_blank" ><i>ctkchart</i></a>
+
+### go to GitHub
+- # GitHub.com   :  <a href="https://github.com/Thisal-D/ctkchart" target="_blank" ><i>ctkchart</i></a>
+
