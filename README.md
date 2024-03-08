@@ -18,10 +18,11 @@
 
 ## Examples
 
+https://github.com/Thisal-D/ctkchart/assets/93121062/8cdec09a-d5c1-458c-8575-39b0fbe4f21f
+
 https://github.com/Thisal-D/ctkchart/assets/93121062/05d01144-ad3e-4d7c-aa61-df79acf2e1c7
 
 https://github.com/Thisal-D/ctkchart/assets/93121062/6fb3cba4-909b-46bc-a259-17db5279a1e1
-
 
 ## ctkchart - 0.0.2
 
