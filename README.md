@@ -18,6 +18,8 @@
 
 ## Examples
 
+<a href="https://github.com/Thisal-D/ctkchart/blob/main/Tests/Main%20-%20Test.py"> Tests/Main - Test.py </a>
+
 https://github.com/Thisal-D/ctkchart/assets/93121062/8cdec09a-d5c1-458c-8575-39b0fbe4f21f
 
 https://github.com/Thisal-D/ctkchart/assets/93121062/05d01144-ad3e-4d7c-aa61-df79acf2e1c7
