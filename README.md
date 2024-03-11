@@ -10,7 +10,12 @@
 
 <img src="https://drive.google.com/thumbnail?id=1f4Q2dA64iJGUVWpAZsl0q6Mq0NVkGCDR&sz=w900">
 
-<img src="https://drive.google.com/thumbnail?id=1Iy0H33x3J9tHh_FMTUV2zRITUk1xFrfB&sz=w180">
+[![Downloads](https://static.pepy.tech/badge/ctkchart)](https://pepy.tech/project/ctkchart)
+[![Downloads](https://static.pepy.tech/badge/ctkchart/month)](https://pepy.tech/project/ctkchart)
+[![Downloads](https://static.pepy.tech/badge/ctkchart/week)](https://pepy.tech/project/ctkchart)
+
+<img src="https://drive.google.com/thumbnail?id=1POptEo35th24Bl0pIt3uOKuRR3lmvef3&sz=w180">
+
 
 </div>
 
@@ -26,7 +31,7 @@ https://github.com/Thisal-D/ctkchart/assets/93121062/05d01144-ad3e-4d7c-aa61-df7
 
 https://github.com/Thisal-D/ctkchart/assets/93121062/6fb3cba4-909b-46bc-a259-17db5279a1e1
 
-## ctkchart - 0.0.2
+## ctkchart - 1.0.0
 
 ### You need to install & import package first
 * installation

@@ -1,16 +1,17 @@
+from typing import Union, Tuple
 from .Validate import Validate
 from .FontStyle import FontStyle
 
 class CTkLine():
    def __init__(self,
                master = None,
-               color: tuple[str, str] | str = ("#404040", "#AAAAAA"),
+               color: Union[Tuple[str, str], str] = ("#404040", "#AAAAAA"),
                size: int = 1,
                style: str = "normal", 
-               style_type: tuple[int, int] = (10,5),
+               style_type: Tuple[int, int] = (10,5),
                point_highlight: str = "disabled",
                point_highlight_size: int = 0,
-               point_highlight_color: tuple[str, str] | str = ("#404040", "#AAAAAA"),
+               point_highlight_color: Union[Tuple[str, str], str] = ("#404040", "#AAAAAA"),
                *args: any
                ) -> None:
       
@@ -46,13 +47,13 @@ class CTkLine():
 
 
    def configure(self, 
-                  color: tuple[str, str] | str = None, 
+                  color: Union[Tuple[str, str], str] = None, 
                   size: int = None,
                   style: str = None,
-                  style_type: tuple[int, int] = None,
+                  style_type: Tuple[int, int] = None,
                   point_highlight: str = None,
                   point_highlight_size: int = None,
-                  point_highlight_color: tuple[str, str] | str = None,
+                  point_highlight_color: Union[Tuple[str, str], str] = None,
                  ) -> None:
       
       if color != None:
