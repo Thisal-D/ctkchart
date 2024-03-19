@@ -4,21 +4,21 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ctkchart"
-version = "1.0.0"
+version = "2.0.0"
 authors = [
   { name = "Thisal-D" }
 ]
 
 license = { file = "LICENSE" }
 
-description = "ctkchart Library is a Python library that simplifies the process of creating line charts in customtkinter GUI applications."
+description = "ctkchart is a Python library for creating live updating line charts in customtkinter."
 readme = "README.md"
 requires-python = ">=3.0"
 classifiers = [
   "Programming Language :: Python :: 3",
   "License :: OSI Approved :: MIT License",
   "Operating System :: OS Independent",
-  "Development Status :: 4 - Beta",
+  "Development Status :: 5 - Production/Stable",
 ]
 keywords = ["tkchart", "linechart", "tkinter", "customtkinter", "line chart in tkinter", "line chart in customtkinter",
           "ctkchart", "ctklinechart", "tkinter", "customtkinter", "ctk line chart in tkinter", "ctk line chart in customtkinter"
