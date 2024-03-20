@@ -31,6 +31,7 @@
 - **实时更新**: 用折线图显示实时数据。
 - **多条折线**: 支持在同一张图表上绘制多条线，以便于比较。
 - **颜色定制**: 自定义颜色以匹配您的应用程序的设计或数据表示。
+- <a href="#theme_change">动态颜色变化</a>: 深色和浅色主题的动态颜色变化。
 - **字体定制**: 调整文本元素的字体以增强可读性。
 - **尺寸定制**: 自定义图表尺寸以适应各种显示尺寸和布局。
 
@@ -712,6 +713,19 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
 
 <br>
 
+<div id="theme_change">
+
+# 动态颜色变化
+
+***对于 ctkchart 中涉及颜色的每个参数，有两种写法***:
+
+- 代表颜色的单个字符串。
+- 两个字符串的元组，其中第一个字符串表示浅色主题的颜色，第二个字符串表示深色主题的颜色。
+
+</div>
+
+<br>
+
 <div id="example">
 
 <a href="#top">**回到顶部**</a> | <a href="#howtouse">**使用指南**</a> | <a href="#parameter_explanation">**参数说明**</a> | <a href="#whatsnew">**查看新功能**</a>
@@ -754,11 +768,14 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
             确定高亮点的大小。
         - <a href="#point_highlight">point_highlight_color</a>: ``str``
             设置高亮点的颜色。
+            
     - Line Filling
         - <a href="#fill">fill</a>: ``str``
             控制启用或禁用线条填充。
         - <a href="#fill">fill_color</a>: ``str``
            指定线条填充的颜色。
+
+    - <a href="#theme_change">动态颜色变化</a>
 
 </div>
 
