@@ -31,7 +31,6 @@
 - **Live Update**: Display live data with line charts.
 - **Multiple Lines**: Support for plotting multiple lines on the same chart for easy comparison.
 - **Color Customization**: Customize colors to match your application's design or data representation.
-- **Color Customization**: Customize colors to match your application's design or data representation.
 - <a href="#theme_change">**Dynamic Color Change**</a>: Dynamic Color Change for Dark & Light.
 - **Font Customization**: Adjust fonts for text elements to enhance readability.
 - **Dimension Customization**: Customize chart dimensions to fit various display sizes and layouts.
