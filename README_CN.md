@@ -148,7 +148,7 @@ linechart = ctkchart.CTkLineChart()
 | hide_all           | 隐藏所有折线                           | state:  ``bool``                                                                                                                 |
 | hide               | 隐藏特定折线                           | line:  ``ctkchart.CTkLine``<br> state:  ``bool``                                                                                 |
 | reset              | 重置折线图                             | -                                                                                                                                |
-| cget               | 获取指定参数的值。                      | attribute_name:  ``str`` \| "\_\all\_\_"                                                                                         |
+| cget               | 获取指定参数的值。                      | attribute_name:  ``str`` \| "\_\_all\_\_"                                                                                         |
 
 
 </div>
