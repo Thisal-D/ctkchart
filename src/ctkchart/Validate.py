@@ -288,5 +288,17 @@ class Validate:
     
     def _invalidCget(var: str) -> None:
         raise TypeError(
-                f'''{Validate._var_font(var)} {Validate._error_font("Invalid attribute.")}'''
+                f'''{Validate._var_font(str(var))} {Validate._error_font("Invalid attribute.")}'''
+            )
+        
+    
+    def _invalidLine(line) -> None:
+        raise ValueError(
+                f'''{Validate._var_font(str(line))} {Validate._error_font("The line is not part of this line chart.")}'''
+            )
+        
+        
+    def  _invalidMaster(value):
+        raise ValueError(
+                f'''{Validate._var_font(str(value))} {Validate._error_font("Invalid Master for chart.")}'''
             )
