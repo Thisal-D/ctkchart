@@ -4,7 +4,7 @@
 
 ### 🌟 喜欢你所看到的吗？给我们一颗星星！🚀 非常感谢！😄
 
-## ***# 如果您使用的是 customtkinter，我建议您查看 <a href="https://github.com/Thisal-D/ctkchart"> ctkchart </a> 的附加特性和功能。***
+## ***# 如果您使用的是 customtkinter，我建议您查看 <a href="https://github.com/Thisal-D/tkchart"> tkchart </a> 的附加特性和功能。***
 
 </div>
 
@@ -12,23 +12,26 @@
 
 <div align="center">
 
-[![tkchart](https://snyk.io//advisor/python/tkchart/badge.svg)](https://snyk.io//advisor/python/tkchart)
 
-<img src="https://drive.google.com/thumbnail?id=16Y00GIKEpmC4t3gAlUv7IJutE4yzFszo&sz=w2500" style="width: 100%">
+[![ctkchart](https://snyk.io/advisor/python/ctkchart/badge.svg)](https://snyk.io/advisor/python/ctkchart)
 
-[![Downloads](https://static.pepy.tech/badge/tkchart)](https://pepy.tech/project/tkchart) [![Downloads](https://static.pepy.tech/badge/tkchart/month)](https://pepy.tech/project/tkchart) [![Downloads](https://static.pepy.tech/badge/tkchart/week)](https://pepy.tech/project/tkchart)
+<img src="https://drive.google.com/thumbnail?id=1f4Q2dA64iJGUVWpAZsl0q6Mq0NVkGCDR&sz=w900">
 
-<img src="https://drive.google.com/thumbnail?id=1jOltT5qBvLmKAdSU6zb9wjh3GYa6jRvD&sz=w180">
+[![Downloads](https://static.pepy.tech/badge/ctkchart)](https://pepy.tech/project/ctkchart) [![Downloads](https://static.pepy.tech/badge/ctkchart/month)](https://pepy.tech/project/ctkchart) [![Downloads](https://static.pepy.tech/badge/ctkchart/week)](https://pepy.tech/project/ctkchart)
+
+
+<img src="https://drive.google.com/thumbnail?id=1cHrsFILHJ7a2bgMXvk-PWlnLZx1vCnVR&sz=w180">
 
 </div>
 
-### <li>tkchart 是一个用于在 tkinter 中创建实时更新折线图的 Python 库。</li>
+### <li>ctkchart 是一个用于在 customtkinter 中创建实时更新折线图的 Python 库。</li>
 
 ## 特征
 
 - **实时更新**: 用折线图显示实时数据。
 - **多条折线**: 支持在同一张图表上绘制多条线，以便于比较。
 - **颜色定制**: 自定义颜色以匹配您的应用程序的设计或数据表示。
+- <a href="#theme_change">动态颜色变化</a>: 深色和浅色主题的动态颜色变化。
 - **字体定制**: 调整文本元素的字体以增强可读性。
 - **尺寸定制**: 自定义图表尺寸以适应各种显示尺寸和布局。
 
@@ -40,12 +43,12 @@
 ## 安装和使用
 * 安装
     ```
-    pip install tkchart
+    pip install ctkchart
     ```
 
 * 使用
      ```
-    import tkchart
+    import ctkchart
     ```
 
 <div id="parameter_img">
@@ -63,7 +66,7 @@
 
 </div>
 
-## 要使用 tkchart 显示数据，您需要执行以下三步：
+## 要使用 ctkchart 显示数据，您需要执行以下三步：
 1. <a href="#create-line-chart">**创建折线图**</a>
 2. <a href="#create-line">**创建一条线**</a>
 3. <a href="#display-data">**数据显示**</a>
@@ -76,63 +79,63 @@
 <a href="#create-line">**创建一条线**</a> | <a href="#display-data">**数据显示**</a>
 
 ```
-linechart = tkchart.LineChart()
+linechart = ctkchart.CTkLineChart()
 ```
 
 ## 参数
 
-| 参数                                                        | 必备参数 / 可选参数 | 描述                           | 数据类型                        | 示例值                              |
-| ----------------------------------------------------------- | ------------------- | ------------------------------ | ------------------------------- | ----------------------------------- |
-| master                                                      | ***必须***          | 折线图主体                     | ``widget``                      | widget                              |
-| <a href="#x_y_axis_values">y_axis_values</a>                | ***必须***          | y 轴的最小值和最大值           | ``tuple[[int \| float], ...]``  | (-1000, 1000), ...                  |
-| <a href="#x_y_axis_values">x_axis_values</a>                | ***必须***          | x 轴的值                       | ``tuple[any, ...]``             | (1, 2, 3, 4, 5), ...                |
-| width                                                       | ***可选***          | 折线图的宽度                   | ``int``                         | 300, ...                            |
-| height                                                      | ***可选***          | 折线图的高度                   | ``int``                         | 100, ...                            |
-| <a href="#parameter_img">axis_size</a>                      | ***可选***          | 坐标轴宽度                     | ``int``                         | 1<=                                 |
-| <a href="#parameter_img">axis_color</a>                     | ***可选***          | 坐标轴轴颜色                   | ``str``                         | "#2C2C2C" , "blue", ...             |
-| <a href="#parameter_img">bg_color</a>                       | ***可选***          | 折线图的背景色                 | ``str``                         | "#191919", ...                      |
-| <a href="#parameter_img">fg_color</a>                       | ***可选***          | 折线图的前景色                 | ``str``                         | "#191919", ...                      |
-| <a href="#x_y_data">data_font_style</a>                     | ***可选***          | 坐标轴名称的字体样式           | ``tuple[str, int, str]``        | ("arial", 9, "bold"), ...           |
-| <a href="#x_y_font_style">axis_font_style</a>               | ***可选***          | 坐标轴文字的字体样式           | ``tuple[str, int, str]``        | ("arial", 8, "normal"), ...         |
-| <a href="#x_y_data">x_axis_data</a>                         | ***可选***          | x_data 的值（x 坐标轴名称）    | ``str``                         | "X", ...                            |
-| <a href="#x_y_data">y_axis_data</a>                         | ***可选***          | y_data 的值（y 坐标轴名称）    | ``any``                         | "Y", ...                            |
-| <a href="#x_y_data">x_axis_data_font_color</a>              | ***可选***          | x_data 的字体颜色              | ``str``                         | "#707070", ...                      |
-| <a href="#x_y_data">y_axis_data_font_color</a>              | ***可选***          | y_data 的字体颜色              | ``str``                         | "#707070", ...                      |
-| <a href="#data_position">x_axis_data_position</a>           | ***可选***          | x_data 的排布方式              | ``str`` ("top", "side")         | "top"                               |
-| <a href="#data_position">y_axis_data_position</a>           | ***可选***          | y_data 的排布方式              | ``str`` ("top", "side")         | "top"                               |
-| <a href="#x_y_section">x_axis_section_count</a>             | ***可选***          | x 轴上的网格线数               | ``int``                         | 0<=                                 |
-| <a href="#x_y_section">y_axis_section_count</a>             | ***可选***          | y 轴上的网格线数               | ``int``                         | 0<=                                 |
-| <a href="#x_y_label_count">x_axis_label_count</a>           | ***可选***          | x 轴标签数量                   | ``int``                         | 0<=                                 |
-| <a href="#x_y_label_count">y_axis_label_count</a>           | ***可选***          | y 轴标签数量                   | ``int``                         | 1<=                                 |
-| <a href="#x_y_font_style">x_axis_font_color</a>             | ***可选***          | x 轴标签的字体颜色             | ``str``                         | "#606060", ...                      |
-| <a href="#x_y_font_style">y_axis_font_color</a>             | ***可选***          | y 轴标签的字体颜色             | ``str``                         | "#606060", ...                      |
-| <a href="#x_y_section_style">x_axis_section_style</a>       | ***可选***          | x 轴上的网格线样式             | ``str`` ("normal", "dashed")    | "normal"                            |
-| <a href="#x_y_section_style">y_axis_section_style</a>       | ***可选***          | y 轴上的网格线样式             | ``str`` ("normal", "dashed")    | "normal"                            |
-| <a href="#x_y_section_style">x_axis_section_style_type</a>  | ***可选***          | x 轴上网格线的实线与空白的尺寸 | ``tuple[int, int]``             | (100, 50) , (50,50), ...            |
-| <a href="#x_y_section_style">y_axis_section_style_type</a>  | ***可选***          | y 轴上网格线的实线与空白的尺寸 | ``tuple[int, int]``             | (100, 50)                           |
-| <a href="#x_y_section">x_axis_section_color</a>             | ***可选***          | x 轴上网格线的颜色             | ``str``                         | "#2C2C2C", ...                      |
-| <a href="#x_y_section">y_axis_section_color</a>             | ***可选***          | y 轴上网格线的颜色             | ``str``                         | "#2C2C2C"                           |
-| <a href="#y_precision">y_axis_precision</a>                 | ***可选***          | y 轴值的精度                   | ``int``                         | 0<=                                 |
-| <a href="#indices_view">x_axis_display_values_indices</div> | ***可选***          | 显示在 x 轴上的坐标值的索引    | ``tuple[int, ...]``             | (0, 1, 2, 3, 4, 5), ...             |
-| <a href="#x_axis_point_spacing">x_axis_point_spacing</a>    | ***可选***          | 线条宽度                       | ``int`` \| ``str`` "auto"       | "auto" <br> 1<=                     |
-| <a href="#parameter_img">x_space</a>                        | ***可选***          | x 轴和图表区域之间的空间       | ``int``                         | 0<=                                 |
-| <a href="#parameter_img">y_space</a>                        | ***可选***          | y 轴和图表区域之间的空间       | ``int``                         | 0<=                                 |
-| pointer_state                                               | ***可选***          | 鼠标状态                       | ``str`` ("enabled", "disabled") | "disabled"                          |
-| pointing_callback_function                                  | ***可选***          | 鼠标的回调函数                 | ``callable``                    | function(*args) <br> function(x, y) |
-| pointer_color                                               | ***可选***          | 鼠标颜色                       | ``str``                         | "#606060", ...                      |
-| pointing_values_precision                                   | ***可选***          | 指向值的精度                   | ``int``                         | 0<=                                 |
-| pointer_lock                                                | ***可选***          | 鼠标锁状态                     | ``str`` ("enabled", "disabled") | "enabled"                           |
-| pointer_size                                                | ***可选***          | 鼠标显示线的宽度               | ``int``                         | 1<=                                 |
-
+| 参数                                                       | 必备参数 / 可选参数 | 描述                           | 数据类型                        | 示例值                              |
+|------------------------------------------------------------|-------------------|--------------------------------|---------------------------------|------------------------------------|
+| master                                                     | ***必须***        | 折线图主体                     | ``widget``                     | widget                             |
+| [y_axis_values](#x_y_axis_values)                          | ***必须***        | y 轴的最小值和最大值           | ``tuple[int \| float], ...``   | (-1000, 1000), ...                 |
+| [x_axis_values](#x_y_axis_values)                          | ***必须***        | x 轴的值                       | ``tuple[any, ...]``            | (1, 2, 3, 4, 5), ...               |
+| width                                                      | ***可选***        | 折线图的宽度                   | ``int``                        | 300, ...                           |
+| height                                                     | ***可选***        | 折线图的高度                   | ``int``                        | 100, ...                           |
+| [axis_size](#parameter_img)                                | ***可选***        | 坐标轴宽度                     | ``int``                        | 1<=                                |
+| [axis_color](#parameter_img)                               | ***可选***        | 坐标轴轴颜色                   | ``tuple[str, str]`` \| ``str`` | ("#FF0000", "#00FF00"), ...       |
+| [bg_color](#parameter_img)                                 | ***可选***        | 折线图的背景色                 | ``tuple[str, str]`` \| ``str`` | ("#FF0000", "#00FF00"), ...       |
+| [fg_color](#parameter_img)                                 | ***可选***        | 折线图的前景色                 | ``tuple[str, str]`` \| ``str`` | ("#FF0000", "#00FF00"), ...       |
+| [data_font_style](#x_y_data)                               | ***可选***        | 坐标轴名称的字体样式           | ``tuple[str, int, str]``       | ("arial", 9, "bold"), ...          |
+| [axis_font_style](#x_y_font_style)                         | ***可选***        | 坐标轴文字的字体样式           | ``tuple[str, int, str]``       | ("arial", 8, "normal"), ...        |
+| [x_axis_data](#x_y_data)                                   | ***可选***        | x_data 的值（x 坐标轴名称）    | ``str``                        | "X", ...                           |
+| [y_axis_data](#x_y_data)                                   | ***可选***        | y_data 的值（y 坐标轴名称）    | ``any``                        | "Y", ...                           |
+| [x_axis_data_font_color](#x_y_data)                        | ***可选***        | x_data 的字体颜色              | ``tuple[str, str]`` \| ``str`` | ("#FF0000", "#00FF00"), "#707070", ... |
+| [y_axis_data_font_color](#x_y_data)                        | ***可选***        | y_data 的字体颜色              | ``tuple[str, str]`` \| ``str`` | ("#FF0000", "#00FF00"), "#707070", ... |
+| [x_axis_data_position](#data_position)                     | ***可选***        | x_data 的排布方式              | ``str``                        | "top"                              |
+| [y_axis_data_position](#data_position)                     | ***可选***        | y_data 的排布方式              | ``str``                        | "top"                              |
+| [x_axis_section_count](#x_y_section)                       | ***可选***        | x 轴上的网格线数               | ``int``                        | 0<=                                |
+| [y_axis_section_count](#x_y_section)                       | ***可选***        | y 轴上的网格线数               | ``int``                        | 0<=                                |
+| [x_axis_label_count](#x_y_label_count)                     | ***可选***        | x 轴标签数量                   | ``int``                        | 0<=                                |
+| [y_axis_label_count](#x_y_label_count)                     | ***可选***        | y 轴标签数量                   | ``int``                        | 1<=                                |
+| [x_axis_font_color](#x_y_font_style)                       | ***可选***        | x 轴标签的字体颜色             | ``tuple[str, str]`` \| ``str`` | ("#FF0000", "#00FF00"), "#606060", ... |
+| [y_axis_font_color](#x_y_font_style)                       | ***可选***        | y 轴标签的字体颜色             | ``tuple[str, str]`` \| ``str`` | ("#FF0000", "#00FF00"), "#606060", ... |
+| [x_axis_section_style](#x_y_section_style)                 | ***可选***        | x 轴上的网格线样式             | ``str``                        | "normal"                           |
+| [y_axis_section_style](#x_y_section_style)                 | ***可选***        | y 轴上的网格线样式             | ``str``                        | "normal"                           |
+| [x_axis_section_style_type](#x_y_section_style)            | ***可选***        | x 轴上网格线的实线与空白的尺寸 | ``tuple[int, int]``            | (100, 50) , (50,50), ...           |
+| [y_axis_section_style_type](#x_y_section_style)            | ***可选***        | y 轴上网格线的实线与空白的尺寸 | ``tuple[int, int]``            | (100, 50)                          |
+| [x_axis_section_color](#x_y_section)                       | ***可选***        | x 轴上网格线的颜色             | ``tuple[str, str]`` \| ``str`` | ("#FF0000", "#00FF00"), "#2C2C2C", ... |
+| [y_axis_section_color](#x_y_section)                       | ***可选***        | y 轴上网格线的颜色             | ``tuple[str, str]`` \| ``str`` | ("#FF0000", "#00FF00"), "#2C2C2C"  |
+| [y_axis_precision](#y_precision)                           | ***可选***        | y 轴值的精度                   | ``int``                        | 0<=                                |
+| [x_axis_display_values_indices](#indices_view)             | ***可选***        | 显示在 x 轴上的坐标值的索引    | ``tuple[int, ...]``            | (0, 1, 2, 3, 4, 5), ...            |
+| [x_axis_point_spacing](#x_axis_point_spacing)              | ***可选***        | 线条宽度                       | ``int`` \| ``str`` "auto"      | "auto" <br> 1<=                    |
+| [x_space](#parameter_img)                                  | ***可选***        | x 轴和图表区域之间的空间       | ``int``                        | 0<=                                |
+| [y_space](#parameter_img)                                  | ***可选***        | y 轴和图表区域之间的空间       | ``int``                        | 0<=                                |
+| pointer_state                                              | ***可选***        | 鼠标状态                       | ``str`` ("enabled", "disabled") | "disabled"                         |
+| pointing_callback_function                                 | ***可选***        | 鼠标的回调函数                 | ``callable``                    | function(*args) <br> function(x, y) |
+| pointer_color                                              | ***可选***        | 鼠标颜色                       | ``tuple[str, str]`` \| ``str``  | ("#FF0000", "#00FF00"), "#606060", ... |
+| pointing_values_precision                                  | ***可选***        | 指向值的精度                   | ``int``                         | 0<=                                |
+| pointer_lock                                               | ***可选***        | 鼠标锁状态                     | ``str`` ("enabled", "disabled") | "enabled"                          |
+| pointer_size                                               | ***可选***        | 鼠标显示线的宽度               | ``int``                         | 1<=                                |
 
 <br>
 
+## 方法
 ## 方法
 
 | 方法                    | 描述                               | 支持的参数 / 必须的参数                                          | 返回类型   |
 |-----------------------|-----------------------------------|----------------------------------------------------------------|------------|
 | configure              | 更改 LineChart（折线图）属性       | 所有属性，除了 master                                           | ``None``       |
-| [show_data](#display-data) | 显示数据                       | data: ``list``<br> line: ``chart.Line``                    | ``None``       |
+| [show_data](#display-data) | 显示数据                       | data: ``list``<br> line: ``ctkchart.CTkLine``                    | ``None``       |
 | place                  | 放置 (place) 折线图                | x: ``int``<br>y: ``int``<br>rely: ``float or int``<br>relx: ``float or int``<br>anchor: ``str`` | ``None``       |
 | pack                   | 放置 (pack) 折线图                 | pady: ``int``<br>padx: ``int``<br> before: ``widget``<br> after: ``widget``<br>side: ``str``<br>anchor: ``str``  | ``None``       |
 | grid                   | 放置 (grid) 折线图                 | column: ``int``<br>columnspan: ``int``<br>padx: ``int``<br>pady: ``int``<br> row: ``int``<br>rowspan: ``int``<br>sticky: ``str`` | ``None``       |
@@ -140,8 +143,8 @@ linechart = tkchart.LineChart()
 | pack_forget            | Pack 忘编号            | -                                                                | ``None``       |
 | grid_forget            | Grid 忘编号            | -                                                                | ``None``       |
 | set_lines_visibility   | 更改所有线条的可见性             | state:  ``bool``                                                 | ``None``       |
-| set_line_visibility    | 更改特定行的可见性               | line:  ``tkchart.Line``<br> state:  ``bool``                 | ``None``       |
-| get_line_visibility | 获取特定生产线的可见性 | line:  ``tkchart.Line``                         | ``bool``        |
+| set_line_visibility    | 更改特定行的可见性               | line:  ``ctkchart.CTkLine``<br> state:  ``bool``                 | ``None``       |
+| get_line_visibility | 获取特定生产线的可见性 | line:  ``ctkchart.CTkLine``                         | ``bool``        |
 | reset                  | 重置折线图                        | -                                                                | ``None``       |
 | cget                   | 获取指定参数的值。                | attribute_name:  ``str`` \| "\_\_all\_\_"                       | ``any``       |
 | place_info             | 获取地点信息                     | attribute_name: ``str`` \| "\_\_all\_\_"                         | ``any``       |
@@ -160,26 +163,25 @@ linechart = tkchart.LineChart()
 <a href="#create-line-chart">**创建折线图**</a> | <a href="#display-data">**数据显示**</a>
 
 ```
-line = tkchart.Line()
+line = ctkchart.CTkLine()
 ```
 
 ## 参数
 
-| 参数名称                                    | 必备参数 / 可选参数 | 描述                            | 数据类型                               | 示例值          |
-|-------------------------------------------|---------------------|--------------------------------|----------------------------------------|----------------|
-| master                                    | 必须                | 主控制器                        | ``tkchart.Line``                      | LineChart 对象 |
-| [color](#line_color_size)                 | 可选                | 折线颜色                        | ``str``                                | "#768df1"      |
-| [size](#line_color_size)                  | 可选                | 折线大小                        | ``int``                                | 1<=            |
-| [style](#line_style)                      | 可选                | 折线样式（普通、虚线、点线）     | ``str`` ("normal", "dashed", "dotted")| "normal"       |
-| [style_type](#line_style_type)            | 可选                | 实线与虚线尺寸                    | ``tuple[int, int]``                    | (10, 5) 等     |
-| [point_highlight](#point_highlight)       | 可选                | 端点高亮状态                      | ``str`` ("enabled", "disabled")        | "disabled"     |
-| [point_highlight_size](#point_highlight)  | 可选                | 高亮点大小                        | ``int``                                | 1<=            |
-| [point_highlight_color](#point_highlight) | 可选                | 高亮点颜色                        | ``str``                                | "#768df1"      |
-| [fill](#fill)                             | 可选                | 是否启用填充                      | ``str`` ("enabled", "disabled")        | "disabled"     |
-| [fill_color](#fill)                       | 可选                | 填充颜色                          | ``str``                                | "#5d6db6"      |
+| 参数名称                                             | 必备参数 / 可选参数 | 描述                         | 数据类型                           | 示例值        |
+| ---------------------------------------------------- | ------------------- | ---------------------------- | ---------------------------------- | ------------- |
+| master                                               | 必须                | Master                       | ``ctkchart.CTkLine``                       | LineChart obj |
+| [color](#line_color_size)                            | 可选                | 折线的颜色                   | ``str``                                | "#768df1"     |
+| [size](#line_color_size)                             | 可选                | Size of the line             | ``int``                                | 1<=           |
+| [style](#line_style)                                 | 可选                | 折线风格（直线、虚线、点线） | ``str`` ("normal", "dashed", "dotted") | "normal"      |
+| [style_type](#line_style_type)                       | 可选                | 实线与虚线的尺寸             | ``tuple[int, int]``                    | (10, 5),...   |
+| [point_highlight](#point_highlight)                  | 可选                | 端点高亮状态                 | ``str`` ("enabled", "disabled")        | "disabled"    |
+| [point_highlight_size](#point_highlight)             | 可选                | 高亮点的大小                 | ``int``                                | 1<=           |
+| [point_highlight_color](#point_highlight)            | 可选                | 高亮点的颜色                 | ``str``                                | "#768df1"     |
+| [fill](#fill)                                        | 可选                | 是否启用填充                 | ``str`` ("enabled", "disabled")        | "disabled"    |
+| [fill_color](#fill)                                  | 可选                | 填充部分的颜​​色             | ``str``                                | "#5d6db6"     |
 
 
-<br>
 
 ## 方法
 
@@ -190,6 +192,8 @@ line = tkchart.Line()
 | reset     | 重置线对象        | -                                        | ``None``    |
 | set_visible     | 改变线条的可见度   | state: ``bool``   | ``None``    |
 | get_visibility  | 获得线路的可见度   | -                 | ``bool``    |
+
+</div>
 
 </div>
 <br>
@@ -203,7 +207,7 @@ line = tkchart.Line()
 
 ```
 import tkinter as tk
-import tkchart
+import ctkchart
 import random
 
 # root
@@ -211,13 +215,13 @@ root = tk.Tk()
 root.configure(bg="#151515")
 
 # 创建折线图
-chart = tkchart.LineChart(master=root,
+chart = ctkchart.CTkLineChart(master=root,
                           x_axis_values = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10),
                           y_axis_values = (-100,100))         
 chart.pack()
 
 # 创建一条折线
-line = tkchart.Line(master=chart)
+line = ctkchart.CTkLine(master=chart)
 
 data = [x for x in range(-100,101)]  #values -100 to 100
 # 显示数据（随机）
@@ -259,10 +263,10 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     <img src="https://drive.google.com/thumbnail?id=1UbyQEKDYhZjUI9VttKerpSVc6hZoEfi8&sz=w950" >
     </picture>
 
-    ```
-    chart = tkchart.LineChart(x_axis_values=(2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025),
-                                y_axis_values=(-100, 100)
-                            )
+     ```
+    chart = ctkchart.CTkLineChart(x_axis_values=(2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025),
+                          y_axis_values=(-100, 100)
+                        )
     ```
 
 </div>
@@ -292,13 +296,13 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     
     ```
     
-    chart = tkchart.LineChart(master=any_widget,
+    chart = ctkchart.CTkLineChart(master=any_widget,
                             x_axis_values=(2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025),
                             y_axis_values=(-100, 100),
                             y_axis_data="Y data" ,
                             x_axis_data="X data",
-                            x_axis_data_font_color=("#ff0000", "#ff0000"),
-                            y_axis_data_font_color=("#00ff00", "#00ff00"), 
+                            x_axis_data_font_color="#ff0000",
+                            y_axis_data_font_color="#00ff00", 
                             data_font_style=("arial", 15, "underline")
                         )
     ```
@@ -330,7 +334,7 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     </picture>
 
     ```
-    chart = tkchart.LineChart(x_axis_values=(2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025),
+    chart = ctkchart.CTkLineChart(x_axis_values=(2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025),
                           y_axis_values=(-100, 100),
                           x_axis_label_count=4,
                           y_axis_label_count=10,
@@ -354,7 +358,7 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     </picture>
 
     ```
-    chart = tkchart.LineChart(x_axis_values=(2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025),
+    chart = ctkchart.CTkLineChart(x_axis_values=(2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025),
                           y_axis_values=(-100, 100),
                           x_axis_display_values_indices=(1, 4, 7),
                         )
@@ -379,7 +383,7 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     </picture>
 
     ```
-    chart = tkchart.LineChart(x_axis_values=(2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025),
+    chart = ctkchart.CTkLineChart(x_axis_values=(2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025),
                             y_axis_values=(-100, 100),
                             x_axis_data_position="side",
                             y_axis_data_position="top"
@@ -409,7 +413,7 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     </picture>
     
     ```
-    chart = tkchart.LineChart(x_axis_values=(2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025),
+    chart = ctkchart.CTkLineChart(x_axis_values=(2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025),
                             y_axis_values=(-100, 100),
                             y_axis_label_count=12,
                             y_axis_precision=4,
@@ -435,7 +439,7 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     </picture>
 
     ```
-    chart = tkchart.LineChart(x_axis_values=(2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025),
+    chart = ctkchart.CTkLineChart(x_axis_values=(2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025),
                             y_axis_values=(-100, 100),
                             x_axis_font_color="#00FF00",
                             y_axis_font_color="#FF0000",
@@ -474,7 +478,7 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     </picture>
 
     ```
-        chart = tkchart.LineChart(master=any_widget,
+        chart = ctkchart.CTkLineChart(master=any_widget,
                             x_axis_section_count=8,
                             y_axis_section_count=5,
                             x_axis_section_color="#2C2C2C",
@@ -526,7 +530,7 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     </picture>
 
     ```
-    chart = tkchart.LineChart(master=any_widget,
+    chart = ctkchart.CTkLineChart(master=any_widget,
                             x_axis_section_count=8,
                             y_axis_section_count=5,
                             x_axis_section_style="dashed",
@@ -558,7 +562,7 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     </picture>
 
     ```
-    chart = tkchart.LineChart(master=any_widget,
+    chart = ctkchart.CTkLineChart(master=any_widget,
                             x_axis_point_spacing="auto"      
                         )
     ```
@@ -573,7 +577,7 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     当您将 x_axis_point_spacing 参数设置为特定值（例如 40）时，这意味着您已手动将 x 轴上的点之间的间距指定为 40 个单位（例如像素）。在这种情况下，无论 x_axis_values 元组的长度如何，折线图都将在 x 轴上的每个点之间使用用户定义的 40 个单位的间距。
 
     ```
-    chart = tkchart.LineChart(master=any_widget,
+    chart = ctkchart.CTkLineChart(master=any_widget,
                             x_axis_point_spacing=40        
                         )
     ```
@@ -598,7 +602,7 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     </picture>
     
     ```
-    line = tkchart.Line(master=chart,
+    line = ctkchart.CTkLine(master=chart,
                         color="#30ACC7",
                         size=5
                     )
@@ -623,7 +627,7 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     </picture>
 
     ```
-    line = tkchart.Line(master=chart,
+    line = ctkchart.CTkLine(master=chart,
                         line_style="dashed"
                     )
     ```
@@ -649,7 +653,7 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     </picture>
     
     ```
-    line = tkchart.Line(master=chart,
+    line = ctkchart.CTkLine(master=chart,
                         line_style="dashed",
                         line_style_type=(10,2)
                     )
@@ -676,7 +680,7 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     </picture>
 
     ```
-    line = tkchart.Line(master=chart,
+    line = ctkchart.CTkLine(master=chart,
                         point_highlight="enabled",
                         point_highlight_color="#80CCFF",
                         point_highlight_size=8
@@ -702,13 +706,26 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     </picture>
 
     ```
-    line = tkchart.Line(master=chart,
+    line = ctkchart.CTkLine(master=chart,
                         fill="enabled",
                         fill_color="#5D6DB6"
                     )
     ```
 
 </div>
+
+</div>
+
+<br>
+
+<div id="theme_change">
+
+# 动态颜色变化
+
+***对于 ctkchart 中涉及颜色的每个参数，有两种写法***:
+
+- 代表颜色的单个字符串。
+- 两个字符串的元组，其中第一个字符串表示浅色主题的颜色，第二个字符串表示深色主题的颜色。
 
 </div>
 
@@ -756,11 +773,14 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
             确定高亮点的大小。
         - <a href="#point_highlight">point_highlight_color</a>: ``str``
             设置高亮点的颜色。
+            
     - Line Filling
         - <a href="#fill">fill</a>: ``str``
             控制启用或禁用线条填充。
         - <a href="#fill">fill_color</a>: ``str``
            指定线条填充的颜色。
+
+    - <a href="#theme_change">动态颜色变化</a>
 
 </div>
 
@@ -768,9 +788,9 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
 
 # 链接
 
-**PyPi.org**   :   <a href="https://pypi.org/project/tkchart" target="_blank" ><i>tkchart</i></a>
+**PyPi.org**   :   <a href="https://pypi.org/project/ctkchart" target="_blank" ><i>ctkchart</i></a>
 
-**GitHub.com**   :  <a href="https://github.com/Thisal-D/tkchart" target="_blank" ><i>tkchart</i></a>
+**GitHub.com**   :  <a href="https://github.com/Thisal-D/ctkchart" target="_blank" ><i>ctkchart</i></a>
 
 <br>
 
