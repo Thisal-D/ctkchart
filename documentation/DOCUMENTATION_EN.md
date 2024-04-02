@@ -750,7 +750,7 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
 
 <a href="#top">**Back to the Top**</a> | <a href="#howtouse">**Usage Guide**</a> | <a href="#parameter_explanation">**Parameter Explanation**</a> | <a href="#whatsnew">**Whats New ?**</a> 
 
-## [Examples](https://github.com/Thisal-D/ctkchart/template(s))
+## [Examples](https://github.com/Thisal-D/ctkchart/tree/main/template(s))
 
 <div align="center"> 
 
