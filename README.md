@@ -1,6 +1,6 @@
-**[Check changes](CHANGES.md)**
-
 <div id="top"></div>
+
+**[Check changes](CHANGES.md)**
 
 [中文说明 README](README_CN.md)
 [Chinese README](README_CN.md)
