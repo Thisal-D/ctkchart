@@ -1,6 +1,6 @@
 <div id="top"></div> 
 
-[English README](https://github.com/Thisal-D/ctkchart/documentation/DOCUMENTATION_EN.md) 
+[English README](DOCUMENTATION_EN.md) 
 
 </div> 
 
