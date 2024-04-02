@@ -725,7 +725,7 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
 
 <a href="#top">**回到顶部**</a> | <a href="#howtouse">**使用指南**</a> | <a href="#parameter_explanation">**参数说明**</a> | <a href="#whatsnew">**查看新功能**</a> 
 
-## 例子 
+## [例子](https://github.com/Thisal-D/ctkchart/tree/main/template(s))
 
 <div align="center"> 
 
