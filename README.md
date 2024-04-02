@@ -46,8 +46,8 @@ Your support means a lot and inspires me to do better with each update. Thank yo
 ### Links
 
 - **Documentation :** [Documents](documentation)
-    - [English doc.](https://github.com/Thisal-D/ctkchart/documentation/DOCUMENTATION_EN.md)
-    - [Chinese doc.](https://github.com/Thisal-D/ctkchart/documentation/DOCUMENTATION_CN.md)
+    - [English doc.](documentation/DOCUMENTATION_EN.md)
+    - [Chinese doc.](documentation/DOCUMENTATION_CN.md)
 - **Python official :** [ctkchart](https://pypi.org/project/ctkchart/)
 
 <hr>
@@ -376,5 +376,5 @@ Your support means a lot and inspires me to do better with each update. Thank yo
 **Explore customizable features such as colors, fonts, and more in the documentation.**
 
 #### Please refer to the full documentation
-- [**English doc.**](https://github.com/Thisal-D/ctkchart/documentation/DOCUMENTATION_EN.md)
-- [**Chinese doc.**](https://github.com/Thisal-D/ctkchart/documentation/DOCUMENTATION_CN.md)
+- [**English doc.**](documentation/DOCUMENTATION_EN.md)
+- [**Chinese doc.**](documentation/DOCUMENTATION_CN.md)
