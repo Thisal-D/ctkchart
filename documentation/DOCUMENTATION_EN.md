@@ -1,6 +1,6 @@
 <div id="top"></div> 
 
-[中文说明 Documentation](https://github.com/Thisal-D/ctkchart/documentation/DOCUMENTATION_CN.md) | [Chinese Documentation](https://github.com/Thisal-D/ctkchart/documentation/DOCUMENTATION_CN.md) 
+[中文说明 Documentation](DOCUMENTATION_CN.md) | [Chinese Documentation](DOCUMENTATION_CN.md)
 
 </div> 
 <div id="howtouse"> 
