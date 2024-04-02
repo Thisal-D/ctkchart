@@ -241,7 +241,7 @@ class CTkLineChart():
          self.__x_axis_values_handle_by = "label_count"
 
       
-      self.__theme = "unknown"
+      self.__theme = customtkinter.get_appearance_mode()
       self.__margin = 10
 
       self.__create_widgets()
@@ -281,7 +281,7 @@ class CTkLineChart():
          if self.__theme !=  customtkinter.get_appearance_mode():
             self.__theme = customtkinter.get_appearance_mode()
             self.__configure_widget_for_theme_changes()
-            self.__call_reshow_data()
+            self.__reshow_data()
          try:
             self.master.after(1000,__track_theme_changes_loop)
          except AttributeError:
@@ -1231,7 +1231,7 @@ class CTkLineChart():
          self.__set_tkinter_widgets_colors()
          self.__place_widgets()
          self.__reset_chart_info()
-         self.__call_reshow_data()
+         self.__reshow_data()
       
       if chart_x_labels_change_req:
          self.__configure_x_axis_labels_info()
@@ -1261,7 +1261,7 @@ class CTkLineChart():
          
       if reshow_data_req:
          self.__configure_x_axis_point_spacing()
-         self.__call_reshow_data()
+         self.__reshow_data()
       
       if pointer_size_change_req:
          self.__set_pointer_size()
@@ -1307,20 +1307,26 @@ class CTkLineChart():
    
 
    
-   def __call_reshow_data(self) -> None:
+   #def __call_reshow_data(self) -> None:
       """
       Call the method to re-show data on the chart.
 
          This method sets a flag to force the chart to stop data showing, waits until the data showing process is stopped,
          and then triggers the re-showing of data.
       """
-
-      self.__force_to_stop_data_showing = True
-      while  self.__is_data_showing_working:
-         pass
-      self.__force_to_stop_data_showing = False
-      self.__reshow_data()
+   #   import time
+   #   import threading as thead
       
+   #   def wait():
+   #      self.__force_to_stop_data_showing = True
+   #      while  self.__is_data_showing_working:
+   #         print("waitin")
+   #         time.sleep(0.1)
+   #      self.__force_to_stop_data_showing = False
+   
+   #      self.__reshow_data()
+   #   thead.Thread(target=wait).start()
+   
       
    def __reshow_data(self) -> None:
       """
@@ -1343,11 +1349,8 @@ class CTkLineChart():
             else:
                line._CTkLine__temp_data = line._CTkLine__data
             line._CTkLine__reset()
-         
-         lines = self.__lines
-         self.lines =[]
-         
-         for line in lines:
+      
+         for line in self.__lines:
             self.show_data(line=line, data=line._CTkLine__temp_data)
    
    
@@ -1393,7 +1396,7 @@ class CTkLineChart():
       
       line._CTkLine__data += data
       
-      if line._CTkLine__visibility:
+      if line._CTkLine__visibility and not self.__force_to_stop_data_showing:
          
          line_color = self.__get_color_by_theme(line._CTkLine__color)
          highlight_color = self.__get_color_by_theme(line._CTkLine__point_highlight_color)
@@ -1402,134 +1405,135 @@ class CTkLineChart():
          for d in data:
             self.__is_data_showing_working = True
             
-            if not self.__force_to_stop_data_showing:
-               x_start = line._CTkLine__x_end
-               y_start = line._CTkLine__y_end
-               
-               line._CTkLine__x_end += self.__x_axis_point_spacing
-         
-               if d >=0 :
-                  d = d - self.__y_axis_min_value
-                  line._CTkLine__y_end = self.__const_real_height - ((d )/self.__y_axis_values_gap * self.__const_real_height)
-               else:
-                  d = abs(d) +self.__y_axis_max_value
-                  line._CTkLine__y_end = ((d)/self.__y_axis_values_gap * self.__const_real_height)
-               line._CTkLine__y_end += ((line._CTkLine__size)/2)
-
-               if round(line._CTkLine__x_end) > round(self.__real_width) and self.__real_width < 15000:
-                  self.__place_x -= self.__x_axis_point_spacing
-                  
-                  self.__output_canvas.place(x=self.__place_x,
-                                    width=self.__real_width+self.__x_axis_point_spacing)
-                  
-                  self.__real_width += self.__x_axis_point_spacing;
-               
-               elif self.__real_width > 15000:
-                  re_show_data = True
-                  break;
-               
-               if line._CTkLine__fill == "enabled":
-                  points_of_polygon = [x_start, y_start, 
-                             line._CTkLine__x_end, line._CTkLine__y_end,
-                             line._CTkLine__x_end, self.__const_real_height,
-                             x_start, self.__const_real_height]
-                  self.__output_canvas.create_polygon(points_of_polygon,
-                                                      fill=fill_color)
-                  
-               if line._CTkLine__style  == "dashed" :
-                  dash_width = line._CTkLine__style_type[0]
-                  space_width = line._CTkLine__style_type[1]
-                  total_width = dash_width+space_width
-                  real_x_axis_point_spacing = ((abs(y_start - line._CTkLine__y_end)**2) + (self.__x_axis_point_spacing**2)) ** (1/2)
-                  dash_count = real_x_axis_point_spacing /( dash_width + space_width)
-                  total_change_x = (line._CTkLine__x_end - x_start)
-                  total_change_y = (line._CTkLine__y_end - y_start)
-                  dash_change_percentage = dash_width/total_width
-                  space_change_percentage = space_width/total_width
-                  change_x = (total_change_x/dash_count)
-                  change_y = (total_change_y/dash_count)
-                  dash_change_x = change_x*dash_change_percentage
-                  dash_change_y = change_y*dash_change_percentage
-                  space_change_x = change_x*space_change_percentage
-                  space_change_y = change_y*space_change_percentage
-                  dashed_x_start = x_start
-                  dashed_y_start = y_start
-                  if y_start >  line._CTkLine__y_end: line_going = "to_up"
-                  else : line_going = "to_down"
-                  while (line._CTkLine__x_end>dashed_x_start):
-                     dashed_x_end = dashed_x_start+dash_change_x
-                     dashed_y_end = dashed_y_start+dash_change_y
-                     if dashed_x_end>line._CTkLine__x_end:
-                           dashed_x_end = dashed_x_end - (dashed_x_end-line._CTkLine__x_end)
-                     if dashed_y_end<=line._CTkLine__y_end and line_going=="to_up":
-                           dashed_y_end = dashed_y_end - (dashed_y_end-line._CTkLine__y_end)
-                     if dashed_y_end>line._CTkLine__y_end and  line_going=="to_down":
-                           dashed_y_end = dashed_y_end - (dashed_y_end-line._CTkLine__y_end)
-                     self.__output_canvas.create_line(dashed_x_start, dashed_y_start, dashed_x_end, dashed_y_end
-                                                      ,fill=line_color ,width=line._CTkLine__size)
-                     dashed_x_start += dash_change_x + space_change_x
-                     dashed_y_start += dash_change_y + space_change_y
-                        
-               elif line._CTkLine__style == "dotted":
-                  circle_size = line._CTkLine__style_type[0]
-                  space_width = line._CTkLine__style_type[1]
-                  total_width = circle_size+space_width
-                  real_x_axis_point_spacing = ((abs(y_start - line._CTkLine__y_end)**2) + (self.__x_axis_point_spacing**2)) ** (1/2)
-                  circle_count = real_x_axis_point_spacing /( circle_size + space_width)
-                  total_change_x = (line._CTkLine__x_end - x_start)
-                  total_change_y = (line._CTkLine__y_end - y_start)
-                  circle_change_percentage = circle_size/total_width*100
-                  space_change_percentage = space_width/total_width*100
-                  circle_change_x = (total_change_x/circle_count)/100*circle_change_percentage
-                  circle_change_y = (total_change_y/circle_count)/100*circle_change_percentage
-                  space_change_x = (total_change_x/circle_count)/100*space_change_percentage
-                  space_change_y = (total_change_y/circle_count)/100*space_change_percentage
-                  dotted_x_start = x_start
-                  dotted_y_start = y_start
-                  if y_start >  line._CTkLine__y_end: line_going = "to_up"
-                  else : line_going = "to_down"
-                  while (line._CTkLine__x_end>dotted_x_start):
-                        x_end = dotted_x_start+circle_change_x
-                        y_end = dotted_y_start+circle_change_y
-                        if x_end>line._CTkLine__x_end:
-                           x_end = x_end - (x_end-line._CTkLine__x_end)
-                        if y_end<=line._CTkLine__y_end and line_going=="to_up":
-                           y_end = y_end - (y_end-line._CTkLine__y_end)
-                        if y_end>line._CTkLine__y_end and  line_going=="to_down":
-                           y_end = y_end - (y_end-line._CTkLine__y_end)
-                        self.__output_canvas.create_oval(dotted_x_start-circle_size/2,
-                                                   dotted_y_start-circle_size/2,
-                                                   dotted_x_start+circle_size-circle_size/2,
-                                                   dotted_y_start+circle_size-circle_size/2,
-                                                   fill=line_color, outline=line_color )
-                        dotted_x_start += circle_change_x + space_change_x
-                        dotted_y_start += circle_change_y + space_change_y
-
-               elif line._CTkLine__style=="normal":
-                  self.__output_canvas.create_line(x_start, y_start, line._CTkLine__x_end, line._CTkLine__y_end
-                                                      ,fill=line_color ,width=line._CTkLine__size)
-                    
-               if line._CTkLine__point_highlight == "enabled" and line._CTkLine__point_highlight_size > 0 : 
-                  highlight_size =  line._CTkLine__point_highlight_size /2 
-                  self.__output_canvas.create_oval(line._CTkLine__x_end - highlight_size,
-                                                   line._CTkLine__y_end - highlight_size,
-                                                   line._CTkLine__x_end + highlight_size,
-                                                   line._CTkLine__y_end + highlight_size,
-                                                   fill=highlight_color,
-                                                   outline=highlight_color)
-                  
-                  self.__output_canvas.create_oval(x_start - highlight_size,
-                                                   y_start - highlight_size,
-                                                   x_start + highlight_size,
-                                                   y_start + highlight_size,
-                                                   fill=highlight_color,
-                                                   outline=highlight_color)
-            else:
+            if  self.__force_to_stop_data_showing:
                break
-         
+            
+            x_start = line._CTkLine__x_end
+            y_start = line._CTkLine__y_end
+            
+            line._CTkLine__x_end += self.__x_axis_point_spacing
+      
+            if d >=0 :
+               d = d - self.__y_axis_min_value
+               line._CTkLine__y_end = self.__const_real_height - ((d )/self.__y_axis_values_gap * self.__const_real_height)
+            else:
+               d = abs(d) +self.__y_axis_max_value
+               line._CTkLine__y_end = ((d)/self.__y_axis_values_gap * self.__const_real_height)
+            line._CTkLine__y_end += ((line._CTkLine__size)/2)
+
+            if round(line._CTkLine__x_end) > round(self.__real_width) and self.__real_width < self.__width*5:
+               self.__place_x -= self.__x_axis_point_spacing
+               
+               self.__output_canvas.place(x=self.__place_x,
+                                 width=self.__real_width+self.__x_axis_point_spacing)
+               
+               self.__real_width += self.__x_axis_point_spacing;
+            
+            elif self.__real_width > self.__width*5:
+               re_show_data = True
+               break;
+            
+            if line._CTkLine__fill == "enabled":
+               points_of_polygon = [x_start, y_start, 
+                           line._CTkLine__x_end, line._CTkLine__y_end,
+                           line._CTkLine__x_end, self.__const_real_height,
+                           x_start, self.__const_real_height]
+               self.__output_canvas.create_polygon(points_of_polygon,
+                                                   fill=fill_color)
+               
+            if line._CTkLine__style  == "dashed" :
+               dash_width = line._CTkLine__style_type[0]
+               space_width = line._CTkLine__style_type[1]
+               total_width = dash_width+space_width
+               real_x_axis_point_spacing = ((abs(y_start - line._CTkLine__y_end)**2) + (self.__x_axis_point_spacing**2)) ** (1/2)
+               dash_count = real_x_axis_point_spacing /( dash_width + space_width)
+               total_change_x = (line._CTkLine__x_end - x_start)
+               total_change_y = (line._CTkLine__y_end - y_start)
+               dash_change_percentage = dash_width/total_width
+               space_change_percentage = space_width/total_width
+               change_x = (total_change_x/dash_count)
+               change_y = (total_change_y/dash_count)
+               dash_change_x = change_x*dash_change_percentage
+               dash_change_y = change_y*dash_change_percentage
+               space_change_x = change_x*space_change_percentage
+               space_change_y = change_y*space_change_percentage
+               dashed_x_start = x_start
+               dashed_y_start = y_start
+               if y_start >  line._CTkLine__y_end: line_going = "to_up"
+               else : line_going = "to_down"
+               while (line._CTkLine__x_end>dashed_x_start):
+                  dashed_x_end = dashed_x_start+dash_change_x
+                  dashed_y_end = dashed_y_start+dash_change_y
+                  if dashed_x_end>line._CTkLine__x_end:
+                        dashed_x_end = dashed_x_end - (dashed_x_end-line._CTkLine__x_end)
+                  if dashed_y_end<=line._CTkLine__y_end and line_going=="to_up":
+                        dashed_y_end = dashed_y_end - (dashed_y_end-line._CTkLine__y_end)
+                  if dashed_y_end>line._CTkLine__y_end and  line_going=="to_down":
+                        dashed_y_end = dashed_y_end - (dashed_y_end-line._CTkLine__y_end)
+                  self.__output_canvas.create_line(dashed_x_start, dashed_y_start, dashed_x_end, dashed_y_end
+                                                   ,fill=line_color ,width=line._CTkLine__size)
+                  dashed_x_start += dash_change_x + space_change_x
+                  dashed_y_start += dash_change_y + space_change_y
+                     
+            elif line._CTkLine__style == "dotted":
+               circle_size = line._CTkLine__style_type[0]
+               space_width = line._CTkLine__style_type[1]
+               total_width = circle_size+space_width
+               real_x_axis_point_spacing = ((abs(y_start - line._CTkLine__y_end)**2) + (self.__x_axis_point_spacing**2)) ** (1/2)
+               circle_count = real_x_axis_point_spacing /( circle_size + space_width)
+               total_change_x = (line._CTkLine__x_end - x_start)
+               total_change_y = (line._CTkLine__y_end - y_start)
+               circle_change_percentage = circle_size/total_width*100
+               space_change_percentage = space_width/total_width*100
+               circle_change_x = (total_change_x/circle_count)/100*circle_change_percentage
+               circle_change_y = (total_change_y/circle_count)/100*circle_change_percentage
+               space_change_x = (total_change_x/circle_count)/100*space_change_percentage
+               space_change_y = (total_change_y/circle_count)/100*space_change_percentage
+               dotted_x_start = x_start
+               dotted_y_start = y_start
+               if y_start >  line._CTkLine__y_end: line_going = "to_up"
+               else : line_going = "to_down"
+               while (line._CTkLine__x_end>dotted_x_start):
+                     x_end = dotted_x_start+circle_change_x
+                     y_end = dotted_y_start+circle_change_y
+                     if x_end>line._CTkLine__x_end:
+                        x_end = x_end - (x_end-line._CTkLine__x_end)
+                     if y_end<=line._CTkLine__y_end and line_going=="to_up":
+                        y_end = y_end - (y_end-line._CTkLine__y_end)
+                     if y_end>line._CTkLine__y_end and  line_going=="to_down":
+                        y_end = y_end - (y_end-line._CTkLine__y_end)
+                     self.__output_canvas.create_oval(dotted_x_start-circle_size/2,
+                                                dotted_y_start-circle_size/2,
+                                                dotted_x_start+circle_size-circle_size/2,
+                                                dotted_y_start+circle_size-circle_size/2,
+                                                fill=line_color, outline=line_color )
+                     dotted_x_start += circle_change_x + space_change_x
+                     dotted_y_start += circle_change_y + space_change_y
+
+            elif line._CTkLine__style=="normal":
+               self.__output_canvas.create_line(x_start, y_start, line._CTkLine__x_end, line._CTkLine__y_end
+                                                   ,fill=line_color ,width=line._CTkLine__size)
+                  
+            if line._CTkLine__point_highlight == "enabled" and line._CTkLine__point_highlight_size > 0 : 
+               highlight_size =  line._CTkLine__point_highlight_size /2 
+               self.__output_canvas.create_oval(line._CTkLine__x_end - highlight_size,
+                                                line._CTkLine__y_end - highlight_size,
+                                                line._CTkLine__x_end + highlight_size,
+                                                line._CTkLine__y_end + highlight_size,
+                                                fill=highlight_color,
+                                                outline=highlight_color)
+               
+               self.__output_canvas.create_oval(x_start - highlight_size,
+                                                y_start - highlight_size,
+                                                x_start + highlight_size,
+                                                y_start + highlight_size,
+                                                fill=highlight_color,
+                                                outline=highlight_color)
+            
          if re_show_data:
+            self.__is_data_showing_working = False
             self.__reshow_data()
-         self.__is_data_showing_working = False
+      self.__is_data_showing_working = False
    
    
    def __hide_pointer(self, event: tkinter.Event) -> None:
@@ -1759,7 +1763,7 @@ class CTkLineChart():
       Validate._isBool(state, "state")
       if line._CTkLine__visibility != state or self.__visibility != state:
          line._CTkLine__visibility = state
-         self.__call_reshow_data()
+         self.__reshow_date()
 
       
    def set_lines_visibility(self, state: bool) -> None:
@@ -1776,7 +1780,7 @@ class CTkLineChart():
          self.__output_canvas.place_forget()
       for line in self.__lines:
          line._CTkLine__visibility = state
-      self.__call_reshow_data()
+      self.__reshow_data()
    
       
    def reset(self) -> None:
@@ -1793,7 +1797,7 @@ class CTkLineChart():
       Apply changes to the lines and redraw the chart. 
       """
       
-      self.__call_reshow_data()
+      self.__reshow_data()
       
       
    def cget(self, attribute_name: Literal[

@@ -1,6 +1,6 @@
 # Changes
 
-## New Method Added to CTkLine Object
+## New Method Added to Line Object
 
 | Method Name      | Description                                    | Parameters                              | Return Type |
 |------------------|------------------------------------------------|------------------------------------------|-------------|
@@ -11,7 +11,7 @@
 <br>
 <br>
 
-## New Methods Added to CTkLineChart Object
+## New Methods Added to LineChart Object
 
 | Method Name            | Description                                    | Parameters                                       | Return Type |
 |------------------------|------------------------------------------------|--------------------------------------------------|-------------|
@@ -27,7 +27,7 @@
 <br>
 <br>
 
-## Removed Methods in CTkLineChart
+## Removed Methods
 
 | Method Name | Description          | Parameters                                   | Return Type |
 |-------------|----------------------|----------------------------------------------|-------------|
