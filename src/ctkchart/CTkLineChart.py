@@ -432,7 +432,7 @@ class CTkLineChart():
             self.__x_axis_data_label.place(rely=1, relx=1, x=-self.__x_axis_data_req_width+-self.__margin, y=-self.__x_axis_data_req_height)
          else:
             self.__x_axis_data_label.place(rely=1, y=-self.__x_axis_data_req_height, relx=0, anchor="n",
-                                    x=(self.__real_width/2)+self.__y_axis_data_req_width_space_side+self.__y_value_req_width_space+self.__axis_size+self.__x_axis_data_req_width_space_top+self.__x_special_width_space+self.__margin)
+                                    x=(self.__const_real_width/2)+self.__y_axis_data_req_width_space_side+self.__y_value_req_width_space+self.__axis_size+self.__x_axis_data_req_width_space_top+self.__x_special_width_space+self.__margin)
       
       self.__y_axis_frame.configure(width=self.__axis_size)
       self.__x_axis_frame.configure(height=self.__axis_size)
@@ -480,10 +480,10 @@ class CTkLineChart():
       """
    
       if self.__x_axis_point_spacing_handle_by== "auto":
-         self.__x_axis_point_spacing = (self.__real_width / len(self.__x_axis_values))
+         self.__x_axis_point_spacing = (self.__const_real_width / len(self.__x_axis_values))
       elif self.__x_axis_point_spacing_handle_by== "manual":
          self.__x_axis_point_spacing = self.__x_axis_point_spacing
-     
+         
       
    def __configure_required_widget_size(self) -> None:
       """
@@ -1200,13 +1200,14 @@ class CTkLineChart():
          
       if x_axis_point_spacing != None:
          Validate._isValidXAxisPointSpacing(x_axis_point_spacing, "x_axis_point_spacing")
-         if x_axis_point_spacing != self.__x_axis_point_spacing:
-            if x_axis_point_spacing == "auto":
+         if x_axis_point_spacing == "auto" : 
+            if self.__x_axis_point_spacing_handle_by != "auto":
                self.__x_axis_point_spacing_handle_by = "auto"
-            else:
+               reshow_data_req = True
+         elif self.__x_axis_point_spacing != x_axis_point_spacing:
                self.__x_axis_point_spacing_handle_by = "manual"
-            self.__x_axis_point_spacing = x_axis_point_spacing
-            reshow_data_req = True
+               self.__x_axis_point_spacing = x_axis_point_spacing
+               reshow_data_req = True
       
       if chart_reset_req :
          self.__destroy_x_axis_labels()
