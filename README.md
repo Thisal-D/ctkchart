@@ -294,7 +294,7 @@ Your support means a lot and inspires me to do better with each update. Thank yo
     ```
     <hr>
 
-- Advance
+- **Advance** (Actually not, Just Two More Attributes Added)
  
     https://github.com/Thisal-D/ctkchart/assets/93121062/c2838fd6-3a0f-45be-bb39-9953d007067d
 
