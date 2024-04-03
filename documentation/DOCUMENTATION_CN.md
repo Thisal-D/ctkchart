@@ -4,10 +4,11 @@
 
 </div> 
 
+<hr>
+
 <a href="#howtouse">**如何使用**</a> | <a href="#example">**例子**</a> | <a href="#parameter_explanation">**参数说明**</a> | <a href="#whatsnew">**查看新功能**</a> 
 
 <div id="howtouse"> 
-
 
 ###  安装和使用 
 * 安装 
@@ -24,12 +25,16 @@
 
 ### 参数概述 
 
+<hr>
+
 <div align="center"> 
 
 <picture> 
 <source media="(prefers-color-scheme: dark)" srcset="https://drive.google.com/thumbnail?id=1J4XKj5-cVWxUTeS7zHkJvewOmISLVU6Y&sz=w2500"> 
 <img src="https://drive.google.com/thumbnail?id=1CqZ2NZsJrrLKUgyzyVgoEREQuuai6Yha&sz=w2500"> 
 </picture> 
+
+<hr>
 
 </div> 
 
@@ -40,7 +45,7 @@
 2. <a href="#create-line">**创建一条线**</a> 
 3. <a href="#display-data">**数据显示**</a> 
 
-<br> 
+<hr>
 
 <div id="create-line-chart"> 
 
@@ -96,7 +101,7 @@ linechart = ctkchart.CTkLineChart()
 | pointer_lock | ***可选*** | 鼠标锁状态 | ``str`` ("enabled", "disabled") | "enabled" | 
 | pointer_size | ***可选*** | 鼠标显示线的宽度 | ``int`` | 1<= | 
 
-<br> 
+<hr>
 
 ### 方法 
 
@@ -122,9 +127,9 @@ linechart = ctkchart.CTkLineChart()
 
 </div> 
 
-<br> 
-<br> 
 <div id="create-line"> 
+
+<hr>
 
 ## 2 . 创建一条线 
 
@@ -149,7 +154,7 @@ line = ctkchart.CTkLine()
 | [fill](#fill) | 可选 | 是否启用填充 | ``str`` ("enabled", "disabled") | "disabled" | 
 | [fill_color](#fill) | 可选 | 填充部分的颜​​色 | ``str`` | "#5d6db6" | 
 
-
+<hr>
 
 ### 方法 
 
@@ -164,8 +169,9 @@ line = ctkchart.CTkLine()
 </div> 
 
 </div> 
-<br> 
-<br> 
+
+<hr>
+
 <div id="display-data"> 
 
 ## 3 . 数据显示 
@@ -205,11 +211,12 @@ root.mainloop()
 
 https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b00a6f5518 
 
-</div> 
+<hr>
 
 </div> 
 
-<br> 
+</div> 
+
 
 <div id="parameter_explanation"> 
 
@@ -238,6 +245,8 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
         y_axis_values=(-100, 100) 
     ) 
     ``` 
+
+<hr>
 
 </div> 
 
@@ -278,6 +287,8 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     ) 
     ``` 
 
+<hr>
+
 </div> 
 
 <div id="x_y_label_count"> 
@@ -313,6 +324,8 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     ) 
     ``` 
 
+<hr>
+
 </div> 
 
 <div id="indices_view"> 
@@ -335,6 +348,8 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
         x_axis_display_values_indices=(1, 4, 7), 
     ) 
     ``` 
+
+<hr>
 
 </div> 
 
@@ -363,6 +378,8 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
         y_axis_data_position="top" 
     ) 
     ``` 
+
+<hr>
 
 </div> 
 
@@ -394,6 +411,8 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     ) 
     ``` 
 
+<hr>
+
 </div> 
 
 <div id="x_y_font_style"> 
@@ -421,6 +440,8 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
         axis_font_style=("arial", 13, "bold") 
     ) 
     ``` 
+
+<hr>
 
 </div> 
 
@@ -461,6 +482,8 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
         y_axis_section_color="#2C2C2C" 
     ) 
     ``` 
+
+<hr>
 
 </div> 
 
@@ -517,6 +540,8 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     ) 
     ``` 
 
+<hr>
+
 </div> 
 
 
@@ -564,6 +589,8 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     ) 
     ``` 
 
+<hr>
+
 </div> 
 
 ### CTkLine 
@@ -591,6 +618,8 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     ) 
     ``` 
 
+<hr>
+
 </div> 
 
 <div id="line_style"> 
@@ -615,6 +644,8 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
         line_style="dashed" 
     ) 
     ``` 
+
+<hr>
 
 </div> 
 
@@ -643,6 +674,8 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
         line_style_type=(10,2) 
     ) 
     ``` 
+
+<hr>
 
 </div> 
 
@@ -675,6 +708,8 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     ) 
     ``` 
 
+<hr>
+
 </div> 
 
 <div id="fill"> 
@@ -706,7 +741,7 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
 
 </div> 
 
-<br> 
+<hr>
 
 <div id="theme_change"> 
 
@@ -719,9 +754,9 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
 
 </div> 
 
-<br> 
-
 <div id="example"> 
+
+<hr>
 
 <a href="#top">**回到顶部**</a> | <a href="#howtouse">**使用指南**</a> | <a href="#parameter_explanation">**参数说明**</a> | <a href="#whatsnew">**查看新功能**</a> 
 
@@ -746,11 +781,11 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
 </div> 
 
 </div> 
-
-<br> 
-
+ 
 <div id="whatsnew"> 
-
+    
+<hr>
+    
 <a href="#top">**回到顶部**</a> | <a href="#howtouse">**使用指南**</a> | <a href="#example">**例子**</a> | <a href="#parameter_explanation">**参数说明**</a> 
 
 ## 新的变化 
@@ -774,15 +809,15 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
 
 </div> 
 
-<br> 
+<hr>
 
 ## 链接 
 
 **PyPi.org** : <a href="https://pypi.org/project/ctkchart" target="_blank" ><i>ctkchart</i></a> 
 
-**GitHub.com** : <a href="https://github.com/Thisal-D/ctkchart" target="_blank" ><i>ctkchart</i></a> 
+**GitHub.com** : <a href="https://github.com/Thisal-D/ctkchart" target="_blank" ><i>ctkchart</i></a>
 
-<br> 
+<hr>
 
 ## 翻译贡献 
 
