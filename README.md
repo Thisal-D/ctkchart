@@ -1,8 +1,3 @@
-
-https://github.com/Thisal-D/ctkchart/assets/93121062/862feb65-f3db-4f4f-9bbb-e8e32862bf34
-
-https://github.com/Thisal-D/ctkchart/assets/93121062/a1cf3ec6-dd8f-4eec-9d7c-30a5a4f0cab7
-
 https://github.com/Thisal-D/ctkchart/assets/93121062/5af98e30-5b00-4614-b359-224bf0cf0f88
 🌟**If you find this project helpful, your support by starring it would mean a lot! Your feedback motivates me to keep refining and enhancing it further.** 🚀
 
