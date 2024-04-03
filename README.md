@@ -1,4 +1,3 @@
-https://github.com/Thisal-D/ctkchart/assets/93121062/5af98e30-5b00-4614-b359-224bf0cf0f88
 🌟**If you find this project helpful, your support by starring it would mean a lot! Your feedback motivates me to keep refining and enhancing it further.** 🚀
 
 Your support means a lot and inspires me to do better with each update. Thank you for taking the time to check out this project!🥰
