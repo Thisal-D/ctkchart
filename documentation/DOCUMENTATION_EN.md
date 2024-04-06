@@ -36,7 +36,7 @@
 </div> 
 
 ### To display data using ctkchart you need to do 3 main tasks 
-1. <a href="#create-line-chart">**Creating a LineChart**</a> 
+1. <a href="#create-line-chart">**Creating a Line Chart**</a> 
 2. <a href="#create-line">**Creating a Line**</a> 
 3. <a href="#display-data">**Display of data**</a> 
 
@@ -350,12 +350,23 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
 <div id="data_position"> 
 
 - #### x_axis_data_position 
-    The x_axis_data_position parameter determines the position of the x data label. It has two supported values: "top", "side" , <br> 
-    **Note:"top" is the default position** 
+    The x_axis_data_position parameter determines the position of the x data label. It has two 
+    
+    supported values: 
+    - "top"
+    - "side" 
+
+    **Note: "top" is the default position** 
 
 - #### y_axis_data_position 
-    The y_axis_data_position parameter determines the position of the x data label. It has two supported values: "top", "side". <br> 
-    **Note: "top" is the default position**<br> 
+    The y_axis_data_position parameter determines the position of the x data label. It has two 
+    
+    supported values: 
+    - "top"
+    - "side" 
+
+    **Note: "top" is the default position**
+
     Choosing between "top" and "side" determines whether the data labels are placed horizontally above the data points or vertically beside them, respectively. This parameter allows you to customize the layout of your chart according to your preferences and available space. 
 
     <picture> 
@@ -489,8 +500,8 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     x_axis_section_style parameter allows you to define the visual style of the sections along the x-axis in a chart. 
 
     - Supported styles: 
-    - "dashed": When you set x_axis_section_style to "dashed", the sections along the x-axis are displayed using dashed lines. 
-    - "normal": Conversely, when x_axis_section_style is set to "normal", the sections along the x-axis are displayed using solid lines.<br><br> 
+        - "dashed": When you set x_axis_section_style to "dashed", the sections along the x-axis are displayed using dashed lines. 
+        - "normal": Conversely, when x_axis_section_style is set to "normal", the sections along the x-axis are displayed using solid lines.<br><br> 
 
     **Note: "normal" is default style.** 
 
@@ -617,9 +628,10 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     style parameter allows you to define the visual style of the line. 
     <br> 
     - supported styles: 
-    - "dashed": When you set style to "dashed", the line is displayed as dashed line. 
-    - "dotted": When you set style to "dotted", the line is displayed as dotted line. 
-    - "normal": When you set style to "normal", the line is displayed as solid line.<br> 
+        - "dashed": When you set style to "dashed", the line is displayed as dashed line. 
+        - "dotted": When you set style to "dotted", the line is displayed as dotted line. 
+        - "normal": When you set style to "normal", the line is displayed as solid line.
+        <br> 
     **Note: "normal" is the default style.** 
 
     <picture> 
@@ -674,8 +686,8 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     The point_highlight parameter is used to control point highlight, enabling or disabling it. 
     <br> 
     - Supported values: 
-    - "enabled": Enable point highlight. 
-    - "disabled": Disable point highlight. 
+        - "enabled": Enable point highlight. 
+        - "disabled": Disable point highlight. 
 
 - #### point_highlight_size 
     The point_highlight_size is used to set size of the highlight. 
@@ -707,8 +719,8 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     The fill parameter is utilized to control whether line fill is enabled or disabled. 
     <br> 
     - Supported Values: 
-    - "enabled": Enable line fill. 
-    - "disabled": Disable line fill. 
+        - "enabled": Enable line fill. 
+        - "disabled": Disable line fill. 
 
 - #### fill_color 
     The fill_color parameter is used to specify the color for the fill. 
