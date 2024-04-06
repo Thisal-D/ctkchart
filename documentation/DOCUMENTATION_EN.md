@@ -9,8 +9,6 @@
 
 <a href="#howtouse">**Usage Guide**</a> | <a href="#example">**Examples**</a> | <a href="#parameter_explanation">**Parameter Explanation**</a> | <a href="#whatsnew">**Whats New ?**</a> 
 
-
-
 ### Importing & Installation 
 * Installation 
     ``` 
@@ -508,8 +506,9 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     The x_axis_section_style_type parameter is a tuple that contains two integer values, specifying the style of the dashes used when the x_axis_section_style is set to "dashed".<br> 
     For example:<br> 
     - If you set x_axis_section_style_type to (20, 10), it means : 
-    - The width of each dash is 20 pixels. 
-    - The spacing between dashes is 10 pixels.<br><br> 
+        - The width of each dash is 20 pixels. 
+        - The spacing between dashes is 10 pixels.
+        <br>
 
     These values determine the visual appearance of the dashed lines or markers used to represent the sections along the x-axis. Adjusting these values allows you to customize the appearance of the dashed sections according to your preferences or the requirements of your visualization. 
 
