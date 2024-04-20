@@ -164,7 +164,6 @@ Your support means a lot and inspires me to do better with each update. Thank yo
     # Create a line for the line chart
     line = ctkchart.CTkLine(
         master=line_chart,  # Set the master as the line chart
-        
         size=2,  # Set the line size to 2
         fill="enabled" # enable line fill
     )  
@@ -213,7 +212,6 @@ Your support means a lot and inspires me to do better with each update. Thank yo
 
     line1 = ctkchart.CTkLine(
         master=line_chart,  # Set the master as the line chart
-        
         color=("#5dffb6","#5dffb6"), # index 0 for light and 1 for dark theme
         size=2,  # Set the line size to 2
         style="dashed", # style change to dashed
@@ -222,7 +220,6 @@ Your support means a lot and inspires me to do better with each update. Thank yo
 
     line2 = ctkchart.CTkLine(
         master=line_chart,  # Set the master as the line chart
-
         color=("#FFBAD2", "#FFBAD2"), # index 0 for light and 1 for dark theme
         size=2,  # Set the line size to 2
         point_highlight="enabled", # enable point highlight
@@ -276,7 +273,6 @@ Your support means a lot and inspires me to do better with each update. Thank yo
     # Create a line 1 for the line chart
     line1 = ctkchart.CTkLine(
         master=line_chart,  # Set the master as the line chart
-        
         size=2,  # Set the line size to 2
         fill="enabled" # enable line fill
     )  
@@ -291,7 +287,6 @@ Your support means a lot and inspires me to do better with each update. Thank yo
 
     line3 = ctkchart.CTkLine(
         master=line_chart,  # Set the master as the line chart
-
         color=("#FFBAD2", "#FFBAD2"), # index 0 for light and 1 for dark theme
         size=2,  # Set the line size to 2
         point_highlight="enabled", # enable point highlight
