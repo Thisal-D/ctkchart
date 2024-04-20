@@ -2,8 +2,6 @@
 
 Your support means a lot and inspires me to do better with each update. Thank you for taking the time to check out this project!🥰
 
-<hr>
-
 <div align="center">
 
 [![ctkchart](https://snyk.io/advisor/python/ctkchart/badge.svg)](https://snyk.io/advisor/python/ctkchart)
@@ -12,7 +10,7 @@ Your support means a lot and inspires me to do better with each update. Thank yo
 
 [![Downloads](https://static.pepy.tech/badge/ctkchart)](https://pepy.tech/project/ctkchart) [![Downloads](https://static.pepy.tech/badge/ctkchart/month)](https://pepy.tech/project/ctkchart) [![Downloads](https://static.pepy.tech/badge/ctkchart/week)](https://pepy.tech/project/ctkchart)
 
-<img src="https://drive.google.com/thumbnail?id=1-RSoULrf_fnIT0Tufm9VizmryPepwSTv&sz=w180">
+<img src="https://drive.google.com/thumbnail?id=1cHrsFILHJ7a2bgMXvk-PWlnLZx1vCnVR&sz=w180">
 
 </div>
 
@@ -40,7 +38,7 @@ Your support means a lot and inspires me to do better with each update. Thank yo
     ```
 
 * **Importing**
-    ```
+    ``` python
     import ctkchart
     ```
 <hr>
@@ -48,27 +46,28 @@ Your support means a lot and inspires me to do better with each update. Thank yo
 
 ### Simple Guide
 - **import package**
-    ```
+    ``` python
     import tkchart
     ```
     
 - **Create Line Chart and place the chart**
-    ```
-    chart = ctkchart.CTkLineChart(master=root,
-                                x_axis_values=("a", "b", "c", "d", "e", "f"),
-                                y_axis_values=(100, 900))
+    ``` python
+    chart = ctkchart.CTkLineChart(
+        master=root,
+        x_axis_values=("a", "b", "c", "d", "e", "f"),
+        y_axis_values=(100, 900)
+    )
     chart.place(x=10, y=10)
     ```
 
 - **Create Line**
-    ```
+    ``` python
     line = ctkchart.CTkLine(master=chart)
     ```
 
 - **Display Data**
     display data using a loop
-    ```
-
+    ``` python
     def loop():
         while True:
             random_data = random.choice(range(100, 900))
@@ -96,7 +95,7 @@ Your support means a lot and inspires me to do better with each update. Thank yo
 
     https://github.com/Thisal-D/ctkchart/assets/93121062/6f1e844f-d51c-467a-a3dc-ee03fea78fc9
     
-    ```
+    ``` python
     import customtkinter as ctk  # Importing the customtkinter library as ctk
     import ctkchart  # Importing the ctkchart module for chart creation
     import random  # Importing the random module for generating random data
@@ -140,7 +139,7 @@ Your support means a lot and inspires me to do better with each update. Thank yo
 
     https://github.com/Thisal-D/ctkchart/assets/93121062/afe56452-68c3-44f0-9c67-2ab6f6910f6e
 
-    ```
+    ``` python
     import customtkinter as ctk  # Importing the customtkinter library as ctk
     import ctkchart  # Importing the ctkchart module for chart creation
     import random  # Importing the random module for generating random data
@@ -157,7 +156,6 @@ Your support means a lot and inspires me to do better with each update. Thank yo
         master=root,  # Set the master as the root window
         x_axis_values=("01-01", "01-02", "01-03", "01-04", "01-05", "01-06", "01-07", "01-08", "01-09", "01-10"),  # X-axis values
         y_axis_values=(0, 1000),  # Y-axis values (range)
-        
         y_axis_label_count=10, # set y axis labels count to 10
     )
 
@@ -191,7 +189,7 @@ Your support means a lot and inspires me to do better with each update. Thank yo
 
     https://github.com/Thisal-D/ctkchart/assets/93121062/9bc35a39-a8ca-4942-9fc7-a1c89d1bd1bc
 
-    ```
+    ``` python
     import customtkinter as ctk  # Importing the customtkinter library as ctk
     import ctkchart  # Importing the ctkchart module for chart creation
     import random  # Importing the random module for generating random data
@@ -208,13 +206,10 @@ Your support means a lot and inspires me to do better with each update. Thank yo
         master=root,  # Set the master as the root window
         x_axis_values=("01-01", "01-02", "01-03", "01-04", "01-05", "01-06", "01-07", "01-08", "01-09", "01-10"),  # X-axis values
         y_axis_values=(0, 1000),  # Y-axis values (range)
-        
         y_axis_label_count=10, # set y axis labels count to 10
     )
 
     line_chart.pack(pady=15)  # Pack the line chart widget into the root
-
-
 
     line1 = ctkchart.CTkLine(
         master=line_chart,  # Set the master as the line chart
@@ -239,10 +234,8 @@ Your support means a lot and inspires me to do better with each update. Thank yo
         while True:
             random_data = [random.choice(range(0, 1000))]  # Generate random data between 0 and 1000
             line_chart.show_data(line=line1, data=random_data)  # Display the random data on the line 1 on chart
-            
             random_data = [random.choice(range(0, 1000))]  # Generate random data between 0 and 1000
             line_chart.show_data(line=line2, data=random_data)  # Display the random data on the line 2 on chart    
-        
             time.sleep(0.5)  # Pause for 0.5 seconds before the next iteration
 
     # Call the display_data function as a separate thread
@@ -258,7 +251,7 @@ Your support means a lot and inspires me to do better with each update. Thank yo
 
     https://github.com/Thisal-D/ctkchart/assets/93121062/6d568b70-2ceb-42d0-b93c-0096f2745134
 
-    ```
+    ``` python
     import customtkinter as ctk  # Importing the customtkinter library as ctk
     import ctkchart  # Importing the ctkchart module for chart creation
     import random  # Importing the random module for generating random data
@@ -275,7 +268,6 @@ Your support means a lot and inspires me to do better with each update. Thank yo
         master=root,  # Set the master as the root window
         x_axis_values=("01-01", "01-02", "01-03", "01-04", "01-05", "01-06", "01-07", "01-08", "01-09", "01-10"),  # X-axis values
         y_axis_values=(0, 1000),  # Y-axis values (range)
-        
         y_axis_label_count=10, # set y axis labels count to 10
     )
 
@@ -291,7 +283,6 @@ Your support means a lot and inspires me to do better with each update. Thank yo
 
     line2 = ctkchart.CTkLine(
         master=line_chart,  # Set the master as the line chart
-        
         color=("#5dffb6","#5dffb6"), # index 0 for light and 1 for dark theme
         size=2,  # Set the line size to 2
         style="dashed", # style change to dashed
@@ -336,7 +327,7 @@ Your support means a lot and inspires me to do better with each update. Thank yo
  
     https://github.com/Thisal-D/ctkchart/assets/93121062/c2838fd6-3a0f-45be-bb39-9953d007067d
 
-    ```
+    ``` python
     import customtkinter as ctk  # Importing the customtkinter library as ctk
     import ctkchart  # Importing the ctkchart module for chart creation
     import random  # Importing the random module for generating random data
@@ -353,7 +344,6 @@ Your support means a lot and inspires me to do better with each update. Thank yo
         master=root,  # Set the master as the root window
         x_axis_values=("01-01", "01-02", "01-03", "01-04", "01-05", "01-06", "01-07", "01-08", "01-09", "01-10"),  # X-axis values
         y_axis_values=(0, 1000),  # Y-axis values (range)
-        
         y_axis_label_count=10, # set y axis labels count to 1
         y_axis_section_count=10,
         x_axis_section_count=10,
@@ -361,11 +351,8 @@ Your support means a lot and inspires me to do better with each update. Thank yo
 
     line_chart.pack(pady=15)  # Pack the line chart widget into the root
 
-
-
     line1 = ctkchart.CTkLine(
         master=line_chart,  # Set the master as the line chart
-        
         color=("#5dffb6","#5dffb6"), # index 0 for light and 1 for dark theme
         size=2,  # Set the line size to 2
         style="dashed", # style change to dashed
@@ -374,7 +361,6 @@ Your support means a lot and inspires me to do better with each update. Thank yo
 
     line2 = ctkchart.CTkLine(
         master=line_chart,  # Set the master as the line chart
-
         color=("#FFBAD2", "#FFBAD2"), # index 0 for light and 1 for dark theme
         size=2,  # Set the line size to 2
         point_highlight="enabled", # enable point highlight
@@ -386,10 +372,8 @@ Your support means a lot and inspires me to do better with each update. Thank yo
         while True:
             random_data = [random.choice(range(0, 1000))]  # Generate random data between 0 and 1000
             line_chart.show_data(line=line1, data=random_data)  # Display the random data on the line 1 on chart
-            
             random_data = [random.choice(range(0, 1000))]  # Generate random data between 0 and 1000
             line_chart.show_data(line=line2, data=random_data)  # Display the random data on the line 2 on chart    
-        
             time.sleep(0.5)  # Pause for 0.5 seconds before the next iteration
 
     # Call the display_data function as a separate thread

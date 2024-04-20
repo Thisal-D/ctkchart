@@ -16,7 +16,7 @@
     ``` 
 
 * Importing 
-    ``` 
+    ``` python
     import ctkchart 
     ``` 
 <hr>
@@ -47,7 +47,7 @@
 ## 1 . Creating a LineChart 
 <a href="#create-line">**Creating a Line**</a> | <a href="#display-data">**Display of data**</a> 
 
-``` 
+``` python
 linechart = ctkchart.CTkLineChart() 
 ``` 
 
@@ -131,7 +131,7 @@ linechart = ctkchart.CTkLineChart()
 
 <a href="#create-line-chart">**Creating a LineChart**</a> | <a href="#display-data">**Display of data**</a> 
 
-``` 
+``` python
 line = ctkchart.CTkLine() 
 ``` 
 
@@ -173,7 +173,7 @@ line = ctkchart.CTkLine()
 
 <a href="#create-line-chart">**Creating a LineChart**</a> | <a href="#create-line">**Creating a Line**</a> 
 
-``` 
+``` python
 import tkinter as tk 
 import ctkchart 
 import random 
@@ -183,9 +183,11 @@ root = tk.Tk()
 root.configure(bg="#151515") 
 
 #creating a chart 
-chart = ctkchart.CTkLineChart(master=root, 
-x_axis_values = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10), 
-y_axis_values = (-100,100)) 
+chart = ctkchart.CTkLineChart(
+    master=root, 
+    x_axis_values = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10), 
+    y_axis_values = (-100,100)
+) 
 chart.pack() 
 
 #creating a line 
@@ -233,8 +235,9 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     <img src="https://drive.google.com/thumbnail?id=1UbyQEKDYhZjUI9VttKerpSVc6hZoEfi8&sz=w950" > 
     </picture> 
 
-    ``` 
+    ``` python
     chart = ctkchart.CTkLineChart(
+        master=any_widget
         x_axis_values=(2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025), 
         y_axis_values=(-100, 100) 
     ) 
@@ -266,7 +269,7 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     <img src="https://drive.google.com/thumbnail?id=1m2kBnDRycSviMXO3uTHIzL6Y7S7u1rsC&sz=w1000" > 
     </picture> 
 
-    ``` 
+    ``` python
     chart = ctkchart.CTkLineChart(
         master=any_widget, 
         x_axis_values=(2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025), 
@@ -308,8 +311,9 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     <img src="https://drive.google.com/thumbnail?id=1mHgbpbaWQeQE-ykFwIizd_vIdLVSXc5w&sz=w1000" > 
     </picture> 
 
-    ``` 
+    ``` python
     chart = ctkchart.CTkLineChart(
+        master=any_widget, 
         x_axis_values=(2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025), 
         y_axis_values=(-100, 100), 
         x_axis_label_count=4, 
@@ -335,8 +339,9 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     <img src="https://drive.google.com/thumbnail?id=1gN_DhzFPzs-7LTG7-EfeZzjisWDTFYSn&sz=w800" > 
     </picture> 
 
-    ``` 
+    ``` python
     chart = ctkchart.CTkLineChart(
+        master=any_widget, 
         x_axis_values=(2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025), 
         y_axis_values=(-100, 100), 
         x_axis_display_values_indices=(1, 4, 7)
@@ -374,8 +379,9 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     <img src="https://drive.google.com/thumbnail?id=18W70YdLf8f6n1K69GhKP_Es69JF-Va3L&sz=w950" > 
     </picture> 
 
-    ``` 
+    ``` python
     chart = ctkchart.CTkLineChart(
+        master=any_widget, 
         x_axis_values=(2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025), 
         y_axis_values=(-100, 100), 
         x_axis_data_position="side", 
@@ -407,8 +413,9 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     <img src="https://drive.google.com/thumbnail?id=1B6e3yf6cPBuQvqpoleIR8syR0_WLmB1x&sz=w950" > 
     </picture> 
 
-    ``` 
+    ``` python
     chart = ctkchart.CTkLineChart(
+        master=any_widget, 
         x_axis_values=(2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025), 
         y_axis_values=(-100, 100), 
         y_axis_label_count=12, 
@@ -436,8 +443,9 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     <img src="https://drive.google.com/thumbnail?id=19kfPmQxP9AuDNJuFlM2F3YrDhuF3OnAs&sz=w950" > 
     </picture> 
 
-    ``` 
+    ``` python
     chart = ctkchart.CTkLineChart(
+        master=any_widget, 
         x_axis_values=(2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025), 
         y_axis_values=(-100, 100), 
         x_axis_font_color="#00FF00", 
@@ -478,7 +486,7 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     <img src="https://drive.google.com/thumbnail?id=1GoduMuhlvwayY55QvjEwjwrk8np-8ULL&sz=w1050" > 
     </picture> 
 
-    ``` 
+    ``` python
     chart = ctkchart.CTkLineChart(
         master=any_widget, 
         x_axis_section_count=8, 
@@ -534,7 +542,7 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     <img src="https://drive.google.com/thumbnail?id=1SOieJLRtMLbIqgqlt-ATRAYRSuOwbrEK&sz=w1050" > 
     </picture> 
 
-    ``` 
+    ``` python
     chart = ctkchart.CTkLineChart(
         master=any_widget, 
         x_axis_section_count=8, 
@@ -559,7 +567,7 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
 
     - after configure specific value to x_axis_point_spacing, you can reset value by configure it as "auto" for set default value. 
     <br> 
-        ``` 
+        ```  python
         chart.configure(x_axis_point_spacing = "auto") 
         ``` 
 
@@ -568,7 +576,7 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     <img src="https://drive.google.com/thumbnail?id=1YZeyRNvsgUKZuLfr8NbqdlKFMWAL9EMf&sz=w720" > 
     </picture> 
 
-    ``` 
+    ``` python
     chart = ctkchart.CTkLineChart(
         master=any_widget, 
         x_axis_point_spacing="auto" 
@@ -584,7 +592,7 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
 
     When you set the x_axis_point_spacing parameter to a specific value, such as 40, it means that you have manually specified the spacing between points on the x-axis to be 40 units (e.g., pixels). In this case, the chart will use the user-defined spacing of 40 units between each point on the x-axis, regardless of the length of the x_axis_values tuple. 
 
-    ``` 
+    ``` python
     chart = ctkchart.CTkLineChart(
         master=any_widget, 
         x_axis_point_spacing=40 
@@ -612,7 +620,7 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     <img src="https://drive.google.com/thumbnail?id=1iFTyIyVJ2C1HhbaYHOyVx9H_F1UHCW8l&sz=w720" > 
     </picture> 
 
-    ``` 
+    ``` python
     line = ctkchart.CTkLine(
         master=chart, 
         color="#30ACC7", 
@@ -639,7 +647,7 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     <img src="https://drive.google.com/thumbnail?id=1FRATeOC2GRsv4l5nchVopvtUSmUqR-hW&sz=w1050" > 
     </picture> 
 
-    ``` 
+    ``` python
     line = ctkchart.CTkLine(
         master=chart, 
         line_style="dashed" 
@@ -668,7 +676,7 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     <img src="https://drive.google.com/thumbnail?id=1AK70nKWqZ04frfx90YB6wqzYjEmQoZqF&sz=w720" > 
     </picture> 
 
-    ``` 
+    ``` python
     line = ctkchart.CTkLine(
         master=chart, 
         line_style="dashed", 
@@ -700,7 +708,7 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     <img src="https://drive.google.com/thumbnail?id=1WmHPyqtt6W1DQVtmM0beYE6S800x_Hfh&sz=w1000" > 
     </picture> 
 
-    ``` 
+    ``` python
     line = ctkchart.CTkLine(
         master=chart, 
         point_highlight="enabled", 
@@ -730,7 +738,7 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     <img src="https://drive.google.com/thumbnail?id=1Un5x0Aetoq0LUE6piGPjsCoJt1mpjxCE&sz=w950" > 
     </picture> 
 
-    ``` 
+    ``` python
     line = ctkchart.CTkLine(
         master=chart, 
         fill="enabled", 
