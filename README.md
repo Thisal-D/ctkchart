@@ -16,8 +16,6 @@ Your support means a lot and inspires me to do better with each update. Thank yo
 
 **<li>ctkchart is a Python library for creating live updating line charts in customtkinter.</li>**
 
-</div>
-
 <hr>
 
 ### Features
@@ -129,7 +127,6 @@ Your support means a lot and inspires me to do better with each update. Thank yo
     # Call the display_data function as a separate thread
     threading.Thread(target=display_data).start()
 
-
     # Start the main event loop
     root.mainloop()
     ```
@@ -177,7 +174,6 @@ Your support means a lot and inspires me to do better with each update. Thank yo
 
     # Call the display_data function as a separate thread
     threading.Thread(target=display_data).start()
-
 
     # Start the main event loop
     root.mainloop()
@@ -238,7 +234,6 @@ Your support means a lot and inspires me to do better with each update. Thank yo
     # Call the display_data function as a separate thread
     threading.Thread(target=display_data).start()
 
-
     # Start the main event loop
     root.mainloop()
     ```
@@ -291,7 +286,6 @@ Your support means a lot and inspires me to do better with each update. Thank yo
         size=2,  # Set the line size to 2
         point_highlight="enabled", # enable point highlight
         point_highlight_color=("#FFBAD2", "#FFBAD2"), # enable point highlight
-        
     )  
 
     def display_data():
@@ -299,19 +293,14 @@ Your support means a lot and inspires me to do better with each update. Thank yo
         while True:
             random_data = [random.choice(range(0, 1000))]  # Generate random data between 0 and 1000
             line_chart.show_data(line=line1, data=random_data)  # Display the random data on the line 1 on chart
-            
             random_data = [random.choice(range(0, 1000))]  # Generate random data between 0 and 1000
             line_chart.show_data(line=line2, data=random_data)  # Display the random data on the line 2 on chart
-            
             random_data = [random.choice(range(0, 1000))]  # Generate random data between 0 and 1000
             line_chart.show_data(line=line3, data=random_data)  # Display the random data on the line 3 on chart
-            
-        
             time.sleep(0.5)  # Pause for 0.5 seconds before the next iteration
 
     # Call the display_data function as a separate thread
     threading.Thread(target=display_data).start()
-
 
     # Start the main event loop
     root.mainloop()
@@ -373,7 +362,6 @@ Your support means a lot and inspires me to do better with each update. Thank yo
 
     # Call the display_data function as a separate thread
     threading.Thread(target=display_data).start()
-
 
     # Start the main event loop
     root.mainloop()
