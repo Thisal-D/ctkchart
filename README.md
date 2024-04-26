@@ -10,13 +10,13 @@ Your support means a lot and inspires me to do better with each update. Thank yo
 
 [![Downloads](https://static.pepy.tech/badge/ctkchart)](https://pepy.tech/project/ctkchart) [![Downloads](https://static.pepy.tech/badge/ctkchart/month)](https://pepy.tech/project/ctkchart) [![Downloads](https://static.pepy.tech/badge/ctkchart/week)](https://pepy.tech/project/ctkchart)
 
-<img src="https://drive.google.com/thumbnail?id=1-RSoULrf_fnIT0Tufm9VizmryPepwSTv&sz=w180">
+<img src="https://drive.google.com/thumbnail?id=1uZJAjUZPIt79V0FMZ6KpF_x1ln7LFNmg&sz=w180">
 
 </div>
 
 **<li>ctkchart is a Python library for creating live updating line charts in customtkinter.</li>**
 
-<hr>
+---
 
 ### Features
 
@@ -27,7 +27,7 @@ Your support means a lot and inspires me to do better with each update. Thank yo
 - **Font Customization**: Adjust fonts for text elements to enhance readability.
 - **Dimension Customization**: Customize chart dimensions to fit various display sizes and layouts.
 
-<hr>
+---
 
 ### Importing & Installation
 * **Installation**
@@ -39,7 +39,7 @@ Your support means a lot and inspires me to do better with each update. Thank yo
     ``` python
     import ctkchart
     ```
-<hr>
+---
 
 
 ### Simple Guide
@@ -76,7 +76,7 @@ Your support means a lot and inspires me to do better with each update. Thank yo
     theading.Thread(target=loop).start()
     ```
     
-<hr>
+---
 
 ### Links
 
@@ -85,7 +85,7 @@ Your support means a lot and inspires me to do better with each update. Thank yo
     - [Chinese doc.](documentation/DOCUMENTATION_CN.md)
 - **Python official :** [ctkchart](https://pypi.org/project/ctkchart/)
 
-<hr>
+---
 
 ### What You Can Accomplish
 
@@ -130,7 +130,7 @@ Your support means a lot and inspires me to do better with each update. Thank yo
     # Start the main event loop
     root.mainloop()
     ```
-    <hr>
+    ---
 
 - **Simple style**
 
@@ -178,7 +178,7 @@ Your support means a lot and inspires me to do better with each update. Thank yo
     # Start the main event loop
     root.mainloop()
     ```
-    <hr>
+    ---
 
 - **2 lines with different line styles**
 
@@ -237,7 +237,7 @@ Your support means a lot and inspires me to do better with each update. Thank yo
     # Start the main event loop
     root.mainloop()
     ```
-    <hr>
+    ---
 
 - **3 lines with different line styles**
 
@@ -305,7 +305,7 @@ Your support means a lot and inspires me to do better with each update. Thank yo
     # Start the main event loop
     root.mainloop()
     ```
-    <hr>
+    ---
 
 - **Advance** (Actually not, Just Two More Attributes Added)
  
@@ -366,7 +366,7 @@ Your support means a lot and inspires me to do better with each update. Thank yo
     # Start the main event loop
     root.mainloop()
     ```
-<hr>
+---
 
 -  #### Light and Dark theme
 
@@ -376,10 +376,15 @@ Your support means a lot and inspires me to do better with each update. Thank yo
      
     https://github.com/Thisal-D/mark-down-test/assets/93121062/87d5495a-7b20-4b5f-b28d-1115f8b5919e
 
-<hr>
+---
 
 **Explore customizable features such as colors, fonts, and more in the documentation.**
 
 #### Please refer to the full documentation
 - [**English doc.**](documentation/DOCUMENTATION_EN.md)
 - [**Chinese doc.**](documentation/DOCUMENTATION_CN.md)
+
+---
+
+#### Contributors
+- [<img src="https://github.com/childeyouyu.png?size=25" width="25">](https://github.com/childeyouyu) [youyu](https://github.com/childeyouyu)

@@ -4,7 +4,7 @@
 
 </div> 
 
-<hr>
+---
 
 <div id="howtouse"> 
 
@@ -20,7 +20,7 @@
     ``` python
     import ctkchart 
     ``` 
-<hr>
+---
 <div id="parameter_img"> 
 
 ### Parameter Overview 
@@ -35,14 +35,14 @@
 </div> 
 </div> 
 
-<hr>
+---
 
 ### To display data using ctkchart you need to do 3 main tasks 
 1. <a href="#create-line-chart">**Creating a Line Chart**</a> 
 2. <a href="#create-line">**Creating a Line**</a> 
 3. <a href="#display-data">**Display of data**</a> 
 
-<hr>
+---
 
 <div id="create-line-chart"> 
 
@@ -99,7 +99,7 @@ linechart = ctkchart.CTkLineChart()
 | pointer_size                                    | ***Optional***      | Size of the pointer                        | ``int``                         | 1<=                                 | 
 
 
-<hr>
+---
 
 ### Methods 
 
@@ -125,7 +125,7 @@ linechart = ctkchart.CTkLineChart()
 
 </div> 
 
-<hr>
+---
 
 <div id="create-line"> 
 
@@ -153,7 +153,7 @@ line = ctkchart.CTkLine()
 | [fill_color](#fill)                       | Optional            | Color of the fill              | ``tuple[str, str]`` \| ``str``         | "#5d6db6"        | 
 
 
-<hr>
+---
 
 ### Methods 
 
@@ -167,7 +167,7 @@ line = ctkchart.CTkLine()
 
 </div> 
 
-<hr>
+---
 
 <div id="display-data"> 
 
@@ -211,7 +211,7 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
 
 </div> 
 
-<hr>
+---
 
 </div> 
 
@@ -244,7 +244,7 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
         y_axis_values=(-100, 100) 
     ) 
     ``` 
-<hr>
+---
 </div> 
 
 <div id="x_y_data"> 
@@ -284,7 +284,7 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     ) 
     ``` 
 
-<hr>
+---
 
 </div> 
 
@@ -323,7 +323,7 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     ) 
     ``` 
     
-<hr>
+---
 
 </div> 
 
@@ -350,7 +350,7 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     ) 
     ``` 
 
-<hr>
+---
 
 </div> 
 
@@ -391,7 +391,7 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     ) 
     ``` 
 
-<hr>
+---
 
 </div> 
 
@@ -425,7 +425,7 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     ) 
     ``` 
 
-<hr>
+---
 
 </div> 
 
@@ -456,7 +456,7 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     ) 
     ``` 
 
-<hr>
+---
 
 </div> 
 
@@ -498,7 +498,7 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     ) 
     ``` 
 
-<hr>
+---
 
 </div> 
 
@@ -556,7 +556,7 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     ) 
     ``` 
 
-<hr>
+---
 
 </div> 
 
@@ -601,7 +601,7 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     ) 
     ``` 
 
-<hr>
+---
 
 </div> 
 
@@ -656,7 +656,7 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     ) 
     ```
     
-<hr>
+---
 
 </div> 
 
@@ -686,7 +686,7 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     ) 
     ``` 
 
-<hr>
+---
 
 </div> 
 
@@ -719,7 +719,7 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     ) 
     ``` 
 
-<hr>
+---
 
 </div> 
 
@@ -748,7 +748,7 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
     ) 
     ``` 
 
-<hr>
+---
 
 </div> 
 
@@ -765,7 +765,7 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
 
 </div> 
 
-<hr>
+---
 
 <div id="example"> 
 
@@ -793,7 +793,7 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
 
 </div> 
 
-<hr>
+---
 
 <div id="whatsnew"> 
 
@@ -820,7 +820,7 @@ https://github.com/Thisal-D/tkchart/assets/93121062/64440c23-63e6-4093-b027-21b0
 
 </div> 
 
-<hr>
+---
 
 ## Links 
 
