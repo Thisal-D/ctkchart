@@ -121,6 +121,8 @@ linechart = ctkchart.CTkLineChart()
 | place_info                 | Get info about place                     | attribute_name: ``str`` \| "\_\_all\_\_"                                                                                         | ``any``     | 
 | pack_info                  | Get info about pack                      | attribute_name: ``str`` \| "\_\_all\_\_"                                                                                         | ``any``     | 
 | grid_info                  | Get info about grid                      | attribute_name: ``str`` \| "\_\_all\_\_"                                                                                         | ``any``     | 
+| destroy                    | Destroy the chart                        | -                                                                                                                                | ``None``    | 
+
 
 
 </div> 
@@ -157,13 +159,14 @@ line = ctkchart.CTkLine()
 
 ### Methods 
 
-| Method         | Description                              | Supported Parameters                     | Return Type | 
-|----------------|------------------------------------------|------------------------------------------|-------------| 
-| configure      | Change LineChart attributes              | All attributes except for master         | ``None``    | 
-| cget           | Get the value of the specified parameter | attribute_name: ``str`` \| "\_\_all\_\_" | ``any``     | 
-| reset          | reset line object                        | -                                        | ``None``    | 
-| set_visible    | change the visibility of the line        | state: ``bool``                          | ``None``    | 
-| get_visibility | get the visibility of the line           | -                                        | ``bool``    | 
+| Method         | Description                              | Supported Parameters                       | Return Type | 
+|----------------|------------------------------------------|--------------------------------------------|-------------| 
+| configure      | Change LineChart attributes              | All attributes except for master           | ``None``    | 
+| cget           | Get the value of the specified parameter | attribute_name: ``str`` \| "\_\_all\_\_"   | ``any``     | 
+| reset          | reset line object                        | -                                          | ``None``    | 
+| set_visible    | change the visibility of the line        | state: ``bool``                            | ``None``    | 
+| get_visibility | get the visibility of the line           | -                                          | ``bool``    | 
+| destroy        | Destroy the line                         | -                                          | ``None``    | 
 
 </div> 
 

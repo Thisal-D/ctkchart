@@ -279,3 +279,9 @@ class Validate:
         raise ValueError(
             f'''{Validate._var_font(str(value))} {Validate._error_font("Invalid Master for chart.")}'''
         )
+
+    @staticmethod
+    def _MasterAttNotProvideForLine(value):
+        raise ValueError(
+            f'''{Validate._var_font(str(value))} {Validate._error_font("master must be provide for CTkLine")}'''
+        )

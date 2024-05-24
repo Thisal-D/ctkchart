@@ -2,9 +2,9 @@ import tkinter
 from typing import Union, List, Tuple, Literal, Any, Callable
 import customtkinter
 from .CTkLine import CTkLine
+from .ThemeManager import ThemeManager
 from .Utils import Utils
 from .Validate import Validate
-from .ThemeManager import ThemeManager
 
 
 class CTkLineChart:
@@ -60,7 +60,7 @@ class CTkLineChart:
         """
         Initialize Theme manager
         """
-
+        ThemeManager.bind_widget(self)
         if ThemeManager.running_state is not True:
             ThemeManager.run()
 
@@ -180,7 +180,7 @@ class CTkLineChart:
         self.__y_axis_label_count: int = y_axis_label_count
         self.__y_axis_data = str(y_axis_data)
         self.__y_axis_data_position: Literal["top", "side"] = y_axis_data_position
-        self.__y_axis_values: Tuple[Union[int,float], Union[int, float]] = y_axis_values
+        self.__y_axis_values: Tuple[Union[int, float], Union[int, float]] = y_axis_values
         self.__y_axis_min_value: Union[int, float] = y_axis_values[0]
         self.__y_axis_max_value: Union[int, float] = y_axis_values[1]
         self.__y_axis_precision: int = y_axis_precision
@@ -202,9 +202,9 @@ class CTkLineChart:
         self.__pointer_state: Literal["enabled", 'disabled'] = pointer_state
         self.__pointing_callback_function: Callable = pointing_callback_function
         self.__pointing_values_precision: int = pointing_values_precision
-        self.__pointer_lock: Literal["enabled", 'disabled']  = pointer_lock
+        self.__pointer_lock: Literal["enabled", 'disabled'] = pointer_lock
         self.__pointer_size: int = pointer_size
-        self.__pointer_color: Union[Tuple[str, str], str]  = pointer_color
+        self.__pointer_color: Union[Tuple[str, str], str] = pointer_color
         self.__x_values_frame_place_req: bool = True
         self.__y_values_frame_place_req: bool = True
 
@@ -269,7 +269,6 @@ class CTkLineChart:
         self.__place_widgets()
         self.__reset_chart_info()
         self.__configure_theme_mode()
-        ThemeManager.bind_widget(self)
 
     def __configure_theme_mode(self) -> None:
         """
@@ -344,17 +343,31 @@ class CTkLineChart:
         self.__main_frame.configure(fg_color=self.__bg_color, bg_color="transparent")
         self.__output_frame.configure(fg_color=self.__fg_color, bg_color=self.__bg_color)
 
-        self.__y_axis_data_label.configure(fg_color=self.__bg_color, bg_color=self.__bg_color,
-                                           text_color=self.__y_axis_data_font_color)
+        self.__y_axis_data_label.configure(
+            fg_color=self.__bg_color,
+            bg_color=self.__bg_color,
+            text_color=self.__y_axis_data_font_color
+        )
         for label in self.__x_axis_values_frame.winfo_children():
             if type(label) is customtkinter.CTkLabel:
-                label.configure(fg_color=self.__bg_color, bg_color=self.__bg_color, text_color=self.__x_axis_font_color)
+                label.configure(
+                    fg_color=self.__bg_color,
+                    bg_color=self.__bg_color,
+                    text_color=self.__x_axis_font_color
+                )
 
-        self.__x_axis_data_label.configure(fg_color=self.__bg_color, bg_color=self.__bg_color,
-                                           text_color=self.__x_axis_data_font_color)
+        self.__x_axis_data_label.configure(
+            fg_color=self.__bg_color,
+            bg_color=self.__bg_color,
+            text_color=self.__x_axis_data_font_color
+        )
         for label in self.__y_axis_values_frame.winfo_children():
             if type(label) is customtkinter.CTkLabel:
-                label.configure(fg_color=self.__bg_color, bg_color=self.__bg_color, text_color=self.__y_axis_font_color)
+                label.configure(
+                    fg_color=self.__bg_color,
+                    bg_color=self.__bg_color,
+                    text_color=self.__y_axis_font_color
+                )
 
     def __set_widgets_fonts(self) -> None:
         """
@@ -412,10 +425,9 @@ class CTkLineChart:
         if self.__x_axis_data != "":
             if self.__x_axis_data_position == "top":
                 self.__x_axis_data_label.place(
-                    rely=1,
                     relx=1,
                     x=-self.__x_axis_data_req_width + -self.__margin,
-                    y=-self.__x_axis_data_req_height
+                    y=self.__height - self.__x_axis_data_req_height
                 )
             else:
                 self.__x_axis_data_label.place(
@@ -424,9 +436,9 @@ class CTkLineChart:
                     relx=0,
                     anchor="n",
                     x=(
-                            self.__const_real_width / 2 + self.__y_axis_data_req_width_space_side +
-                            self.__y_value_req_width_space + self.__axis_size + self.__x_axis_data_req_width_space_top +
-                            self.__x_special_width_space + self.__margin
+                        self.__const_real_width / 2 + self.__y_axis_data_req_width_space_side +
+                        self.__y_value_req_width_space + self.__axis_size + self.__x_axis_data_req_width_space_top +
+                        self.__x_special_width_space + self.__margin
                     )
                 )
 
@@ -435,14 +447,17 @@ class CTkLineChart:
 
         self.__y_axis_frame.place(
             x=self.__y_value_req_width_space + self.__y_axis_data_req_width_space_side + self.__margin,
-            y=float(self.__y_axis_data_req_height_space_top + (
-                    self.__y_value_req_height_space / 2) + self.__y_special_height_space),
+            y=float(
+                self.__y_axis_data_req_height_space_top +
+                (self.__y_value_req_height_space / 2) +
+                self.__y_special_height_space
+            ),
         )
         self.__y_axis_frame.configure(height=self.__const_real_height + self.__y_space + self.__axis_size)
         self.__x_axis_frame.place(
             x=self.__y_value_req_width_space + self.__y_axis_data_req_width_space_side + self.__margin,
-            rely=1,
-            y=-self.__axis_size + -self.__x_value_req_height_space + -self.__x_axis_data_req_height_space_side,
+            y=(self.__height - self.__axis_size + -self.__x_value_req_height_space +
+               -self.__x_axis_data_req_height_space_side),
         )
 
         self.__x_axis_frame.configure(width=self.__const_real_width + self.__axis_size + self.__x_space)
@@ -452,10 +467,15 @@ class CTkLineChart:
                 self.__y_value_req_width_space + self.__axis_size + self.__y_axis_data_req_width_space_side +
                 self.__margin
             ),
-            y=float(self.__y_axis_data_req_height_space_top + (
-                    self.__y_value_req_height_space / 2) + self.__y_special_height_space + self.__y_space))
-        self.__output_frame.configure(width=self.__const_real_width,
-                                      height=self.__const_real_height, )
+            y=float(
+                self.__y_axis_data_req_height_space_top + (self.__y_value_req_height_space / 2) +
+                self.__y_special_height_space + self.__y_space
+            )
+        )
+        self.__output_frame.configure(
+            width=self.__const_real_width,
+            height=self.__const_real_height
+        )
 
         self.__output_canvas.place(y=0, x=0)
         self.__output_canvas.configure(height=self.__const_real_height, width=self.__const_real_width)
@@ -468,11 +488,13 @@ class CTkLineChart:
 
         if self.__x_values_frame_place_req:
             self.__x_axis_values_frame.place(
-                x=self.__margin, rely=1,
-                y=-self.__x_value_req_height_space + -self.__x_axis_data_req_height_space_side
+                x=self.__margin,
+                y=self.__height - self.__x_value_req_height_space + -self.__x_axis_data_req_height_space_side
             )
-            self.__x_axis_values_frame.configure(height=self.__x_value_req_height_space,
-                                                 width=self.__width - (self.__margin * 2))
+            self.__x_axis_values_frame.configure(
+                height=self.__x_value_req_height_space,
+                width=self.__width - (self.__margin * 2)
+            )
         else:
             self.__x_axis_values_frame.place_forget()
 
@@ -511,11 +533,13 @@ class CTkLineChart:
             self.__x_axis_data_req_width = Utils._RequiredWidth(text=self.__x_axis_data, font=self.__data_font_style)
             if self.__x_axis_data_position == "top":
                 self.__x_special_width_space = 15
-                self.__x_axis_data_req_width_space_top = Utils._RequiredWidth(text=self.__x_axis_data,
-                                                                              font=self.__data_font_style)
+                self.__x_axis_data_req_width_space_top = Utils._RequiredWidth(
+                    text=self.__x_axis_data, font=self.__data_font_style
+                )
             else:
-                self.__x_axis_data_req_height_space_side = Utils._RequiredHeight(text=self.__x_axis_data,
-                                                                                 font=self.__data_font_style)
+                self.__x_axis_data_req_height_space_side = Utils._RequiredHeight(
+                    text=self.__x_axis_data, font=self.__data_font_style
+                )
 
         self.__y_axis_data_req_height_space_top = 0
         self.__y_axis_data_req_width_space_side = 0
@@ -528,28 +552,32 @@ class CTkLineChart:
         if self.__y_axis_data != "":
             if self.__y_axis_data_position == "top":
                 self.__y_special_height_space = 15
-                self.__y_axis_data_req_height_space_top = Utils._RequiredHeight(text=self.__y_axis_data,
-                                                                                font=self.__data_font_style)
+                self.__y_axis_data_req_height_space_top = Utils._RequiredHeight(
+                    text=self.__y_axis_data, font=self.__data_font_style
+                )
             else:
-                self.__y_axis_data_req_width_space_side = Utils._RequiredWidth(text=self.__y_axis_data[0],
-                                                                               font=self.__data_font_style)
+                self.__y_axis_data_req_width_space_side = Utils._RequiredWidth(
+                    text=self.__y_axis_data[0], font=self.__data_font_style
+                )
 
         if self.__y_axis_label_count == 0:
             self.__y_value_req_height_space = 0
             self.__y_value_req_width_space = 0
             self.__y_values_frame_place_req = False
         else:
-            if len(Utils._format_float_with_precision(self.__y_axis_max_value, self.__y_axis_precision)) > len(
-                    Utils._format_float_with_precision(self.__y_axis_min_value, self.__y_axis_precision)):
+            if (len(Utils._format_float_with_precision(self.__y_axis_max_value, self.__y_axis_precision)) >
+                    len(Utils._format_float_with_precision(self.__y_axis_min_value, self.__y_axis_precision))):
                 y_value_temp = self.__y_axis_max_value
             else:
                 y_value_temp = self.__y_axis_min_value
             self.__y_value_req_height_space = Utils._RequiredHeight(
                 text=Utils._format_float_with_precision(y_value_temp, self.__y_axis_precision),
-                font=self.__axis_font_style)
+                font=self.__axis_font_style
+            )
             self.__y_value_req_width_space = Utils._RequiredWidth(
                 text=Utils._format_float_with_precision(y_value_temp, self.__y_axis_precision),
-                font=self.__axis_font_style)
+                font=self.__axis_font_style
+            )
 
         self.__x_value_req_width_space = 0
         self.__x_value_req_height_space = 0
@@ -558,12 +586,14 @@ class CTkLineChart:
         elif self.__x_axis_values_handle_by == "label_indices" and (len(self.__x_axis_display_values_indices) == 0):
             self.__x_values_frame_place_req = False
         else:
-            self.__x_value_req_height_space = Utils._RequiredHeight(text=self.__x_axis_values[0],
-                                                                    font=self.__axis_font_style)
+            self.__x_value_req_height_space = Utils._RequiredHeight(
+                text=self.__x_axis_values[0], font=self.__axis_font_style
+            )
             # self.__x_value_req_width_space = RequiredWidth(text=format_float_with_precision(self.__x_axis_data_max,
             # self.__x_values_decimals), font=self.__axis_font_style)
-            self.__x_value_req_width_space = Utils._get_max_required_label_width(data=self.__x_axis_values,
-                                                                                 font=self.__axis_font_style)
+            self.__x_value_req_width_space = Utils._get_max_required_label_width(
+                data=self.__x_axis_values, font=self.__axis_font_style
+            )
 
         if self.__y_value_req_height_space / 2 > self.__x_value_req_height_space:
             self.__x_value_req_height_space = self.__y_value_req_height_space / 2
@@ -638,9 +668,15 @@ class CTkLineChart:
             y = self.__y_axis_data_req_height_space_top + (
                     self.__y_value_req_height_space / 2) + self.__y_special_height_space + self.__y_space
             for i in range(self.__y_axis_label_count + 1):
-                customtkinter.CTkLabel(master=self.__y_axis_values_frame, justify="right",
-                                       width=self.__y_value_req_width_space).place(y=y, x=0,
-                                                                                   anchor="w")
+                customtkinter.CTkLabel(
+                    master=self.__y_axis_values_frame,
+                    justify="right",
+                    width=self.__y_value_req_width_space
+                ).place(
+                    y=y,
+                    x=0,
+                    anchor="w"
+                )
                 y += self.__real_height / self.__y_axis_label_count
 
     def __destroy_y_axis_labels(self) -> None:
@@ -798,10 +834,9 @@ class CTkLineChart:
         """
         Create sections on the y-axis.
 
-        This method creates sections on the y-axis based on the specified section style. If the section style is
-        'normal',
-        it creates evenly spaced sections. If the section style is 'dashed', it creates sections with custom width and
-        spacing as specified in the style type tuple.
+        This method creates sections on the y-axis based on the specified section style.
+        If the section style is 'normal', it creates evenly spaced sections. If the section style is 'dashed',
+        it creates sections with custom width and spacing as specified in the style type tuple.
         """
 
         y = 0
@@ -831,20 +866,21 @@ class CTkLineChart:
         """
         Create sections on the x-axis.
 
-        This method creates sections on the x-axis based on the specified section style. If the section
-        style is 'normal',
-        it creates evenly spaced sections. If the section style is 'dashed', it creates sections with custom height
-        and spacing as specified in the style type tuple.
+        This method creates sections on the x-axis based on the specified section style.
+        If the section style is 'normal',it creates evenly spaced sections. If the section style is 'dashed',
+        it creates sections with custom height and spacing is specified in the style type tuple.
         """
 
         x = self.__const_real_width - 1
         bg = ThemeManager.get_color_by_theme(self.__x_axis_section_color)
         if self.__x_axis_section_style == "normal":
             for i in range(self.__x_axis_section_count):
-                tkinter.Frame(master=self.__output_frame,
-                              height=self.__const_real_height,
-                              width=1,
-                              bg=bg).place(x=x, anchor="n")
+                tkinter.Frame(
+                    master=self.__output_frame,
+                    height=self.__const_real_height,
+                    width=1,
+                    bg=bg
+                ).place(x=x, anchor="n")
                 x -= (self.__const_real_width / self.__x_axis_section_count)
         else:
             height_ = self.__x_axis_section_style_type[0]
@@ -852,11 +888,12 @@ class CTkLineChart:
             for i in range(self.__x_axis_section_count):
                 y_ = 0
                 while y_ < self.__const_real_height:
-                    tkinter.Frame(master=self.__output_frame,
-                                  height=height_,
-                                  width=1,
-                                  bg=bg,
-                                  ).place(x=x, anchor="n", y=y_)
+                    tkinter.Frame(
+                        master=self.__output_frame,
+                        height=height_,
+                        width=1,
+                        bg=bg
+                    ).place(x=x, anchor="n", y=y_)
                     y_ += height_ + space_
                 x -= (self.__const_real_width / self.__x_axis_section_count)
 
@@ -1162,15 +1199,22 @@ class CTkLineChart:
                 Validate._isValidXAxisValues(x_axis_values, "x_axis_values")
                 if self.__x_axis_values_handle_by == "label_indices":
                     if x_axis_display_values_indices is not None:
-                        Validate._isValidXAxisIndices(x_axis_values, x_axis_display_values_indices,
-                                                      "x_axis_display_values_indices")
+                        Validate._isValidXAxisIndices(
+                            x_axis_values,
+                            x_axis_display_values_indices,
+                            "x_axis_display_values_indices"
+                        )
                     else:
-                        Validate._isValidXAxisIndices(x_axis_values, self.__x_axis_display_values_indices,
-                                                      "x_axis_display_values_indices")
+                        Validate._isValidXAxisIndices(
+                            x_axis_values,
+                            self.__x_axis_display_values_indices,
+                            "x_axis_display_values_indices"
+                        )
                 if len(x_axis_values) != len(self.__x_axis_values):
                     chart_reset_req = True
-                elif Utils._get_max_required_label_width(x_axis_values,
-                                                         self.__axis_font_style) != self.__x_value_req_width_space:
+                elif Utils._get_max_required_label_width(
+                        x_axis_values, self.__axis_font_style
+                ) != self.__x_value_req_width_space:
                     chart_reset_req = True
                 else:
                     chart_x_values_change_req = True
@@ -1178,8 +1222,11 @@ class CTkLineChart:
 
         if x_axis_display_values_indices is not None:
             if x_axis_values is None:
-                Validate._isValidXAxisIndices(self.__x_axis_values, x_axis_display_values_indices,
-                                              "x_axis_display_values_indices")
+                Validate._isValidXAxisIndices(
+                    self.__x_axis_values,
+                    x_axis_display_values_indices,
+                    "x_axis_display_values_indices"
+                )
             self.__x_axis_values_handle_by = "label_indices"
             x_axis_display_values_indices = Utils._sort_tuple(x_axis_display_values_indices)
             if x_axis_display_values_indices != self.__x_axis_display_values_indices:
@@ -1312,7 +1359,7 @@ class CTkLineChart:
                 self.__y_axis_data_req_width_space_side +
                 self.__x_value_req_width_space / 2 +
                 self.__x_special_width_space + self.__x_space
-        ) - (self.__margin * 2))
+        ) - self.__margin * 2)
 
         self.__const_real_width = self.__real_width
         self.__real_height = self.__height - (
@@ -1411,8 +1458,10 @@ class CTkLineChart:
                 if round(line._CTkLine__x_end) > round(self.__real_width) and self.__real_width < self.__width * 5:
                     self.__place_x -= self.__x_axis_point_spacing
 
-                    self.__output_canvas.place(x=self.__place_x,
-                                               width=self.__real_width + self.__x_axis_point_spacing)
+                    self.__output_canvas.place(
+                        x=self.__place_x,
+                        width=self.__real_width + self.__x_axis_point_spacing
+                    )
 
                     self.__real_width += self.__x_axis_point_spacing
 
@@ -1421,12 +1470,15 @@ class CTkLineChart:
                     break
 
                 if line._CTkLine__fill == "enabled":
-                    points_of_polygon = [x_start, y_start,
-                                         line._CTkLine__x_end, line._CTkLine__y_end,
-                                         line._CTkLine__x_end, self.__const_real_height,
-                                         x_start, self.__const_real_height]
-                    self.__output_canvas.create_polygon(points_of_polygon,
-                                                        fill=fill_color)
+                    points_of_polygon = [
+                        x_start, y_start,
+                        line._CTkLine__x_end, line._CTkLine__y_end,
+                        line._CTkLine__x_end, self.__const_real_height,
+                        x_start, self.__const_real_height
+                    ]
+                    self.__output_canvas.create_polygon(
+                        points_of_polygon, fill=fill_color
+                    )
 
                 if line._CTkLine__style == "dashed":
                     dash_width = line._CTkLine__style_type[0]
@@ -1461,7 +1513,8 @@ class CTkLineChart:
                         if dashed_y_end > line._CTkLine__y_end and line_going == "to_down":
                             dashed_y_end = dashed_y_end - (dashed_y_end - line._CTkLine__y_end)
                         self.__output_canvas.create_line(
-                            dashed_x_start, dashed_y_start, dashed_x_end, dashed_y_end,
+                            dashed_x_start, dashed_y_start,
+                            dashed_x_end, dashed_y_end,
                             fill=line_color, width=line._CTkLine__size
                         )
                         dashed_x_start += dash_change_x + space_change_x
@@ -1486,33 +1539,42 @@ class CTkLineChart:
                     dotted_y_start = y_start
 
                     while line._CTkLine__x_end > dotted_x_start:
-                        self.__output_canvas.create_oval(dotted_x_start - circle_size / 2,
-                                                         dotted_y_start - circle_size / 2,
-                                                         dotted_x_start + circle_size - circle_size / 2,
-                                                         dotted_y_start + circle_size - circle_size / 2,
-                                                         fill=line_color, outline=line_color)
+                        self.__output_canvas.create_oval(
+                            dotted_x_start - circle_size / 2,
+                            dotted_y_start - circle_size / 2,
+                            dotted_x_start + circle_size - circle_size / 2,
+                            dotted_y_start + circle_size - circle_size / 2,
+                            fill=line_color, outline=line_color
+                        )
                         dotted_x_start += circle_change_x + space_change_x
                         dotted_y_start += circle_change_y + space_change_y
 
                 elif line._CTkLine__style == "normal":
-                    self.__output_canvas.create_line(x_start, y_start, line._CTkLine__x_end, line._CTkLine__y_end,
-                                                     fill=line_color, width=line._CTkLine__size)
+                    self.__output_canvas.create_line(
+                        x_start, y_start,
+                        line._CTkLine__x_end, line._CTkLine__y_end,
+                        fill=line_color, width=line._CTkLine__size
+                    )
 
                 if line._CTkLine__point_highlight == "enabled" and line._CTkLine__point_highlight_size > 0:
                     highlight_size = line._CTkLine__point_highlight_size / 2
-                    self.__output_canvas.create_oval(line._CTkLine__x_end - highlight_size,
-                                                     line._CTkLine__y_end - highlight_size,
-                                                     line._CTkLine__x_end + highlight_size,
-                                                     line._CTkLine__y_end + highlight_size,
-                                                     fill=highlight_color,
-                                                     outline=highlight_color)
+                    self.__output_canvas.create_oval(
+                        line._CTkLine__x_end - highlight_size,
+                        line._CTkLine__y_end - highlight_size,
+                        line._CTkLine__x_end + highlight_size,
+                        line._CTkLine__y_end + highlight_size,
+                        fill=highlight_color,
+                        outline=highlight_color
+                    )
 
-                    self.__output_canvas.create_oval(x_start - highlight_size,
-                                                     y_start - highlight_size,
-                                                     x_start + highlight_size,
-                                                     y_start + highlight_size,
-                                                     fill=highlight_color,
-                                                     outline=highlight_color)
+                    self.__output_canvas.create_oval(
+                        x_start - highlight_size,
+                        y_start - highlight_size,
+                        x_start + highlight_size,
+                        y_start + highlight_size,
+                        fill=highlight_color,
+                        outline=highlight_color
+                    )
 
             if re_show_data:
                 self.__reshow_data()
@@ -1527,7 +1589,7 @@ class CTkLineChart:
 
         self.__pointer.place_forget()
 
-    def __return_pointed_values(self, event: tkinter.Event):
+    def __return_pointed_values(self, event: tkinter.Event) -> None:
         """
         Returns the values pointed by the user's mouse cursor.
 
@@ -1535,7 +1597,7 @@ class CTkLineChart:
             event (tkinter.Event): The mouse event containing cursor position.
         """
 
-        def round_x(x):
+        def round_x(x) -> Union[int, float]:
             """
             Rounds the x-coordinate to the nearest x-axis point spacing.
 
@@ -1993,11 +2055,12 @@ class CTkLineChart:
 
         Validate._invalidCget(attribute_name)
 
-    def pack_info(self,
-                  attribute_name: Literal[
-                      "padx", "pady", "before", "after",
-                      "side", "anchor", "__all__"
-                  ] = "__all__") -> Any:
+    def pack_info(
+            self,
+            attribute_name: Literal[
+                "padx", "pady", "before", "after",
+                "side", "anchor", "__all__"
+            ] = "__all__") -> Any:
         """
         Get the value of the specified pack info.
 
@@ -2033,11 +2096,12 @@ class CTkLineChart:
 
         Validate._invalidCget(attribute_name)
 
-    def grid_info(self,
-                  attribute_name: Literal[
-                      "row", "column", "rowspan", "columnspan",
-                      "padx", "pady", "sticky", "__all__"
-                  ] = "__all__") -> Any:
+    def grid_info(
+            self,
+            attribute_name: Literal[
+                "row", "column", "rowspan", "columnspan",
+                "padx", "pady", "sticky", "__all__"
+            ] = "__all__") -> Any:
         """
         Get the value of the specified grid info.
 
@@ -2075,3 +2139,115 @@ class CTkLineChart:
             }
 
         Validate._invalidCget(attribute_name)
+
+    def __del__(self) -> None:
+        """
+        Destructor to clean up resources and perform necessary cleanup.
+        This method will be called when the object is about to be destroyed.
+        It ensures that all widgets are destroyed and attributes are deleted
+        to aid in garbage collection.
+        """
+        # Destroy widgets
+        self.__main_frame.destroy()
+        self.__x_axis_values_frame.destroy()
+        self.__y_axis_values_frame.destroy()
+        self.__y_axis_data_label.destroy()
+        self.__x_axis_data_label.destroy()
+        self.__output_frame.destroy()
+        self.__output_canvas.destroy()
+        self.__y_axis_frame.destroy()
+        self.__x_axis_frame.destroy()
+        self.__pointer.destroy()
+
+        # Deleting attributes to help with garbage collection
+        del self.__main_frame
+        del self.__x_axis_values_frame
+        del self.__y_axis_values_frame
+        del self.__y_axis_data_label
+        del self.__x_axis_data_label
+        del self.__output_frame
+        del self.__output_canvas
+        del self.__y_axis_frame
+        del self.__x_axis_frame
+        del self.__pointer
+        del self.master
+        del self.__height
+        del self.__width
+        del self.__axis_size
+        del self.__axis_color
+        del self.__x_axis_point_spacing
+        del self.__x_axis_point_spacing_handle_by
+        del self.__data_font_style
+        del self.__axis_font_style
+        del self.__lines
+        del self.__bg_color
+        del self.__fg_color
+        del self.__y_axis_font_color
+        del self.__y_axis_data_font_color
+        del self.__y_axis_section_color
+        del self.__y_axis_section_style
+        del self.__y_axis_section_style_type
+        del self.__y_axis_section_count
+        del self.__y_axis_label_count
+        del self.__y_axis_data
+        del self.__y_axis_data_position
+        del self.__y_axis_values
+        del self.__y_axis_min_value
+        del self.__y_axis_max_value
+        del self.__y_axis_precision
+        del self.__y_space
+        del self.__x_axis_font_color
+        del self.__x_axis_data_font_color
+        del self.__x_axis_section_color
+        del self.__x_axis_section_style
+        del self.__x_axis_section_style_type
+        del self.__x_axis_section_count
+        del self.__x_axis_label_count
+        del self.__x_axis_display_values_indices
+        del self.__x_labels_values_index_change
+        del self.__x_axis_data
+        del self.__x_axis_data_position
+        del self.__x_axis_values
+        del self.__x_axis_values_handle_by
+        del self.__x_space
+        del self.__pointer_state
+        del self.__pointing_callback_function
+        del self.__pointing_values_precision
+        del self.__pointer_lock
+        del self.__pointer_size
+        del self.__pointer_color
+        del self.__x_values_frame_place_req
+        del self.__y_values_frame_place_req
+        del self.__place_x
+        del self.__real_height
+        del self.__real_width
+        del self.__const_real_height
+        del self.__const_real_width
+        del self.__visibility
+        del self.__place_info_x
+        del self.__place_info_y
+        del self.__place_info_rely
+        del self.__place_info_relx
+        del self.__place_info_anchor
+        del self.__pack_info_pady
+        del self.__pack_info_padx
+        del self.__pack_info_before
+        del self.__pack_info_after
+        del self.__pack_info_side
+        del self.__pack_info_anchor
+        del self.__grid_info_column
+        del self.__grid_info_columnspan
+        del self.__grid_info_padx
+        del self.__grid_info_pady
+        del self.__grid_info_row
+        del self.__grid_info_rowspan
+        del self.__grid_info_sticky
+        del self.__theme
+        del self.__margin
+
+    def destroy(self) -> None:
+        ThemeManager.unbind_widget(self)
+        for line in self.__lines:
+            line.destroy()
+
+        self.__del__()
