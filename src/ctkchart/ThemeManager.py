@@ -22,7 +22,6 @@ class ThemeManager:
     @staticmethod
     def theme_tracker() -> None:
         while len(ThemeManager.child_objects) != 0:
-            print("running theme tracker")
             if ctk.get_appearance_mode() != ThemeManager.theme:
                 ThemeManager.theme = ctk.get_appearance_mode()
                 for child_object in ThemeManager.child_objects:
