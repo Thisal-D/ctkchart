@@ -21,24 +21,25 @@ class ThemeManager:
 
     @staticmethod
     def theme_tracker() -> None:
-        while True:
+        while len(ThemeManager.child_objects) != 0:
             if ctk.get_appearance_mode() != ThemeManager.theme:
                 ThemeManager.theme = ctk.get_appearance_mode()
                 for child_object in ThemeManager.child_objects:
                     try:
                         child_object._CTkLineChart__configure_theme_mode()
-                    except:
-                        try:
-                            ThemeManager.child_objects.remove(child_object)
-                        except:
-                            pass
+                    except Exception as error:
+                        print(f"Line Chart theme configure failed : {error}")
+                        
             time.sleep(1)
+        ThemeManager.running_state = False
 
     @staticmethod
     def run():
-        running_state = True
-        threading.Thread(target=ThemeManager.theme_tracker).start()
-
+        ThemeManager.running_state = True
+        thread = threading.Thread(target=ThemeManager.theme_tracker)
+        thread.daemon = True
+        thread.start()
+    
     @staticmethod
     def bind_widget(widget: Any) -> None:
         ThemeManager.child_objects.append(widget)
@@ -47,5 +48,6 @@ class ThemeManager:
     def unbind_widget(widget: Any) -> None:
         try:
             ThemeManager.child_objects.remove(widget)
-        except:
-            pass
+        except Exception as error:
+            print(f"Unable to remove widgets from Theme Manager : {error}")
+        

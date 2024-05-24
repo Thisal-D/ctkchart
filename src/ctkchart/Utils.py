@@ -1,18 +1,18 @@
 import tkinter
-from typing import Union, Tuple
+from typing import Union, Tuple, Any
 
 
 class Utils:
     __change_val = 1
 
     @staticmethod
-    def _RequiredWidth(text: any, font: Tuple[str, int, str]) -> float:
+    def _RequiredWidth(text: Any, font: Tuple[str, int, str]) -> float:
         label = tkinter.Label(font=font)
         label.config(text=str(text) + "")
         return label.winfo_reqwidth() / Utils.__change_val
 
     @staticmethod
-    def _RequiredHeight(text: any, font: Tuple[str, int, str]) -> float:
+    def _RequiredHeight(text: Any, font: Tuple[str, int, str]) -> float:
         label = tkinter.Label(font=font)
         label.config(text=str(text) + "")
         return label.winfo_reqheight() / Utils.__change_val
@@ -27,7 +27,7 @@ class Utils:
             return str(int(float_val))
 
     @staticmethod
-    def _get_max_required_label_width(data: any, font: Tuple[str, int, str]) -> float:
+    def _get_max_required_label_width(data: Any, font: Tuple[str, int, str]) -> float:
         max_required_width = 0
         for d in data:
             required_width = Utils._RequiredWidth(text=d, font=font)
@@ -36,7 +36,7 @@ class Utils:
         return max_required_width / Utils.__change_val
 
     @staticmethod
-    def _get_max_required_label_height(data: any, font: Tuple[str, int, str]) -> float:
+    def _get_max_required_label_height(data: Any, font: Tuple[str, int, str]) -> float:
         max_required_height = 0
         for d in data:
             required_height = Utils._RequiredHeight(text=d, font=font)

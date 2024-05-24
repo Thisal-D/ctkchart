@@ -120,7 +120,7 @@ linechart = ctkchart.CTkLineChart()
 | place_info                 | 获取地点信息              | attribute_name: ``str`` \| "\_\_all\_\_"                                                                                         | ``any``  | 
 | pack_info                  | 获取有关包装的信息           | attribute_name: ``str`` \| "\_\_all\_\_"                                                                                         | ``any``  | 
 | grid_info                  | 获取网格信息              | attribute_name: ``str`` \| "\_\_all\_\_"                                                                                         | ``any``  | 
-
+| destroy                    | 销毁图表                | -                                                                                                                                | ``None`` | 
 
 </div> 
 
@@ -162,6 +162,7 @@ line = ctkchart.CTkLine()
 | reset          | 重置线对象    | -                                        | ``None`` | 
 | set_visible    | 改变线条的可见度 | state: ``bool``                          | ``None`` | 
 | get_visibility | 获得线路的可见度 | -                                        | ``bool`` | 
+| destroy        | 破坏线      | -                                        | ``None`` | 
 
 </div> 
 

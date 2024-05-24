@@ -1,5 +1,4 @@
 from typing import Union, Tuple, Literal
-from .FontStyle import FontStyle
 from .Validate import Validate
 
 
@@ -38,14 +37,7 @@ class CTkLine:
             if len(args) != 0:
                 master = args[0]
             else:
-                raise (ValueError(
-                    f'''
-                        {FontStyle._fontStyle("master", "green", "black", "italic")} 
-                        {FontStyle._fontStyle(
-                        "parameter value is not provided", "red", "black", "underline"
-                    )}
-                    ''')
-                )
+                Validate._MasterAttNotProvideForLine("master")
 
         Validate._isValidCTkLineChart(master, "master")
         Validate._isValidColor(color, "color")
@@ -168,7 +160,7 @@ class CTkLine:
         Reset the line.
         """
         self.__reset()
-        self.__master._CTkLineChart__call_reshow_data()
+        self.__master._CTkLineChart__apply_line_configuration()
 
     def set_visible(self, state: bool) -> None:
         """
@@ -180,13 +172,14 @@ class CTkLine:
         Validate._isBool(state, "state")
         if self.__visibility != state:
             self.__visibility = state
-            self.__master._CTkLineChart__call_reshow_data()
+            self.__master._CTkLineChart__apply_line_configuration()
 
     def cget(
             self,
-            attribute_name: Literal["master", "color", "size", "style", "style_type", "point_highlight",
-                                    "point_highlight_size", "point_highlight_color", "fill", "fill_color",
-                                    "__all__"]) -> any:
+            attribute_name: Literal[
+                "master", "color", "size", "style", "style_type", "point_highlight",
+                "point_highlight_size", "point_highlight_color", "fill", "fill_color",
+                "__all__"]) -> any:
         """
         Get the value of a CTkLine attribute.
 
@@ -242,3 +235,36 @@ class CTkLine:
         """
 
         return self.__visibility
+
+    def __del__(self) -> None:
+        """Destructor method to delete instance attributes."""
+        del self.__master
+        del self.__color
+        del self.__size
+        del self.__y_end
+        del self.__x_end
+        del self.__data
+        del self.__temp_data
+        del self.__ret_data
+        del self.__visibility
+        del self.__style
+        del self.__style_type
+        del self.__point_highlight
+        del self.__point_highlight_size
+        del self.__point_highlight_color
+        del self.__fill
+        del self.__fill_color
+
+    def destroy(self) -> None:
+        """
+        Removes the instance from its master's line chart and 
+        applies the updated line configuration. Calls the destructor 
+        to clean up resources.
+        """
+        try:
+            self.__master._CTkLineChart__lines.remove(self)
+            self.__master._CTkLineChart__apply_line_configuration()
+        except ValueError:
+            pass  # In case the line is not in the list
+        finally:
+            self.__del__()
