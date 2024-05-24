@@ -14,7 +14,7 @@ SIDE: str = "side"
 AUTO: str = "auto"
 
 """
-ctkchart: a tool for create live update chart for customtkinter guis.
+ctkchart: a library for create live update chart for customtkinter guis.
 """
 __title__ = "ctkchart"
 __version__ = "2.1.3"
