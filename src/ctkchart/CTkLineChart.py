@@ -154,11 +154,11 @@ class CTkLineChart:
         Validate._isValidXAxisLabelCount(x_axis_label_count, "x_axis_label_count")
 
         if master is not None:
-            self.master = master
+            self.__master = master
         elif len(args) != 0:
-            self.master = args[0]
+            self.__master = args[0]
         else:
-            self.master = master
+            self.__master = master
 
         self.__height: int = height
         self.__width: int = width
@@ -292,7 +292,7 @@ class CTkLineChart:
         output canvas, and pointer.
         """
 
-        self.__main_frame = customtkinter.CTkFrame(master=self.master)
+        self.__main_frame = customtkinter.CTkFrame(master=self.__master)
         self.__x_axis_values_frame = customtkinter.CTkFrame(master=self.__main_frame)
         self.__y_axis_values_frame = customtkinter.CTkFrame(master=self.__main_frame)
         self.__y_axis_data_label = customtkinter.CTkLabel(master=self.__main_frame)
@@ -2170,7 +2170,7 @@ class CTkLineChart:
         del self.__y_axis_frame
         del self.__x_axis_frame
         del self.__pointer
-        del self.master
+        del self.__master
         del self.__height
         del self.__width
         del self.__axis_size
