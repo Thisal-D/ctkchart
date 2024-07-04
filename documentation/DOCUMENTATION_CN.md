@@ -120,8 +120,9 @@ linechart = ctkchart.CTkLineChart()
 | place_info                 | 获取地点信息              | attribute_name: ``str`` \| "\_\_all\_\_"                                                                                         | ``any``  | 
 | pack_info                  | 获取有关包装的信息           | attribute_name: ``str`` \| "\_\_all\_\_"                                                                                         | ``any``  | 
 | grid_info                  | 获取网格信息              | attribute_name: ``str`` \| "\_\_all\_\_"                                                                                         | ``any``  | 
+| get_line_area              | 获取特定线的面积         | line: `ctkchart.CTkLine` | `float`            |
+| get_lines_area             | 获取所有线的面积         | -                  | `float`           |
 | destroy                    | 销毁图表                | -                                                                                                                                | ``None`` | 
-
 </div> 
 
 <div id="create-line"> 

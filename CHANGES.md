@@ -1,4 +1,10 @@
-# Changes
+## v2.1.4
+
+- ### New Method Added to CTkLineChart Object
+    | Method Name      | Description                                                | Parameters     | Return Type |
+    |------------------|------------------------------------------------------------|----------------|-------------|
+    | `get_line_area` | Get the are of specific line                               | line: `ctkchart.CTkLine` | ``float`` | 
+    | `get_lines_area`   | Get the are of all lines                                   | -                    | ``float`` | 
 
 ## v2.1.3
 
