@@ -1,16 +1,13 @@
-🌟**If you find this project helpful, your support by starring it would mean a lot! Your feedback motivates me to keep refining and enhancing it further.** 🚀
-
-Your support means a lot and inspires me to do better with each update. Thank you for taking the time to check out this project!🥰
-
 <div align="center">
 
 [![ctkchart](https://snyk.io/advisor/python/ctkchart/badge.svg)](https://snyk.io/advisor/python/ctkchart)
 
-<img src="https://drive.google.com/thumbnail?id=1f4Q2dA64iJGUVWpAZsl0q6Mq0NVkGCDR&sz=w900">
+# ctkchart
 
 [![Downloads](https://static.pepy.tech/badge/ctkchart)](https://pepy.tech/project/ctkchart) [![Downloads](https://static.pepy.tech/badge/ctkchart/month)](https://pepy.tech/project/ctkchart) [![Downloads](https://static.pepy.tech/badge/ctkchart/week)](https://pepy.tech/project/ctkchart)
 
-<img src="https://drive.google.com/thumbnail?id=1AxbfzWOvbTbH4uLDgoDgPZqorS6jlBCN&sz=w180">
+<img src="https://drive.google.com/thumbnail?id=1YgJhoMequmeKlWmcNo8sgz2RhffPkRVk&sz=w180">
+
 
 </div>
 
