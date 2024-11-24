@@ -1383,6 +1383,39 @@ class CTkLineChart:
 
         for line in self.__lines:
             line._CTkLine__reset()
+            
+    def __get_max_visible_data_points(self) -> int:
+        """
+        Calculate the maximum number of data points that can be displayed 
+        on the chart at the current resolution and axis spacing.
+
+        Returns:
+            int: The maximum number of data points visible on the x-axis.
+        """
+        # Determine the maximum number of data points based on the available width
+        # and spacing between points on the x-axis.
+        max_visible_points = int(self.__const_real_width / self.__x_axis_point_spacing) + 1
+        return max_visible_points
+
+    def __get_max_data_length_across_lines(self) -> int:
+        """
+        Determine the maximum number of data points in any line within the chart.
+        
+        This is useful for determining how much data is present in the most 
+        populated data series.
+
+        Returns:
+            int: The maximum length of data in any line.
+        """
+        if len(self.__lines) > 0:
+            # Retrieve the number of data points in each line
+            lines_values = [len(line._CTkLine__data) for line in self.__lines]
+            
+            # Find and return the maximum length among all lines
+            max_data_length = max(lines_values)
+            return max_data_length
+        return 0
+
 
     def __reshow_data(self) -> None:
         """
@@ -1392,22 +1425,23 @@ class CTkLineChart:
         data to be shown, resets each line with the latest data, and then displays the data for each line.
         """
 
-        lines_values = [len(line._CTkLine__data) for line in self.__lines]
         self.__reset_chart_info()
 
-        if len(lines_values) > 0:
-            maximum_data = max(lines_values)
-            max_support = int(self.__const_real_width / self.__x_axis_point_spacing) + 1
+        maximum_data = self.__get_max_data_length_across_lines()
+        max_visible_points = self.__get_max_visible_data_points()
 
-            for line in self.__lines:
-                if maximum_data > max_support:
-                    line._CTkLine__temp_data = line._CTkLine__data[maximum_data - max_support::]
-                else:
-                    line._CTkLine__temp_data = line._CTkLine__data
-                line._CTkLine__reset()
+        for line in self.__lines:
+            if maximum_data > max_visible_points:
+                line._CTkLine__temp_data = line._CTkLine__data[maximum_data - max_visible_points::]
+                line._CTkLine__data = line._CTkLine__data[:maximum_data - max_visible_points:]
+            else:
+                line._CTkLine__temp_data = line._CTkLine__data
+                line._CTkLine__data = []
+            line._CTkLine__reset_positions()
 
-            for line in self.__lines:
-                self.show_data(line=line, data=line._CTkLine__temp_data)
+        for line in self.__lines:
+            self.show_data(line=line, data=line._CTkLine__temp_data)
+
 
     def show_data(self, line: CTkLine, data: List[Union[int, float]]) -> None:
         """
@@ -1613,9 +1647,11 @@ class CTkLineChart:
                 x_ += self.__x_axis_point_spacing
             return x_
 
-        max_sup = int(self.__const_real_width / self.__x_axis_point_spacing)
-        max_view = max_sup + 1
+        max_view = self.__get_max_visible_data_points()
+        max_sup = max_view - 1
         values = []
+        max_data = self.__get_max_data_length_across_lines()
+        
         try:
             max_data = max([len(line._CTkLine__data) for line in self.__lines])
             if self.__pointer_lock == "enabled":
@@ -1663,7 +1699,40 @@ class CTkLineChart:
                     self.__pointing_callback_function("null", values)
         except:
             pass
+    
+    def clear_data(self) -> None:
+        """
+        Clears the data of all lines within the LineChart object, ensuring the data fits the 
+        maximum visible points allowed for the chart.
 
+        This method calculates the maximum number of data points across all lines and the maximum
+        number of visible data points allowed. If the total data exceeds the visible points limit, 
+        it trims each line's data to retain only the most recent visible data points.
+
+        The method checks the length of the data across all lines and compares it with the maximum 
+        visible data points. If necessary, each line’s data is cropped by removing earlier data 
+        points, retaining only the most recent data within the visible limit.
+
+        Attributes:
+            self.__lines: A list of line objects representing each individual line on the chart.
+        
+        Returns:
+            None: This method modifies the internal state of each line's data but does not return any value.
+
+        Example:
+            chart.clear_data()
+
+        In this example, the data for each line in the chart will be cleared or trimmed based on the 
+        maximum visible data points. Only the most recent data within the allowed visible range is kept.
+        """
+        
+        maximum_data = self.__get_max_data_length_across_lines()
+        max_visible_points = self.__get_max_visible_data_points()
+        
+        for line in self.__lines:
+            if maximum_data > max_visible_points:
+                line._CTkLine__data = line._CTkLine__data[maximum_data - max_visible_points::]
+                
     def place(
             self,
             x: int = None,
@@ -2051,16 +2120,14 @@ class CTkLineChart:
         Validate._isValidCTkLine(line, "line")
         if line not in self.__lines:
             Validate._invalidCTkLine(line)
-        lines_values = [len(line_._CTkLine__data) for line_ in self.__lines]
-
-        if len(lines_values) > 0:
-            maximum_data = max(lines_values)
-            max_support = int(self.__const_real_width / self.__x_axis_point_spacing) + 1
-           
-            if maximum_data > max_support:
-                line._CTkLine__temp_data = line._CTkLine__data[maximum_data - max_support::]
-            else:
-                line._CTkLine__temp_data = line._CTkLine__data
+        
+        maximum_data = self.__get_max_data_length_across_lines()
+        max_visible_points = self.__get_max_visible_data_points()
+        
+        if maximum_data > max_visible_points:
+            line._CTkLine__temp_data = line._CTkLine__data[maximum_data - max_visible_points::]
+        else:
+            line._CTkLine__temp_data = line._CTkLine__data
                 
         # print(self.__x_axis_point_spacing)
         total_area = 0
@@ -2201,6 +2268,7 @@ class CTkLineChart:
         It ensures that all widgets are destroyed and attributes are deleted
         to aid in garbage collection.
         """
+        
         # Destroy widgets
         try:
             self.__main_frame.destroy()
@@ -2305,6 +2373,10 @@ class CTkLineChart:
         del self.__margin
 
     def destroy(self) -> None:
+        """
+        Destroy the chart.
+        """
+        
         ThemeManager.unbind_widget(self)
         for line in self.__lines:
             line.destroy()

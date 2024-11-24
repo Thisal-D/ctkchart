@@ -16,7 +16,6 @@ class CTkLine:
             fill: Literal["enabled", "disabled"] = "disabled",
             fill_color: Union[Tuple[str, str], str] = ("#bdc6ed", "#5d6db6"),
             *args: any) -> None:
-
         """
         Initialize a CTkLine object.
 
@@ -80,7 +79,6 @@ class CTkLine:
             point_highlight_color: Union[Tuple[str, str], str] = None,
             fill: Literal["enabled", "disabled"] = None,
             fill_color: Union[Tuple[str, str], str] = None) -> None:
-
         """
         Configure attributes of the CTkLine object.
 
@@ -146,20 +144,56 @@ class CTkLine:
         if changes_req:
             self.__master._CTkLineChart__apply_line_configuration()
 
-    def __reset(self) -> None:
+    def __reset_positions(self) -> None:
         """
-        Reset the CTkLine object.
+        Reset the Line object.
         """
-
+       
         self.__y_end = 0
         self.__x_end = self.__master._CTkLineChart__x_axis_point_spacing * -1
+        
+    def __reset_data(self) -> None:
         self.__data = []
+        
+    def clear_data(self) -> None:
+        """
+        Clears the chart data, ensuring that only the relevant visible data is retained.
+
+        This method works by checking the maximum number of data points across all lines in the chart 
+        and the maximum number of visible data points. If the chart contains more data points than 
+        the visible limit, the data is cropped so that only the most recent data points (up to the 
+        visible limit) are kept. If the chart is already within the visible limit, the data is not altered.
+
+        The data is trimmed from the beginning of the dataset, and the most recent points are kept.
+        
+        This ensures that the chart does not display more data than the allowed visible limit, 
+        optimizing performance and display consistency.
+
+        Attributes:
+            self.__data: The internal list that holds all the data for the lines on the chart.
+
+        Returns:
+            None: This method modifies the internal state of the data but does not return any value.
+
+        Example:
+            line.clear_data()
+        
+        In this example, the data is cleaned up to ensure that only the most recent visible data 
+        points are kept, improving the rendering performance and reducing memory usage.
+        """
+        
+        maximum_data = self.__master._CTkLineChart__get_max_data_length_across_lines()
+        max_visible_points = self.__master._CTkLineChart__get_max_visible_data_points()
+        
+        if maximum_data > max_visible_points:
+            self.__data = self.__data[maximum_data - max_visible_points::]
 
     def reset(self) -> None:
         """
         Reset the line.
         """
-        self.__reset()
+        self.__reset_positions()
+        self.__reset_data()
         self.__master._CTkLineChart__apply_line_configuration()
 
     def set_visible(self, state: bool) -> None:
@@ -169,6 +203,7 @@ class CTkLine:
         Args:
             state (bool): True if the line should be visible, False otherwise.
         """
+        
         Validate._isBool(state, "state")
         if self.__visibility != state:
             self.__visibility = state
