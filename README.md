@@ -4,10 +4,9 @@
 
 # ctkchart
 
+### `v 2.1.5`
+
 [![Downloads](https://static.pepy.tech/badge/ctkchart)](https://pepy.tech/project/ctkchart) [![Downloads](https://static.pepy.tech/badge/ctkchart/month)](https://pepy.tech/project/ctkchart) [![Downloads](https://static.pepy.tech/badge/ctkchart/week)](https://pepy.tech/project/ctkchart)
-
-<img src="https://drive.google.com/thumbnail?id=1YgJhoMequmeKlWmcNo8sgz2RhffPkRVk&sz=w180">
-
 
 </div>
 
@@ -78,8 +77,8 @@
 ### Links
 
 - **Documentation :** [Documents](documentation)
-    - [English doc.](documentation/DOCUMENTATION_EN.md)
-    - [Chinese doc.](documentation/DOCUMENTATION_CN.md)
+    - [English doc.](documentation/DOCUMENTATION_en.md)
+    - [Chinese doc.](documentation/DOCUMENTATION_zh.md)
 - **Python official :** [ctkchart](https://pypi.org/project/ctkchart/)
 
 ---
@@ -378,8 +377,8 @@
 **Explore customizable features such as colors, fonts, and more in the documentation.**
 
 #### Please refer to the full documentation
-- [**English doc.**](documentation/DOCUMENTATION_EN.md)
-- [**Chinese doc.**](documentation/DOCUMENTATION_CN.md)
+- [**English doc.**](documentation/DOCUMENTATION_en.md)
+- [**Chinese doc.**](documentation/DOCUMENTATION_zh.md)
 
 ---
 
