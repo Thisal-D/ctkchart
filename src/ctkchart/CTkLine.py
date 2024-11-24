@@ -146,7 +146,7 @@ class CTkLine:
 
     def __reset_positions(self) -> None:
         """
-        Reset the CTkLine object.
+        Reset the Line object.
         """
        
         self.__y_end = 0
