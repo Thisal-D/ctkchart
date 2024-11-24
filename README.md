@@ -370,7 +370,7 @@
     - A single string representing the color. 
     - A tuple of two strings where the first string represents the color for the light theme and the second string represents the color for the dark theme.
      
-    https://github.com/Thisal-D/mark-down-test/assets/93121062/87d5495a-7b20-4b5f-b28d-1115f8b5919e
+    https://github.com/user-attachments/assets/9fed4b83-5b03-4ea0-82a0-36029dfc93dd
 
 ---
 
