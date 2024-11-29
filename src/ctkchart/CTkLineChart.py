@@ -57,12 +57,6 @@ class CTkLineChart:
             pointer_size: int = 1,
 
             *args: Any) -> None:
-        """
-        Initialize Theme manager
-        """
-        ThemeManager.bind_widget(self)
-        if ThemeManager.running_state is not True:
-            ThemeManager.run()
 
         """
         Initialize the CTkLineChart.
@@ -269,6 +263,16 @@ class CTkLineChart:
         self.__place_widgets()
         self.__reset_chart_info()
         self.__configure_theme_mode()
+        self.__configure_theme_management()    
+    
+    def __configure_theme_management(self):
+        """
+        Initialize Theme manager (if not already initialized)and bind the widget to it
+        """
+        
+        ThemeManager.bind_widget(self)
+        if ThemeManager.running_state is not True:
+            ThemeManager.run()
 
     def __configure_theme_mode(self) -> None:
         """
@@ -325,6 +329,7 @@ class CTkLineChart:
 
         This method adjusts the background colors of various Tkinter widgets based on the current theme.
         """
+        
         self.__y_axis_frame.configure(bg=ThemeManager.get_color_by_theme(self.__axis_color))
         self.__x_axis_frame.configure(bg=ThemeManager.get_color_by_theme(self.__axis_color))
         self.__output_canvas.configure(bg=ThemeManager.get_color_by_theme(self.__fg_color))
