@@ -1,386 +1,360 @@
-<div align="center">
+<div id="top">
 
-[![ctkchart](https://snyk.io/advisor/python/ctkchart/badge.svg)](https://snyk.io/advisor/python/ctkchart)
+### <a href="#contributing">Contributing to ctkchart</a>
 
-# ctkchart
+# ctkchart - 0.0.1 (beta)
 
-### `v 2.1.6`
+https://github.com/Thisal-D/ctkchart/assets/93121062/05d01144-ad3e-4d7c-aa61-df79acf2e1c7
 
-[![Downloads](https://static.pepy.tech/badge/ctkchart)](https://pepy.tech/project/ctkchart) [![Downloads](https://static.pepy.tech/badge/ctkchart/month)](https://pepy.tech/project/ctkchart) [![Downloads](https://static.pepy.tech/badge/ctkchart/week)](https://pepy.tech/project/ctkchart)
+https://github.com/Thisal-D/ctkchart/assets/93121062/6fb3cba4-909b-46bc-a259-17db5279a1e1
+
+### <li>ctkchart Library is a Python library that simplifies the process of creating line charts in tkinter and customtkinter GUI applications.</li>
+
+<br>
+
+## ctkchart - 0.0.1  (beta)
+
+### You need to install & import package first
+* installation
+    * ``` 
+        pip install ctkchart 
+        ```
+
+* importing
+    * ```
+        import ctkchart
+        ```
+
+## objects
+* CTkLineChart 
+* CTkLine 
+
+## To display data using CTkLineChart you need to do 3 main tasks
+1. Creating a CTkLineChart
+2. Creating a CTkLine
+3. Display of data
+<br>
+<br>
+
+
+# 1 . Creating a CTkLineChart
+ 
+```
+linechart = ctkchart.CTkLineChart()
+```
+- ##  Attributes & Types & Values
+    ## Master Configuration
+    - master : ``tkinter | customtkinter (Frame | Canvas | Tk)``
+
+    ## Dimensions 
+    - width : ``int``
+    - height : ``int``
+    - axis_size : ``int``
+    - x_space : ``int``
+    - y_space : ``int``
+    - line_width : ``int | str``
+        - "auto"
+        - 10
+    - pointer_size : ``int``
+
+    ## Value Configuration
+    - x_axis_section_count : ``int``
+    - y_axis_section_count : ``int``
+    - x_axis_label_count : ``int``
+    - y_axis_label_count : ``int``
+    - x_axis_display_values_indices : ``tuple[int, ...]``
+    - x_axis_data : ``any``
+    - y_axis_data : ``any``
+    - x_axis_values : ``tuple(any, ...)`` 
+        - ("2020 Year", "2021 Year", "2022 Year", "2023 Year", "2024 Year")
+        - (0.1, 0.2, 0.3, 0.4, 0.5)
+    - y_axis_values : ``tuple(int | float, int | float)``
+        - (0 ,1000)
+        - (-1000, 1000)
+    - y_axis_precision : ``int``
+    - pointing_values_precision : ``int``
+    - ~~y_axis_max_value~~ : <span style="color:red; font-weight:bold">Deprecated</span>
+
+    ## Color Configuration
+    - bg_color : ``tuple[str, str] | str``
+    - fg_color : ``tuple[str, str] | str``
+    - axis_color : ``tuple[str, str] | str``
+    - x_axis_font_color : ``tuple[str, str] | str``
+        - "#ffffff"
+        - "white"
+    - y_axis_font_color : ``tuple[str, str] | str``
+    - x_axis_data_font_color : ``tuple[str, str] | str``
+    - y_axis_data_font_color : ``tuple[str, str] | str``
+    - y_axis_section_color : ``tuple[str, str] | str``
+    - x_axis_section_color : ``tuple[str, str] | str``
+    - pointer_color : ``tuple[str, str] | str``
+    - ~~section_color~~ : <span style="color:red; font-weight:bold">Deprecated</span>
+    
+    ## Font Configuration
+    - data_font_style : ``tuple[str, int, str]``
+        - ("arial", 10, "bold")
+        - ("arial", 20, "normal")
+    - axis_font_style : ``tuple``
+
+    ## Style Configuration
+    - x_axis_data_position : ``str``
+        - "top"
+        - "side"
+    - y_axis_data_position : ``str``
+    - x_axis_section_style : ``str``
+        - "normal"
+        - "dashed"
+    - y_axis_section_style : ``str``
+    - x_axis_section_style_type : ``tuple(int, int)``
+        - (50, 10)
+        - (10, 10)
+    - y_axis_section_style_type : ``tuple(int, int)``
+
+    ## Data Retrieval Configuration
+    - pointing_callback_function : ``function``
+        - function_name(*args)
+        - function_name(x ,y)
+    - pointer_state : ``str``
+        - "enabled"
+        - "disabled"
+    - pointer_lock : ``str``
+        - "enabled"
+        - "disabled"
+    
+    ## Recent Changes
+    -  ~~y_axis_max_value : ``int | float``~~ <span style="color:red; font-weight:bold">Deprecated</span>
+        - replaced with y_axis_values : ``tuple(int | float, int | float)``
+
+            **_The y_axis_values parameter is a tuple where the value at index 0 represents the starting value of the Y-axis, and the value at index 1 represents the ending value of the Y-axis._**
+
+    - ~~section_color : ``tuple[str, str] | str``~~ <span style="color:red; font-weight:bold">Deprecated</span>
+        - replaced with x_axis_section_color : ``tuple[str, str] | str``
+        - replaced with y_axis_section_color : ``tuple[str, str] | str``
+
+- ##  Methods
+
+    - ### configure : ``use to change CTkLineChart attributes``
+        Support parameters
+        - width 
+        - height 
+        - axis_size 
+        - x_space 
+        - y_space 
+        - line_width 
+        - pointer_size
+        - x_axis_section_count 
+        - y_axis_section_count 
+        - x_axis_label_count
+        - y_axis_label_count 
+        - x_axis_display_values_indices 
+        - x_axis_data 
+        - y_axis_data 
+        - x_axis_values 
+        - y_axis_values 
+        - y_axis_precision 
+        - pointing_values_precision
+        - bg_color 
+        - fg_color
+        - axis_color
+        - x_axis_font_color 
+        - y_axis_font_color 
+        - x_axis_data_font_color 
+        - y_axis_data_font_color
+        - y_axis_section_color 
+        - x_axis_section_color 
+        - pointer_color
+        - data_font_style 
+        - axis_font_style
+        - x_axis_data_position 
+        - y_axis_data_position 
+        - x_axis_section_style 
+        - y_axis_section_style
+        - x_axis_section_style_type 
+        - y_axis_section_style_type 
+        - pointing_callback_function
+        - pointer_state 
+        - pointer_lock 
+        - ~~y_axis_max_value~~ : <span style="color:red; font-weight:bold">Removed</span>
+        - ~~section_color~~ : <span style="color:red; font-weight:bold">Removed</span>
+    
+
+        
+    - ### show_data : ``use to display data``
+        Support parameters
+        - data : ``tuple``
+        - line : ``ctkchart.CTkLine``
+       
+    - ### place : ``use to place LineChart``
+        Support parameters
+        - x
+        - y
+        - rely
+        - relx
+        - anchor
+       
+    - ### pack : ``use to pack LineChart``
+        Support parameters
+        - pady
+        - padx
+        - before
+        - after
+        - side
+        - anchor
+        
+    - ### grid : ``use to grid LineChart``
+        Support parameters
+        - column
+        - columnspan
+        - padx
+        - pady
+        - row
+        - rowspan
+        - sticky
+
+    - ### place_forget : ``use to place forget the chart``
+    - ### pack_forget : ``use to pack forget the chart``
+    - ### grid_forget : ``use to grid forget the chart``
+    - ### place_back : ``use to place chart in the old location after place forget``
+    - ### pack_back : ``use to pack chart in the old location after pack forget``
+    - ### grid_back : ``use to grid chart in the old location after grid forget``
+    - ### hide_all : ``use to hide all the lines``
+        Support parameters
+        - state : ``bool``
+        
+    - ### hide : ``use to hide a specific line``
+        Support parameters
+        - line : ``ctkchart.CTkLine``
+        - state : ``bool``
+    - ### reset : ``use to reset chart``
+
+ 
+
+# 2 . Creating a CTkLine
+
+```
+line = ctkchart.CTkLine()
+```
+
+- ##  Attributes & Types & Values
+    - master : ``ctkchart.CTkLineChart``
+    - color : ``tuple[str, str] | str``
+        - "white"
+        - "#10f0f0"
+    - size : ``int``
+    - style : ``str``
+        - "normal"
+        - "dashed"
+        - "dotted"
+    - style_type : ``tuple(int, int)``
+        - (5,10)
+        - (10,5)
+    - point_highlight: ``str``
+        - "disabled"
+        - "enabled"
+    - point_highlight_size: ``int`` 
+    - point_highlight_color: ``tuple[str, str] | str``
+
+
+- ##  Methods
+    - #### configure : ``use to change CTkLine attributes``
+        Support parameters
+        - size 
+        - color 
+        - style
+        - style_type
+        - point_highlight
+        - point_highlight_size
+        - point_highlight_color
+
+```
+line = ctkchart.CTkLine(master=linechart,
+                color="lightblue",
+                size=2,
+                style="dashed",
+                style_type=(4,10))
+
+```
+
+
+# 3 . Display of Data
+```
+import ctkchart
+import customtkinter as ctk
+from random import choices
+
+root = ctk.CTk()
+
+
+
+chart = ctkchart.CTkLineChart(master=root, pointer_state="enabled", width=900, x_axis_values=tuple([x for x in range(20)]),
+                             pointer_lock="enabled", pointer_size=1)
+                      
+chart.place(x=10,y=10)
+
+line = ctkchart.CTkLine(master=chart)
+
+chart.show_data(line=line, data=[0,1,2,3,4,5,6,7,8,9,10])
+
+
+def loop():
+    chart.show_data(line=line, data=tuple(choices((range(0,11)),k=1)))
+    root.after(1000, loop)
+loop()
+
+
+root.mainloop()
+```
+
 
 </div>
 
-**<li>ctkchart is a Python library for creating live updating line charts in customtkinter.</li>**
-
----
-
-### Features
-
-- **Live Update**: Display live data with line charts.
-- **Multiple Lines**: Support for plotting multiple lines on the same chart for easy comparison.
-- **Color Customization**: Customize colors to match your application's design or data representation.
-- **Dynamic Color Change**: Dynamic Color Change for Dark & Light.
-- **Font Customization**: Adjust fonts for text elements to enhance readability.
-- **Dimension Customization**: Customize chart dimensions to fit various display sizes and layouts.
-
----
-
-### Importing & Installation
-* **Installation**
-    ```
-    pip install ctkchart
-    ```
-
-* **Importing**
-    ``` python
-    import ctkchart
-    ```
----
-
-
-### Simple Guide
-- **import package**
-    ``` python
-    import tkchart
-    ```
-    
-- **Create Line Chart and place the chart**
-    ``` python
-    chart = ctkchart.CTkLineChart(
-        master=root,
-        x_axis_values=("a", "b", "c", "d", "e", "f"),
-        y_axis_values=(100, 900)
-    )
-    chart.place(x=10, y=10)
-    ```
-
-- **Create Line**
-    ``` python
-    line = ctkchart.CTkLine(master=chart)
-    ```
-
-- **Display Data**
-    display data using a loop
-    ``` python
-    def loop():
-        while True:
-            random_data = random.choice(range(100, 900))
-            chart.show_data(line=line, data=[random_data])
-            time.sleep(1)
-    
-    #call the loop as thead
-    theading.Thread(target=loop).start()
-    ```
-    
----
-
-### Links
-
-- **Documentation :** [Documents](documentation)
-    - [English doc.](documentation/DOCUMENTATION_en.md)
-    - [Chinese doc.](documentation/DOCUMENTATION_zh.md)
-- **Python official :** [ctkchart](https://pypi.org/project/ctkchart/)
-
----
-
-### What You Can Accomplish
-
-- **Simple**
-
-    https://github.com/Thisal-D/ctkchart/assets/93121062/6f1e844f-d51c-467a-a3dc-ee03fea78fc9
-    
-    ``` python
-    import customtkinter as ctk  # Importing the customtkinter library as ctk
-    import ctkchart  # Importing the ctkchart module for chart creation
-    import random  # Importing the random module for generating random data
-    import threading  # Importing the threading module for running tasks concurrently
-    import time  # Importing the time module for adding delays
-
-    # Create the root window and configure
-    root = ctk.CTk()
-    root.configure(fg_color="#0d1117")
-    root.geometry("720x430+200+200")  
-
-    # Create a line chart widget
-    line_chart = ctkchart.CTkLineChart(
-        master=root,  # Set the master as the root window
-        x_axis_values=("01-01", "01-02", "01-03", "01-04", "01-05", "01-06", "01-07", "01-08", "01-09", "01-10"),  # X-axis values
-        y_axis_values=(0, 1000)  # Y-axis values (range)
-    )
-
-    line_chart.pack(pady=15)  # Pack the line chart widget into the root
-
-    # Create a line for the line chart
-    line = ctkchart.CTkLine(master=line_chart)  # Set the master as the line chart
-
-    def display_data():
-        """Function to continuously display random data on the line chart."""
-        while True:
-            random_data = [random.choice(range(0, 1000))]  # Generate random data between 0 and 1000
-            line_chart.show_data(line=line, data=random_data)  # Display the random data on the line chart
-            time.sleep(0.5)  # Pause for 0.5 seconds before the next iteration
-
-    # Call the display_data function as a separate thread
-    threading.Thread(target=display_data).start()
-
-    # Start the main event loop
-    root.mainloop()
-    ```
-    ---
-
-- **Simple style**
-
-    https://github.com/Thisal-D/ctkchart/assets/93121062/afe56452-68c3-44f0-9c67-2ab6f6910f6e
-
-    ``` python
-    import customtkinter as ctk  # Importing the customtkinter library as ctk
-    import ctkchart  # Importing the ctkchart module for chart creation
-    import random  # Importing the random module for generating random data
-    import threading  # Importing the threading module for running tasks concurrently
-    import time  # Importing the time module for adding delays
-
-    # Create the root window and configure
-    root = ctk.CTk()
-    root.configure(fg_color="#0d1117")
-    root.geometry("720x430+200+200")  
-
-    # Create a line chart widget
-    line_chart = ctkchart.CTkLineChart(
-        master=root,  # Set the master as the root window
-        x_axis_values=("01-01", "01-02", "01-03", "01-04", "01-05", "01-06", "01-07", "01-08", "01-09", "01-10"),  # X-axis values
-        y_axis_values=(0, 1000),  # Y-axis values (range)
-        y_axis_label_count=10, # set y axis labels count to 10
-    )
-
-    line_chart.pack(pady=15)  # Pack the line chart widget into the root
-
-    # Create a line for the line chart
-    line = ctkchart.CTkLine(
-        master=line_chart,  # Set the master as the line chart
-        size=2,  # Set the line size to 2
-        fill="enabled" # enable line fill
-    )  
-
-    def display_data():
-        """Function to continuously display random data on the line chart."""
-        while True:
-            random_data = [random.choice(range(0, 1000))]  # Generate random data between 0 and 1000
-            line_chart.show_data(line=line, data=random_data)  # Display the random data on the line chart
-            time.sleep(0.5)  # Pause for 0.5 seconds before the next iteration
-
-    # Call the display_data function as a separate thread
-    threading.Thread(target=display_data).start()
-
-    # Start the main event loop
-    root.mainloop()
-    ```
-    ---
-
-- **2 lines with different line styles**
-
-    https://github.com/Thisal-D/ctkchart/assets/93121062/9bc35a39-a8ca-4942-9fc7-a1c89d1bd1bc
-
-    ``` python
-    import customtkinter as ctk  # Importing the customtkinter library as ctk
-    import ctkchart  # Importing the ctkchart module for chart creation
-    import random  # Importing the random module for generating random data
-    import threading  # Importing the threading module for running tasks concurrently
-    import time  # Importing the time module for adding delays
-
-    # Create the root window and configure
-    root = ctk.CTk()
-    root.configure(fg_color=("#ffffff", "#0d1117"))
-    root.geometry("720x430+200+200")  
-
-    # Create a line chart widget
-    line_chart = ctkchart.CTkLineChart(
-        master=root,  # Set the master as the root window
-        x_axis_values=("01-01", "01-02", "01-03", "01-04", "01-05", "01-06", "01-07", "01-08", "01-09", "01-10"),  # X-axis values
-        y_axis_values=(0, 1000),  # Y-axis values (range)
-        y_axis_label_count=10, # set y axis labels count to 10
-    )
-
-    line_chart.pack(pady=15)  # Pack the line chart widget into the root
-
-    line1 = ctkchart.CTkLine(
-        master=line_chart,  # Set the master as the line chart
-        color=("#5dffb6","#5dffb6"), # index 0 for light and 1 for dark theme
-        size=2,  # Set the line size to 2
-        style="dashed", # style change to dashed
-        style_type=(10, 5), #index 0 for dash width and 1 for space between dashes
-    ) 
-
-    line2 = ctkchart.CTkLine(
-        master=line_chart,  # Set the master as the line chart
-        color=("#FFBAD2", "#FFBAD2"), # index 0 for light and 1 for dark theme
-        size=2,  # Set the line size to 2
-        point_highlight="enabled", # enable point highlight
-        point_highlight_color=("#FFBAD2", "#FFBAD2"), # enable point highlight
-    )  
-
-    def display_data():
-        """Function to continuously display random data on the line chart."""
-        while True:
-            random_data = [random.choice(range(0, 1000))]  # Generate random data between 0 and 1000
-            line_chart.show_data(line=line1, data=random_data)  # Display the random data on the line 1 on chart
-            random_data = [random.choice(range(0, 1000))]  # Generate random data between 0 and 1000
-            line_chart.show_data(line=line2, data=random_data)  # Display the random data on the line 2 on chart    
-            time.sleep(0.5)  # Pause for 0.5 seconds before the next iteration
-
-    # Call the display_data function as a separate thread
-    threading.Thread(target=display_data).start()
-
-    # Start the main event loop
-    root.mainloop()
-    ```
-    ---
-
-- **3 lines with different line styles**
-
-    https://github.com/Thisal-D/ctkchart/assets/93121062/6d568b70-2ceb-42d0-b93c-0096f2745134
-
-    ``` python
-    import customtkinter as ctk  # Importing the customtkinter library as ctk
-    import ctkchart  # Importing the ctkchart module for chart creation
-    import random  # Importing the random module for generating random data
-    import threading  # Importing the threading module for running tasks concurrently
-    import time  # Importing the time module for adding delays
-
-    # Create the root window and configure
-    root = ctk.CTk()
-    root.configure(fg_color=("#ffffff", "#0d1117"))
-    root.geometry("720x430+200+200")  
-
-    # Create a line chart widget
-    line_chart = ctkchart.CTkLineChart(
-        master=root,  # Set the master as the root window
-        x_axis_values=("01-01", "01-02", "01-03", "01-04", "01-05", "01-06", "01-07", "01-08", "01-09", "01-10"),  # X-axis values
-        y_axis_values=(0, 1000),  # Y-axis values (range)
-        y_axis_label_count=10, # set y axis labels count to 10
-    )
-
-    line_chart.pack(pady=15)  # Pack the line chart widget into the root
-
-    # Create a line 1 for the line chart
-    line1 = ctkchart.CTkLine(
-        master=line_chart,  # Set the master as the line chart
-        size=2,  # Set the line size to 2
-        fill="enabled" # enable line fill
-    )  
-
-    line2 = ctkchart.CTkLine(
-        master=line_chart,  # Set the master as the line chart
-        color=("#5dffb6","#5dffb6"), # index 0 for light and 1 for dark theme
-        size=2,  # Set the line size to 2
-        style="dashed", # style change to dashed
-        style_type=(10, 5), #index 0 for dash width and 1 for space between dashes
-    ) 
-
-    line3 = ctkchart.CTkLine(
-        master=line_chart,  # Set the master as the line chart
-        color=("#FFBAD2", "#FFBAD2"), # index 0 for light and 1 for dark theme
-        size=2,  # Set the line size to 2
-        point_highlight="enabled", # enable point highlight
-        point_highlight_color=("#FFBAD2", "#FFBAD2"), # enable point highlight
-    )  
-
-    def display_data():
-        """Function to continuously display random data on the line chart."""
-        while True:
-            random_data = [random.choice(range(0, 1000))]  # Generate random data between 0 and 1000
-            line_chart.show_data(line=line1, data=random_data)  # Display the random data on the line 1 on chart
-            random_data = [random.choice(range(0, 1000))]  # Generate random data between 0 and 1000
-            line_chart.show_data(line=line2, data=random_data)  # Display the random data on the line 2 on chart
-            random_data = [random.choice(range(0, 1000))]  # Generate random data between 0 and 1000
-            line_chart.show_data(line=line3, data=random_data)  # Display the random data on the line 3 on chart
-            time.sleep(0.5)  # Pause for 0.5 seconds before the next iteration
-
-    # Call the display_data function as a separate thread
-    threading.Thread(target=display_data).start()
-
-    # Start the main event loop
-    root.mainloop()
-    ```
-    ---
-
-- **Advance** (Actually not, Just Two More Attributes Added)
+<br>
  
-    https://github.com/Thisal-D/ctkchart/assets/93121062/c2838fd6-3a0f-45be-bb39-9953d007067d
+<div id="contributing">
 
-    ``` python
-    import customtkinter as ctk  # Importing the customtkinter library as ctk
-    import ctkchart  # Importing the ctkchart module for chart creation
-    import random  # Importing the random module for generating random data
-    import threading  # Importing the threading module for running tasks concurrently
-    import time  # Importing the time module for adding delays
+### <a href="#top"> Go to top </a>
 
-    # Create the root window and configure
-    root = ctk.CTk()
-    root.configure(fg_color=("#ffffff", "#0d1117"))
-    root.geometry("720x430+200+200")  
+# Contributing to ctkchart
 
-    # Create a line chart widget
-    line_chart = ctkchart.CTkLineChart(
-        master=root,  # Set the master as the root window
-        x_axis_values=("01-01", "01-02", "01-03", "01-04", "01-05", "01-06", "01-07", "01-08", "01-09", "01-10"),  # X-axis values
-        y_axis_values=(0, 1000),  # Y-axis values (range)
-        y_axis_label_count=10, # set y axis labels count to 1
-        y_axis_section_count=10,
-        x_axis_section_count=10,
-    )
+Thank you for considering contributing to ctkchart! Please follow these guidelines to contribute effectively.
 
-    line_chart.pack(pady=15)  # Pack the line chart widget into the root
+## Getting Started
 
-    line1 = ctkchart.CTkLine(
-        master=line_chart,  # Set the master as the line chart
-        color=("#5dffb6","#5dffb6"), # index 0 for light and 1 for dark theme
-        size=2,  # Set the line size to 2
-        style="dashed", # style change to dashed
-        style_type=(10, 5), #index 0 for dash width and 1 for space between dashes
-    ) 
+1. Fork the repository.
+2. Clone your forked repository: `git clone https://github.com/Thisal-D/ctkchart.git`
+3. Create a new branch for your changes: `git checkout -b feature-branch`
 
-    line2 = ctkchart.CTkLine(
-        master=line_chart,  # Set the master as the line chart
-        color=("#FFBAD2", "#FFBAD2"), # index 0 for light and 1 for dark theme
-        size=2,  # Set the line size to 2
-        point_highlight="enabled", # enable point highlight
-        point_highlight_color=("#FFBAD2", "#FFBAD2"), # enable point highlight
-    )  
+## Making Changes
 
-    def display_data():
-        """Function to continuously display random data on the line chart."""
-        while True:
-            random_data = [random.choice(range(0, 1000))]  # Generate random data between 0 and 1000
-            line_chart.show_data(line=line1, data=random_data)  # Display the random data on the line 1 on chart
-            random_data = [random.choice(range(0, 1000))]  # Generate random data between 0 and 1000
-            line_chart.show_data(line=line2, data=random_data)  # Display the random data on the line 2 on chart    
-            time.sleep(0.5)  # Pause for 0.5 seconds before the next iteration
+1. Make your changes and ensure they follow the project's coding standards.
+2. Test your changes locally.
+3. Commit your changes: `git commit -m "Brief description of your changes"`
 
-    # Call the display_data function as a separate thread
-    threading.Thread(target=display_data).start()
+## Submitting Changes
 
-    # Start the main event loop
-    root.mainloop()
-    ```
----
+1. Push your changes to your forked repository: `git push origin feature-branch`
+2. Create a pull request on the main repository.
 
--  #### Light and Dark theme
+## Code of Conduct
 
-    **For every parameter that involves color in ctkchart, you can provide either**: 
-    - A single string representing the color. 
-    - A tuple of two strings where the first string represents the color for the light theme and the second string represents the color for the dark theme.
-     
-    https://github.com/user-attachments/assets/9fed4b83-5b03-4ea0-82a0-36029dfc93dd
+Please adhere to the [Code of Conduct](CODE_OF_CONDUCT.md) to maintain a respectful and inclusive community.
 
----
+## Issues and Discussions
 
-**Explore customizable features such as colors, fonts, and more in the documentation.**
+If you encounter issues or have questions, please check the [issue tracker](https://github.com/Thisal-D/ctkchart/issues) or start a discussion in the [GitHub Discussions](https://github.com/Thisal-D/ctkchart/discussions) section.
 
-#### Please refer to the full documentation
-- [**English doc.**](documentation/DOCUMENTATION_en.md)
-- [**Chinese doc.**](documentation/DOCUMENTATION_zh.md)
+## License
 
----
+By contributing, you agree that your contributions will be licensed under the project's [LICENSE](LICENSE).
 
-#### Contributors
-- [<img src="https://github.com/childeyouyu.png?size=25" width="25">](https://github.com/childeyouyu) [youyu](https://github.com/childeyouyu)
+Thank you for your contribution!
+
+</div>
+
+
+### go to PyPi
+- # PyPi.org   :   <a href="https://pypi.org/project/ctkchart" target="_blank" ><i>ctkchart</i></a>
+
+### go to GitHub
+- # GitHub.com   :  <a href="https://github.com/Thisal-D/ctkchart" target="_blank" ><i>ctkchart</i></a>
+

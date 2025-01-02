@@ -1,21 +1,5 @@
-from .CTkLineChart import CTkLineChart
-from .CTkLine import CTkLine
+from .CTkLineChart import *
+from .CTkLine import *
+from .Exceptions import *
 
-ENABLED: str = "enabled"
-DISABLED: str = "disabled"
-
-NORMAL: str = "normal"
-DASHED: str = "dashed"
-DOTTED: str = "dotted"
-
-TOP: str = "top"
-SIDE: str = "side"
-
-AUTO: str = "auto"
-
-"""
-ctkchart: a library for create live update chart for customtkinter guis.
-"""
-__title__ = "ctkchart"
-__version__ = "2.1.6"
-__authors__ = ("Thisal Dilmith", "childeyouyu (有语)")
+__version__ = "0.0.1"
