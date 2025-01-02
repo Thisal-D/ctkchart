@@ -8,33 +8,19 @@ root.geometry("1900x900")
 
 data = ([x for x in range(0,1001)])
 x_axis_values =  tuple([x for x in range(1,21)])
-line_chart = ctkchart.CTkLineChart(master=root, fg_color=("#FFFFFF","#101010"), bg_color=("#ffffff","#101010"),
-                               width=900, height=350,x_axis_section_color=("#aaaaaa","green"),y_axis_section_color=("#aaaaaa","green"),
-                               x_axis_data="", y_axis_data="",x_axis_data_position="side",
-                                 axis_size=1, y_axis_precision=0,
-                               x_axis_values=x_axis_values, y_axis_values=(0, 1000),
-                               x_axis_label_count=20, y_axis_label_count=10,
-                               x_axis_section_count=10, y_axis_section_count=10,
-                               y_space=10, x_space=10)
+line_chart = ctkchart.CTkLineChart(master=root,
+                               x_axis_values=x_axis_values, y_axis_values=(0, 1000))
 line_chart.pack()
 
-line_chart2 = ctkchart.CTkLineChart(master=root, fg_color=("#FFFFFF","#101010"), bg_color=("#ffffff","#101010"),
-                               width=900, height=350,x_axis_section_color=("#aaaaaa","green"),y_axis_section_color=("#aaaaaa","green"),
-                               x_axis_data="", y_axis_data="",x_axis_data_position="side",
-                                 axis_size=1, y_axis_precision=0,
-                               x_axis_values=x_axis_values, y_axis_values=(0, 1000),
-                               x_axis_label_count=20, y_axis_label_count=10,
-                               x_axis_section_count=10, y_axis_section_count=10,
-                               y_space=10, x_space=10)
-line_chart.pack()
 
-line = ctkchart.CTkLine(master=line_chart2, style="dashed", style_type=(10,5), size=1, color=("#404040", "lightblue"), fill="enabled",
+line = ctkchart.CTkLine(master=line_chart, style="dashed", style_type=(10,5), size=1, color=("#404040", "lightblue"), fill="enabled",
                     point_highlight="enabled", point_highlight_size=5, point_highlight_color=("#404040", "lightblue"))
 
 def loop():
     line_chart.show_data(line=line ,data=[random.choice(data)])
-    root.after(400, loop)
+    root.after(100, loop)
 loop()
+
 
 frame = ctk.CTkScrollableFrame(master=root, width=1000, height=900, fg_color=("#FFFFFF","#151515"))
 frame.pack(pady=100)
@@ -44,7 +30,6 @@ def line_chart_configure(**kwrgs):
 
 def line_configure(**kwrgs):
     line.configure(**kwrgs)
-
 
 row = 1
 ctk.CTkLabel(text_color=("black", "white"), master=frame, text="Line Chart Attributes : ", font=("Arial",25,"bold")).grid(row=row, column=1)

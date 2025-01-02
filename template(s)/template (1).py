@@ -22,8 +22,6 @@ line = ctkchart.CTkLine(master=chart,
 data = [x for x in range(-100,100)]
 def loop():
     chart.show_data(line=line, data=[0, -80, -40, 100, 0, 80, 50, -50, -10,80,50,100])
-
-
 loop()
 
 root.mainloop()
