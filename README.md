@@ -1,18 +1,32 @@
 <div id="top">
 
+### 🌟 Like what you see? Give us a star! 🚀 Thanks a bunch! 😄
+
+## ***# If you're using tkinter, I recommend checking out <a href="https://github.com/Thisal-D/tkchart"> tkchart </a>.***
+
 ### <a href="#contributing">Contributing to ctkchart</a>
 
-# ctkchart - 0.0.1 (beta)
+<div align="center">
+
+<img src="https://drive.google.com/thumbnail?id=1f4Q2dA64iJGUVWpAZsl0q6Mq0NVkGCDR&sz=w900">
+
+<img src="https://drive.google.com/thumbnail?id=1Iy0H33x3J9tHh_FMTUV2zRITUk1xFrfB&sz=w180">
+
+</div>
+
+### <li>ctkchart Library is a Python library that simplifies the process of creating line charts in customtkinter GUI applications.</li>
+
+## Examples
+
+<a href="https://github.com/Thisal-D/ctkchart/blob/main/Tests/Main%20-%20Test.py"> Tests/Main - Test.py </a>
+
+https://github.com/Thisal-D/ctkchart/assets/93121062/8cdec09a-d5c1-458c-8575-39b0fbe4f21f
 
 https://github.com/Thisal-D/ctkchart/assets/93121062/05d01144-ad3e-4d7c-aa61-df79acf2e1c7
 
 https://github.com/Thisal-D/ctkchart/assets/93121062/6fb3cba4-909b-46bc-a259-17db5279a1e1
 
-### <li>ctkchart Library is a Python library that simplifies the process of creating line charts in tkinter and customtkinter GUI applications.</li>
-
-<br>
-
-## ctkchart - 0.0.1  (beta)
+## ctkchart - 0.0.2
 
 ### You need to install & import package first
 * installation
@@ -34,8 +48,6 @@ https://github.com/Thisal-D/ctkchart/assets/93121062/6fb3cba4-909b-46bc-a259-17d
 2. Creating a CTkLine
 3. Display of data
 <br>
-<br>
-
 
 # 1 . Creating a CTkLineChart
  
@@ -65,10 +77,10 @@ linechart = ctkchart.CTkLineChart()
     - x_axis_display_values_indices : ``tuple[int, ...]``
     - x_axis_data : ``any``
     - y_axis_data : ``any``
-    - x_axis_values : ``tuple(any, ...)`` 
+    - x_axis_values : ``tuple[any, ...]`` 
         - ("2020 Year", "2021 Year", "2022 Year", "2023 Year", "2024 Year")
         - (0.1, 0.2, 0.3, 0.4, 0.5)
-    - y_axis_values : ``tuple(int | float, int | float)``
+    - y_axis_values : ``tuple[int | float, int | float]``
         - (0 ,1000)
         - (-1000, 1000)
     - y_axis_precision : ``int``
@@ -80,8 +92,10 @@ linechart = ctkchart.CTkLineChart()
     - fg_color : ``tuple[str, str] | str``
     - axis_color : ``tuple[str, str] | str``
     - x_axis_font_color : ``tuple[str, str] | str``
-        - "#ffffff"
+        - ("#ffffff", "#000000")
+        - ("white", "black")
         - "white"
+        - "#ffffff"
     - y_axis_font_color : ``tuple[str, str] | str``
     - x_axis_data_font_color : ``tuple[str, str] | str``
     - y_axis_data_font_color : ``tuple[str, str] | str``
@@ -105,15 +119,15 @@ linechart = ctkchart.CTkLineChart()
         - "normal"
         - "dashed"
     - y_axis_section_style : ``str``
-    - x_axis_section_style_type : ``tuple(int, int)``
+    - x_axis_section_style_type : ``tuple[int, int]``
         - (50, 10)
         - (10, 10)
-    - y_axis_section_style_type : ``tuple(int, int)``
+    - y_axis_section_style_type : ``tuple[int, int]``
 
     ## Data Retrieval Configuration
     - pointing_callback_function : ``function``
         - function_name(*args)
-        - function_name(x ,y)
+        - function_name(x: any, y: list)
     - pointer_state : ``str``
         - "enabled"
         - "disabled"
@@ -123,7 +137,7 @@ linechart = ctkchart.CTkLineChart()
     
     ## Recent Changes
     -  ~~y_axis_max_value : ``int | float``~~ <span style="color:red; font-weight:bold">Deprecated</span>
-        - replaced with y_axis_values : ``tuple(int | float, int | float)``
+        - replaced with y_axis_values : ``tuple[int | float, int | float]``
 
             **_The y_axis_values parameter is a tuple where the value at index 0 represents the starting value of the Y-axis, and the value at index 1 represents the ending value of the Y-axis._**
 
@@ -177,39 +191,37 @@ linechart = ctkchart.CTkLineChart()
         - ~~y_axis_max_value~~ : <span style="color:red; font-weight:bold">Removed</span>
         - ~~section_color~~ : <span style="color:red; font-weight:bold">Removed</span>
     
-
-        
     - ### show_data : ``use to display data``
         Support parameters
-        - data : ``tuple``
+        - data : ``list``
         - line : ``ctkchart.CTkLine``
        
     - ### place : ``use to place LineChart``
         Support parameters
-        - x
-        - y
-        - rely
-        - relx
-        - anchor
+        - x : ``int``
+        - y : ``int``
+        - rely : ``float | int``
+        - relx : ``float | int``
+        - anchor : ``str``
        
     - ### pack : ``use to pack LineChart``
         Support parameters
-        - pady
-        - padx
-        - before
-        - after
-        - side
-        - anchor
+        - pady : ``int``
+        - padx : ``int``
+        - before : ``widget``
+        - after : ``widget``
+        - side : ``str``
+        - anchor : ``str``
         
     - ### grid : ``use to grid LineChart``
         Support parameters
-        - column
-        - columnspan
-        - padx
-        - pady
-        - row
-        - rowspan
-        - sticky
+        - column : ``int``
+        - columnspan : ``int``
+        - padx : ``int``
+        - pady : ``int``
+        - row : ``int``
+        - rowspan : ``int``
+        - sticky : ``str``
 
     - ### place_forget : ``use to place forget the chart``
     - ### pack_forget : ``use to pack forget the chart``
@@ -238,14 +250,16 @@ line = ctkchart.CTkLine()
 - ##  Attributes & Types & Values
     - master : ``ctkchart.CTkLineChart``
     - color : ``tuple[str, str] | str``
+        - ("#ffffff", "#000000")
+        - ("white", "black")
         - "white"
-        - "#10f0f0"
+        - "#ffffff"
     - size : ``int``
     - style : ``str``
         - "normal"
         - "dashed"
         - "dotted"
-    - style_type : ``tuple(int, int)``
+    - style_type : ``tuple[int, int]``
         - (5,10)
         - (10,5)
     - point_highlight: ``str``
@@ -284,8 +298,6 @@ from random import choices
 
 root = ctk.CTk()
 
-
-
 chart = ctkchart.CTkLineChart(master=root, pointer_state="enabled", width=900, x_axis_values=tuple([x for x in range(20)]),
                              pointer_lock="enabled", pointer_size=1)
                       
@@ -293,11 +305,8 @@ chart.place(x=10,y=10)
 
 line = ctkchart.CTkLine(master=chart)
 
-chart.show_data(line=line, data=[0,1,2,3,4,5,6,7,8,9,10])
-
-
 def loop():
-    chart.show_data(line=line, data=tuple(choices((range(0,11)),k=1)))
+    chart.show_data(line=line, data=(choices((range(0,11)),k=1)))
     root.after(1000, loop)
 loop()
 

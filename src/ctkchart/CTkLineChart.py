@@ -1,15 +1,12 @@
 import customtkinter
 import tkinter
-from .CTkLine import *
-from .Utils import *
-from .Validate import *
-from .FontStyle import *
-from typing import Union
-
-
+from .CTkLine import CTkLine
+from .Utils import Utils
+from .Validate import Validate
+from .FontStyle import FontStyle
 
 class CTkLineChart():
-   def __init__(self, master=None,
+   def __init__(self, master: any = None,
                   width: int = 700,
                   height: int = 400,
                   axis_size: int = 2,
@@ -156,8 +153,10 @@ class CTkLineChart():
 
       if master != None:
          self.master = master
-      if len(args) > 0:
+      elif len(args) != 0:
          self.master = args[0]
+      else:
+         self.master = master
       
       self.__height = height
       self.__width = width
@@ -284,34 +283,26 @@ class CTkLineChart():
       self.__theme = "unknown"
 
       self.__create_widgets()
-      
       self.__configure_required_widget_size()
       self.__configure_x_axis_labels_info()
       self.__configure_line_width()
-      
       self.__create_x_axis_labels()
       self.__set_x_axis_values()
-      
       self.__create_y_axis_labels()
       self.__set_y_axis_values()
-         
       self.__create_y_axis_sections()
       self.__create_x_axis_sections()
-      
       self.__set_x_y_axis_data_texts()
-      
       self.__set_pointer_state()
       self.__set_pointer_size()
-   
       self.__set_widgets_fonts()
-      self.__set_widgets_colors()
-      
+      self.__set_customtkinter_widgets_colors()
+      self.__set_tkinter_widgets_colors()
       self.__place_widgets()
       self.__reset_chart_info()
-      
       self.__track_theme_changes()
       
-      
+   
    def __track_theme_changes(self) -> None:
       def __track_theme_changes_loop():
          if self.__theme !=  customtkinter.get_appearance_mode():
@@ -323,8 +314,7 @@ class CTkLineChart():
       
       
    def __configure_widget_for_theme_changes(self) -> None:
-      self.__output_canvas.configure(bg=self.__get_color_by_theme(self.__fg_color))
-      self.__pointer.configure(bg=self.__get_color_by_theme(self.__pointer_color))
+      self.__set_tkinter_widgets_colors()
       self.__destroy_x_y_sections()
       self.__create_y_axis_sections()
       self.__create_x_axis_sections()
@@ -332,14 +322,14 @@ class CTkLineChart():
       
    def __create_widgets(self) -> None:
       self.__main_frame = customtkinter.CTkFrame(master=self.master)
-      self.__y_axis_frame = customtkinter.CTkFrame(master=self.__main_frame)
-      self.__x_axis_frame = customtkinter.CTkFrame(master=self.__main_frame)
+      self.__y_axis_frame = tkinter.Frame(master=self.__main_frame)
+      self.__x_axis_frame = tkinter.Frame(master=self.__main_frame)
       self.__x_axis_values_frame = customtkinter.CTkFrame(master=self.__main_frame)
       self.__y_axis_values_frame = customtkinter.CTkFrame(master=self.__main_frame)
       self.__y_axis_data_label = customtkinter.CTkLabel(master=self.__main_frame)
       self.__x_axis_data_label = customtkinter.CTkLabel(master=self.__main_frame)
       self.__output_frame = customtkinter.CTkFrame(master=self.__main_frame)
-      self.__output_canvas = customtkinter.CTkCanvas(master=self.__output_frame, highlightthickness=0)
+      self.__output_canvas = tkinter.Canvas(master=self.__output_frame, highlightthickness=0)
       self.__pointer = tkinter.Frame(master=self.__output_canvas)
       
    
@@ -352,16 +342,19 @@ class CTkLineChart():
          self.__output_canvas.unbind("<Motion>")
    
    
-   def __set_widgets_colors(self) -> None:
-      self.__y_axis_frame.configure(fg_color=self.__axis_color, bg_color=self.__bg_color)
-      self.__x_axis_frame.configure(fg_color=self.__axis_color, bg_color=self.__bg_color)
+   def __set_tkinter_widgets_colors(self):
+      self.__y_axis_frame.configure(bg=self.__get_color_by_theme(self.__axis_color))
+      self.__x_axis_frame.configure(bg=self.__get_color_by_theme(self.__axis_color))
+      self.__output_canvas.configure(bg=self.__get_color_by_theme(self.__fg_color))
+      self.__pointer.configure(bg=self.__get_color_by_theme(self.__pointer_color))
+   
+   
+   def __set_customtkinter_widgets_colors(self) -> None:
       self.__y_axis_values_frame.configure(fg_color=self.__bg_color, bg_color=self.__bg_color)
       self.__x_axis_values_frame.configure(fg_color=self.__bg_color, bg_color=self.__bg_color)
       
-      
       self.__main_frame.configure(fg_color=self.__bg_color)
       self.__output_frame.configure(fg_color=self.__fg_color, bg_color=self.__bg_color)
-      #self.__output_canvas.configure(bg=self.__fg_color)
       
       self.__y_axis_data_label.configure(fg_color=self.__bg_color, bg_color=self.__bg_color, text_color=self.__y_axis_data_font_color)
       for label in self.__x_axis_values_frame.winfo_children() :
@@ -372,9 +365,6 @@ class CTkLineChart():
       for label in self.__y_axis_values_frame.winfo_children():
          if type(label) == customtkinter.CTkLabel:
             label.configure(fg_color=self.__bg_color, bg_color=self.__bg_color, text_color=self.__y_axis_font_color)
-      
-      
-      self.__pointer.configure(bg=self.__get_color_by_theme(self.__pointer_color))
       
    
    def __set_widgets_fonts(self) -> None:
@@ -990,7 +980,8 @@ class CTkLineChart():
          self.__set_pointer_size()
       
          self.__set_widgets_fonts()
-         self.__set_widgets_colors()
+         self.__set_customtkinter_widgets_colors()
+         self.__set_tkinter_widgets_colors()
          
          self.__place_widgets()
          self.__reset_chart_info()
@@ -1017,7 +1008,8 @@ class CTkLineChart():
          self.__create_x_axis_sections()
             
       if widget_color_change_req :
-         self.__set_widgets_colors()
+         self.__set_customtkinter_widgets_colors()
+         self.__set_tkinter_widgets_colors()
       
       if widget_size_change_req == True:
          self.__set_pointer_size()
@@ -1096,18 +1088,22 @@ class CTkLineChart():
       else:
          return color_s
    
-   def show_data(self, line: CTkLine, data: tuple) -> None:
+   def show_data(self, line: CTkLine, data: list) -> None:
+      Validate._isValidCTkLine(line, "line")
+      Validate._isValidData(data, "data")
+      
       re_show_data = False
       if line not in self.__lines:
          self.__lines.append(line)
-      line._CTkLine__data += list(data)
+      line._CTkLine__data += data
       
       if line._CTkLine__hide_state != True :
+         
+         line_color = self.__get_color_by_theme(line._CTkLine__color)
+         highlight_color = self.__get_color_by_theme(line._CTkLine__point_highlight_color)
+         
          for d in data:
-   
-            line_color = self.__get_color_by_theme(line._CTkLine__color)
-            highlight_color = self.__get_color_by_theme(line._CTkLine__point_highlight_color)
-            
+
             self.__is_data_showing_working = True
             
             if not self.__force_to_stop_data_showing:
@@ -1213,7 +1209,8 @@ class CTkLineChart():
                                                          line._CTkLine__y_end - highlight_size,
                                                          line._CTkLine__x_end + highlight_size,
                                                          line._CTkLine__y_end + highlight_size,
-                                                         fill=highlight_color
+                                                         fill=highlight_color ,
+                                                         outline=highlight_color 
                                                       )
             else:
                break
@@ -1300,8 +1297,8 @@ class CTkLineChart():
    def pack(self,
             pady: int = None,
             padx: int = None,
-            before: tkinter.Widget = None,
-            after: tkinter.Widget = None,
+            before: any = None,
+            after: any = None,
             side: str = None,
             anchor: str = None
             ) -> None:
@@ -1317,7 +1314,7 @@ class CTkLineChart():
       
    def grid(self,
             column: int = None, 
-            columnspan: int =None, 
+            columnspan: int = None, 
             padx: int = None,  
             pady: int = None, 
             row: int = None, 
@@ -1367,12 +1364,15 @@ class CTkLineChart():
       
       
    def hide(self, line: CTkLine, state: bool) -> None:
+      Validate._isValidCTkLine(state, "line")
+      Validate._isBool(state, "state")
       if line._CTkLine__hide_state != state:
          line._CTkLine__hide_state = state
          self.__reshow_data()
       
       
    def hide_all(self, state: bool) -> None:
+      Validate._isBool(state, "state")
       if state == True:
          self.__output_canvas.place_forget()
       self.__force_to_stop_data_showing = True

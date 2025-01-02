@@ -1,5 +1,4 @@
-from .CTkLineChart import *
-from .CTkLine import *
-from .Exceptions import *
+from .CTkLineChart import CTkLineChart
+from .CTkLine import CTkLine
 
-__version__ = "0.0.1"
+__version__ = "0.0.2"
