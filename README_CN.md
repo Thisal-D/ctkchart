@@ -20,7 +20,7 @@
 [![Downloads](https://static.pepy.tech/badge/ctkchart)](https://pepy.tech/project/ctkchart) [![Downloads](https://static.pepy.tech/badge/ctkchart/month)](https://pepy.tech/project/ctkchart) [![Downloads](https://static.pepy.tech/badge/ctkchart/week)](https://pepy.tech/project/ctkchart)
 
 
-<img src="https://drive.google.com/thumbnail?id=1rMILz6ODw-1UY4YhlYAFiRCFUluNcVpI&sz=w180">
+<img src="https://drive.google.com/thumbnail?id=1jOltT5qBvLmKAdSU6zb9wjh3GYa6jRvD&sz=w180">
 
 </div>
 
@@ -143,13 +143,12 @@ linechart = ctkchart.CTkLineChart()
 | pack_forget        | Pack 忘记折线图                        | -                                                                                                                                |
 | grid_forget        | Grid 忘记折线图                        | -                                                                                                                                |
 | place_back         | Place 忘记位置后重新显示旧位置的折线图 |
-| pack_back          | Pack 忘记位置后重新显示旧位置的折线图  | -                                                                                                                                |
-| grid_back          | Grid 忘记位置后重新显示旧位置的折线图  | -                                                                                                                                |
+| pack_back          | Pack 忘记位置后重新显示旧位置的折线图  | -                                                                                                                                  |
+| grid_back          | Grid 忘记位置后重新显示旧位置的折线图  | -                                                                                                                                  |
 | hide_all           | 隐藏所有折线                           | state:  ``bool``                                                                                                                 |
-| hide               | 隐藏特定折线                           | line:  ``ctkchart.CTkLine``<br> state:  ``bool``                                                                                     |
+| hide               | 隐藏特定折线                           | line:  ``ctkchart.CTkLine``<br> state:  ``bool``                                                                                 |
 | reset              | 重置折线图                             | -                                                                                                                                |
-| cget               | 获取指定参数的值。                     | attribute_name:  ``str`` \| "\_\_全部\_\_"                                                                                       |
-| apply_line_changes | 应用对 Line 对象所做的更改。           | -                                                                                                                                |
+| cget               | 获取指定参数的值。                      | attribute_name:  ``str`` \| "\_\_all\_\_"                                                                                         |
 
 
 </div>
@@ -185,11 +184,11 @@ line = ctkchart.CTkLine()
 
 ## 方法
 
-| 方法      | 描述             | 支持的参数                               |
-| --------- | ---------------- | ---------------------------------------- |
-| configure | 更改折线图属性   | 所有属性，除了 master                    |
-| cget      | 获取指定参数的值 | attribute_name: ``str`` \| "\_\_all\_\_" |
-
+| 方法      | 描述             | 支持的参数                                |
+| --------- | ----------------|----------------------------------------|
+| configure | 更改折线图属性   | 所有属性，除了 master                      |
+| cget      | 获取指定参数的值 | attribute_name: ``str`` \| "\_\_all\_\_"  |
+|reset      | 重置线对象       | -                                        |
 </div>
 <br>
 <br>

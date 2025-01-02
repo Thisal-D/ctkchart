@@ -20,7 +20,7 @@
 
 [![Downloads](https://static.pepy.tech/badge/ctkchart)](https://pepy.tech/project/ctkchart) [![Downloads](https://static.pepy.tech/badge/ctkchart/month)](https://pepy.tech/project/ctkchart) [![Downloads](https://static.pepy.tech/badge/ctkchart/week)](https://pepy.tech/project/ctkchart)
 
-<img src="https://drive.google.com/thumbnail?id=1rMILz6ODw-1UY4YhlYAFiRCFUluNcVpI&sz=w180">
+<img src="https://drive.google.com/thumbnail?id=1jOltT5qBvLmKAdSU6zb9wjh3GYa6jRvD&sz=w180">
 
 </div>
 
@@ -151,7 +151,7 @@ linechart = ctkchart.CTkLineChart()
 | hide              | hide a specific line                               | line:  ``ctkchart.CTkLine``<br> state:  ``bool``                                                                                     |
 | reset             | reset line chart                                   | -                                                                                                                                |
 | cget              | Get the value of the specified parameter.          | attribute_name:  ``str`` \| "\_\_all\_\_"                                                                                        |
-|apply_line_changes | Applying changes made to a Line objects.           | -                                                                                                                        
+                                                                                                         
 
 
 </div>
@@ -192,7 +192,7 @@ line = ctkchart.CTkLine()
 |-------------------|----------------------------------------------------|------------------------------------------|
 | configure         | Change LineChart attributes                        | All attributes except for master         |                                                                
 | cget              | Get the value of the specified parameter.          | attribute_name: ``str`` \| "\_\_all\_\_" |
-
+| reset               | reset line object                                   | -                                       |
 </div>
 <br>
 <br>

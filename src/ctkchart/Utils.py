@@ -9,10 +9,12 @@ class Utils:
         label.config(text=str(text) +"")
         return label.winfo_reqwidth()/Utils.__change_val
 
+
     def _RequiredHeight(text: any, font: Tuple[str, int, str]) -> int:
         label = tkinter.Label(font=font)
         label.config(text=str(text) +"")
         return label.winfo_reqheight()/Utils.__change_val
+
 
     def _format_float_with_precision(float_val: Union[float, int], decimals: int) -> str:
         if decimals:
@@ -22,6 +24,7 @@ class Utils:
         else:
             return str(int(float_val))
 
+
     def _get_max_required_label_width(data: any, font: Tuple[str, int, str]) -> int:
         max_required_width = 0
         for d in data:
@@ -29,6 +32,7 @@ class Utils:
             if max_required_width<required_width:
                 max_required_width=required_width
         return max_required_width/Utils.__change_val
+
 
     def _get_max_required_label_height(data: any, font: Tuple[str, int, str]) -> int:
         max_required_height = 0
@@ -38,10 +42,12 @@ class Utils:
                 max_required_height=required_height
         return max_required_height/Utils.__change_val
 
+
     def _sort_tuple(values: Tuple[int, ...]) -> Tuple[int, ...]:
         values_list = list(set(values))
         values_list.sort()
         return tuple(values_list)
+    
     
     def _toInt(value: Union[int, str]) -> int:
         #return math.ceil(value)
