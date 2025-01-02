@@ -20,7 +20,7 @@
 [![Downloads](https://static.pepy.tech/badge/ctkchart)](https://pepy.tech/project/ctkchart) [![Downloads](https://static.pepy.tech/badge/ctkchart/month)](https://pepy.tech/project/ctkchart) [![Downloads](https://static.pepy.tech/badge/ctkchart/week)](https://pepy.tech/project/ctkchart)
 
 
-<img src="https://drive.google.com/thumbnail?id=1jOltT5qBvLmKAdSU6zb9wjh3GYa6jRvD&sz=w180">
+<img src="https://drive.google.com/thumbnail?id=1cHrsFILHJ7a2bgMXvk-PWlnLZx1vCnVR&sz=w180">
 
 </div>
 
@@ -84,71 +84,72 @@ linechart = ctkchart.CTkLineChart()
 
 ## 参数
 
-| 参数                                                        | 必备参数 / 可选参数 | 描述                           | 数据类型                        | 示例值                              |
-| ----------------------------------------------------------- | ------------------- | ------------------------------ | ------------------------------- | ----------------------------------- |
-| master                                                      | ***必须***          | 折线图主体                     | ``widget``                      | widget                              |
-| <a href="#x_y_axis_values">y_axis_values</a>                | ***必须***          | y 轴的最小值和最大值           | ``tuple[[int \| float], ...]``  | (-1000, 1000), ...                  |
-| <a href="#x_y_axis_values">x_axis_values</a>                | ***必须***          | x 轴的值                       | ``tuple[any, ...]``             | (1, 2, 3, 4, 5), ...                |
-| width                                                       | ***可选***          | 折线图的宽度                   | ``int``                         | 300, ...                            |
-| height                                                      | ***可选***          | 折线图的高度                   | ``int``                         | 100, ...                            |
-| <a href="#parameter_img">axis_size</a>                      | ***可选***          | 坐标轴宽度                     | ``int``                         | 1<=                                 |
-| <a href="#parameter_img">axis_color</a>                     | ***可选***          | 坐标轴轴颜色                   | ``tuple[str, str]`` \| ``str``  | ("#FF0000", "#00FF00"), ("red", "green"), "#2C2C2C" , "blue", ...              |
-| <a href="#parameter_img">bg_color</a>                       | ***可选***          | 折线图的背景色                 | ``tuple[str, str]`` \| ``str``                         | ("#FF0000", "#00FF00"),  "#191919", ...                      |
-| <a href="#parameter_img">fg_color</a>                       | ***可选***          | 折线图的前景色                 |``tuple[str, str]`` \|  ``str``                         | ("#FF0000", "#00FF00"), "#191919", ...                      |
-| <a href="#x_y_data">data_font_style</a>                     | ***可选***          | 坐标轴名称的字体样式           | ``tuple[str, int, str]``        | ("arial", 9, "bold"), ...           |
-| <a href="#x_y_font_style">axis_font_style</a>               | ***可选***          | 坐标轴文字的字体样式           | ``tuple[str, int, str]``        | ("arial", 8, "normal"), ...         |
-| <a href="#x_y_data">x_axis_data</a>                         | ***可选***          | x_data 的值（x 坐标轴名称）    | ``str``                         | "X", ...                            |
-| <a href="#x_y_data">y_axis_data</a>                         | ***可选***          | y_data 的值（y 坐标轴名称）    | ``any``                         | "Y", ...                            |
-| <a href="#x_y_data">x_axis_data_font_color</a>              | ***可选***          | x_data 的字体颜色              | ``tuple[str, str]`` \| ``str``                         | ("#FF0000", "#00FF00"), "#707070", ...                      |
-| <a href="#x_y_data">y_axis_data_font_color</a>              | ***可选***          | y_data 的字体颜色              |``tuple[str, str]`` \| ``str``                         | ("#FF0000", "#00FF00"), "#707070", ...                      |
-| <a href="#data_position">x_axis_data_position</a>           | ***可选***          | x_data 的排布方式              | ``str`` ("top", "side")         | "top"                               |
-| <a href="#data_position">y_axis_data_position</a>           | ***可选***          | y_data 的排布方式              | ``str`` ("top", "side")         | "top"                               |
-| <a href="#x_y_section">x_axis_section_count</a>             | ***可选***          | x 轴上的网格线数               | ``int``                         | 0<=                                 |
-| <a href="#x_y_section">y_axis_section_count</a>             | ***可选***          | y 轴上的网格线数               | ``int``                         | 0<=                                 |
-| <a href="#x_y_label_count">x_axis_label_count</a>           | ***可选***          | x 轴标签数量                   | ``int``                         | 0<=                                 |
-| <a href="#x_y_label_count">y_axis_label_count</a>           | ***可选***          | y 轴标签数量                   | ``int``                         | 1<=                                 |
-| <a href="#x_y_font_style">x_axis_font_color</a>             | ***可选***          | x 轴标签的字体颜色             | ``tuple[str, str]`` \| ``str``                         | ("#FF0000", "#00FF00"), "#606060", ...                      |
-| <a href="#x_y_font_style">y_axis_font_color</a>             | ***可选***          | y 轴标签的字体颜色             | ``tuple[str, str]`` \| ``str``                         | ("#FF0000", "#00FF00"), "#606060", ...                      |
-| <a href="#x_y_section_style">x_axis_section_style</a>       | ***可选***          | x 轴上的网格线样式             | ``str`` ("normal", "dashed")    | "normal"                            |
-| <a href="#x_y_section_style">y_axis_section_style</a>       | ***可选***          | y 轴上的网格线样式             | ``str`` ("normal", "dashed")    | "normal"                            |
-| <a href="#x_y_section_style">x_axis_section_style_type</a>  | ***可选***          | x 轴上网格线的实线与空白的尺寸 | ``tuple[int, int]``             | (100, 50) , (50,50), ...            |
-| <a href="#x_y_section_style">y_axis_section_style_type</a>  | ***可选***          | y 轴上网格线的实线与空白的尺寸 | ``tuple[int, int]``             | (100, 50)                           |
-| <a href="#x_y_section">x_axis_section_color</a>             | ***可选***          | x 轴上网格线的颜色             | ``tuple[str, str]`` \| ``str``                         | ("#FF0000", "#00FF00"), "#2C2C2C", ...                      |
-| <a href="#x_y_section">y_axis_section_color</a>             | ***可选***          | y 轴上网格线的颜色             | ``tuple[str, str]`` \| ``str``                         | ("#FF0000", "#00FF00"), "#2C2C2C"                           |
-| <a href="#y_precision">y_axis_precision</a>                 | ***可选***          | y 轴值的精度                   | ``int``                         | 0<=                                 |
-| <a href="#indices_view">x_axis_display_values_indices</div> | ***可选***          | 显示在 x 轴上的坐标值的索引    | ``tuple[int, ...]``             | (0, 1, 2, 3, 4, 5), ...             |
-| <a href="#x_axis_point_spacing">x_axis_point_spacing</a>    | ***可选***          | 线条宽度                       | ``int`` \| ``str`` "auto"       | "auto" <br> 1<=                     |
-| <a href="#parameter_img">x_space</a>                        | ***可选***          | x 轴和图表区域之间的空间       | ``int``                         | 0<=                                 |
-| <a href="#parameter_img">y_space</a>                        | ***可选***          | y 轴和图表区域之间的空间       | ``int``                         | 0<=                                 |
-| pointer_state                                               | ***可选***          | 鼠标状态                       | ``str`` ("enabled", "disabled") | "disabled"                          |
-| pointing_callback_function                                  | ***可选***          | 鼠标的回调函数                 | ``callable``                    | function(*args) <br> function(x, y) |
-| pointer_color                                               | ***可选***          | 鼠标颜色                       | ``tuple[str, str]`` \| ``str``                         | ("#FF0000", "#00FF00"), "#606060", ...                      |
-| pointing_values_precision                                   | ***可选***          | 指向值的精度                   | ``int``                         | 0<=                                 |
-| pointer_lock                                                | ***可选***          | 鼠标锁状态                     | ``str`` ("enabled", "disabled") | "enabled"                           |
-| pointer_size                                                | ***可选***          | 鼠标显示线的宽度               | ``int``                         | 1<=                                 |
-
+| 参数                                                       | 必备参数 / 可选参数 | 描述                           | 数据类型                        | 示例值                              |
+|------------------------------------------------------------|-------------------|--------------------------------|---------------------------------|------------------------------------|
+| master                                                     | ***必须***        | 折线图主体                     | ``widget``                     | widget                             |
+| [y_axis_values](#x_y_axis_values)                          | ***必须***        | y 轴的最小值和最大值           | ``tuple[int \| float], ...``   | (-1000, 1000), ...                 |
+| [x_axis_values](#x_y_axis_values)                          | ***必须***        | x 轴的值                       | ``tuple[any, ...]``            | (1, 2, 3, 4, 5), ...               |
+| width                                                      | ***可选***        | 折线图的宽度                   | ``int``                        | 300, ...                           |
+| height                                                     | ***可选***        | 折线图的高度                   | ``int``                        | 100, ...                           |
+| [axis_size](#parameter_img)                                | ***可选***        | 坐标轴宽度                     | ``int``                        | 1<=                                |
+| [axis_color](#parameter_img)                               | ***可选***        | 坐标轴轴颜色                   | ``tuple[str, str]`` \| ``str`` | ("#FF0000", "#00FF00"), ...       |
+| [bg_color](#parameter_img)                                 | ***可选***        | 折线图的背景色                 | ``tuple[str, str]`` \| ``str`` | ("#FF0000", "#00FF00"), ...       |
+| [fg_color](#parameter_img)                                 | ***可选***        | 折线图的前景色                 | ``tuple[str, str]`` \| ``str`` | ("#FF0000", "#00FF00"), ...       |
+| [data_font_style](#x_y_data)                               | ***可选***        | 坐标轴名称的字体样式           | ``tuple[str, int, str]``       | ("arial", 9, "bold"), ...          |
+| [axis_font_style](#x_y_font_style)                         | ***可选***        | 坐标轴文字的字体样式           | ``tuple[str, int, str]``       | ("arial", 8, "normal"), ...        |
+| [x_axis_data](#x_y_data)                                   | ***可选***        | x_data 的值（x 坐标轴名称）    | ``str``                        | "X", ...                           |
+| [y_axis_data](#x_y_data)                                   | ***可选***        | y_data 的值（y 坐标轴名称）    | ``any``                        | "Y", ...                           |
+| [x_axis_data_font_color](#x_y_data)                        | ***可选***        | x_data 的字体颜色              | ``tuple[str, str]`` \| ``str`` | ("#FF0000", "#00FF00"), "#707070", ... |
+| [y_axis_data_font_color](#x_y_data)                        | ***可选***        | y_data 的字体颜色              | ``tuple[str, str]`` \| ``str`` | ("#FF0000", "#00FF00"), "#707070", ... |
+| [x_axis_data_position](#data_position)                     | ***可选***        | x_data 的排布方式              | ``str``                        | "top"                              |
+| [y_axis_data_position](#data_position)                     | ***可选***        | y_data 的排布方式              | ``str``                        | "top"                              |
+| [x_axis_section_count](#x_y_section)                       | ***可选***        | x 轴上的网格线数               | ``int``                        | 0<=                                |
+| [y_axis_section_count](#x_y_section)                       | ***可选***        | y 轴上的网格线数               | ``int``                        | 0<=                                |
+| [x_axis_label_count](#x_y_label_count)                     | ***可选***        | x 轴标签数量                   | ``int``                        | 0<=                                |
+| [y_axis_label_count](#x_y_label_count)                     | ***可选***        | y 轴标签数量                   | ``int``                        | 1<=                                |
+| [x_axis_font_color](#x_y_font_style)                       | ***可选***        | x 轴标签的字体颜色             | ``tuple[str, str]`` \| ``str`` | ("#FF0000", "#00FF00"), "#606060", ... |
+| [y_axis_font_color](#x_y_font_style)                       | ***可选***        | y 轴标签的字体颜色             | ``tuple[str, str]`` \| ``str`` | ("#FF0000", "#00FF00"), "#606060", ... |
+| [x_axis_section_style](#x_y_section_style)                 | ***可选***        | x 轴上的网格线样式             | ``str``                        | "normal"                           |
+| [y_axis_section_style](#x_y_section_style)                 | ***可选***        | y 轴上的网格线样式             | ``str``                        | "normal"                           |
+| [x_axis_section_style_type](#x_y_section_style)            | ***可选***        | x 轴上网格线的实线与空白的尺寸 | ``tuple[int, int]``            | (100, 50) , (50,50), ...           |
+| [y_axis_section_style_type](#x_y_section_style)            | ***可选***        | y 轴上网格线的实线与空白的尺寸 | ``tuple[int, int]``            | (100, 50)                          |
+| [x_axis_section_color](#x_y_section)                       | ***可选***        | x 轴上网格线的颜色             | ``tuple[str, str]`` \| ``str`` | ("#FF0000", "#00FF00"), "#2C2C2C", ... |
+| [y_axis_section_color](#x_y_section)                       | ***可选***        | y 轴上网格线的颜色             | ``tuple[str, str]`` \| ``str`` | ("#FF0000", "#00FF00"), "#2C2C2C"  |
+| [y_axis_precision](#y_precision)                           | ***可选***        | y 轴值的精度                   | ``int``                        | 0<=                                |
+| [x_axis_display_values_indices](#indices_view)             | ***可选***        | 显示在 x 轴上的坐标值的索引    | ``tuple[int, ...]``            | (0, 1, 2, 3, 4, 5), ...            |
+| [x_axis_point_spacing](#x_axis_point_spacing)              | ***可选***        | 线条宽度                       | ``int`` \| ``str`` "auto"      | "auto" <br> 1<=                    |
+| [x_space](#parameter_img)                                  | ***可选***        | x 轴和图表区域之间的空间       | ``int``                        | 0<=                                |
+| [y_space](#parameter_img)                                  | ***可选***        | y 轴和图表区域之间的空间       | ``int``                        | 0<=                                |
+| pointer_state                                              | ***可选***        | 鼠标状态                       | ``str`` ("enabled", "disabled") | "disabled"                         |
+| pointing_callback_function                                 | ***可选***        | 鼠标的回调函数                 | ``callable``                    | function(*args) <br> function(x, y) |
+| pointer_color                                              | ***可选***        | 鼠标颜色                       | ``tuple[str, str]`` \| ``str``  | ("#FF0000", "#00FF00"), "#606060", ... |
+| pointing_values_precision                                  | ***可选***        | 指向值的精度                   | ``int``                         | 0<=                                |
+| pointer_lock                                               | ***可选***        | 鼠标锁状态                     | ``str`` ("enabled", "disabled") | "enabled"                          |
+| pointer_size                                               | ***可选***        | 鼠标显示线的宽度               | ``int``                         | 1<=                                |
 
 <br>
 
 ## 方法
+## 方法
 
-| 方法               | 描述                                   | 支持的参数 / 必须的参数                                                                                                          |
-| ------------------ | -------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| configure          | 更改 LineChart（折线图）属性           | 所有属性，除了 master                                                                                                            |
-|<a href="#display-data">show_data</a>          | 显示数据                               | data: ``list``<br> line: ``ctkchart.CTkLine``                                                                                        |
-| place              | 放置 (place) 折线图                    | x: ``int``<br>y: ``int``<br>rely: ``float or int``<br>relx: ``float or int``<br>anchor: ``str``                                  |
-| pack               | 放置 (pack) 折线图                     | pady: ``int``<br>padx: ``int``<br> before: ``widget``<br> after: ``widget``<br>side: ``str``<br>anchor: ``str``                  |
-| grid               | 放置 (grid) 折线图                     | column: ``int``<br>columnspan: ``int``<br>padx: ``int``<br>pady: ``int``<br> row: ``int``<br>rowspan: ``int``<br>sticky: ``str`` |
-| place_forget       | Place 忘记折线图                       | -                                                                                                                                |
-| pack_forget        | Pack 忘记折线图                        | -                                                                                                                                |
-| grid_forget        | Grid 忘记折线图                        | -                                                                                                                                |
-| place_back         | Place 忘记位置后重新显示旧位置的折线图 |
-| pack_back          | Pack 忘记位置后重新显示旧位置的折线图  | -                                                                                                                                  |
-| grid_back          | Grid 忘记位置后重新显示旧位置的折线图  | -                                                                                                                                  |
-| hide_all           | 隐藏所有折线                           | state:  ``bool``                                                                                                                 |
-| hide               | 隐藏特定折线                           | line:  ``ctkchart.CTkLine``<br> state:  ``bool``                                                                                 |
-| reset              | 重置折线图                             | -                                                                                                                                |
-| cget               | 获取指定参数的值。                      | attribute_name:  ``str`` \| "\_\_all\_\_"                                                                                         |
+| 方法                    | 描述                               | 支持的参数 / 必须的参数                                          | 返回类型   |
+|-----------------------|-----------------------------------|----------------------------------------------------------------|------------|
+| configure              | 更改 LineChart（折线图）属性       | 所有属性，除了 master                                           | ``None``       |
+| [show_data](#display-data) | 显示数据                       | data: ``list``<br> line: ``ctkchart.CTkLine``                    | ``None``       |
+| place                  | 放置 (place) 折线图                | x: ``int``<br>y: ``int``<br>rely: ``float or int``<br>relx: ``float or int``<br>anchor: ``str`` | ``None``       |
+| pack                   | 放置 (pack) 折线图                 | pady: ``int``<br>padx: ``int``<br> before: ``widget``<br> after: ``widget``<br>side: ``str``<br>anchor: ``str``  | ``None``       |
+| grid                   | 放置 (grid) 折线图                 | column: ``int``<br>columnspan: ``int``<br>padx: ``int``<br>pady: ``int``<br> row: ``int``<br>rowspan: ``int``<br>sticky: ``str`` | ``None``       |
+| place_forget           | Place 忘编号           | -                                                                | ``None``       |
+| pack_forget            | Pack 忘编号            | -                                                                | ``None``       |
+| grid_forget            | Grid 忘编号            | -                                                                | ``None``       |
+| set_lines_visibility   | 更改所有线条的可见性             | state:  ``bool``                                                 | ``None``       |
+| set_line_visibility    | 更改特定行的可见性               | line:  ``ctkchart.CTkLine``<br> state:  ``bool``                 | ``None``       |
+| get_line_visibility | 获取特定生产线的可见性 | line:  ``ctkchart.CTkLine``                         | ``bool``        |
+| reset                  | 重置折线图                        | -                                                                | ``None``       |
+| cget                   | 获取指定参数的值。                | attribute_name:  ``str`` \| "\_\_all\_\_"                       | ``any``       |
+| place_info             | 获取地点信息                     | attribute_name: ``str`` \| "\_\_all\_\_"                         | ``any``       |
+| pack_info              | 获取有关包装的信息                | attribute_name: ``str`` \| "\_\_all\_\_"                         | ``any``       |
+| grid_info              | 获取网格信息                      | attribute_name: ``str`` \| "\_\_all\_\_"                         | ``any``       |
 
 
 </div>
@@ -170,25 +171,30 @@ line = ctkchart.CTkLine()
 | 参数名称                                             | 必备参数 / 可选参数 | 描述                         | 数据类型                           | 示例值        |
 | ---------------------------------------------------- | ------------------- | ---------------------------- | ---------------------------------- | ------------- |
 | master                                               | 必须                | Master                       | ``ctkchart.CTkLine``                       | LineChart obj |
-| <a href="#line_color_size">color</a>                 | 可选                | 折线的颜色                   | ``str``                                | "#768df1"     |
-| <a href="#line_color_size">size</a>                  | 可选                | Size of the line             | ``int``                                | 1<=           |
-| <a href="#line_style">style</a>                      | 可选                | 折线风格（直线、虚线、点线） | ``str`` ("normal", "dashed", "dotted") | "normal"      |
-| <a href="#line_style_type">style_type</a>            | 可选                | 实线与虚线的尺寸             | ``tuple[int, int]``                    | (10, 5),...   |
-| <a href="#point_highlight">point_highlight</a>       | 可选                | 端点高亮状态                 | ``str`` ("enabled", "disabled")        | "disabled"    |
-| <a href="#point_highlight">point_highlight_size</a>  | 可选                | 高亮点的大小                 | ``int``                                | 1<=           |
-| <a href="#point_highlight">point_highlight_color</a> | 可选                | 高亮点的颜色                 | ``str``                                | "#768df1"     |
-| <a href="#fill">fill</a>                             | 可选                | 是否启用填充                 | ``str`` ("enabled", "disabled")        | "disabled"    |
-| <a href="#fill">fill_color</a>                       | 可选                | 填充部分的颜​​色             | ``str``                                | "#5d6db6"     |
+| [color](#line_color_size)                            | 可选                | 折线的颜色                   | ``str``                                | "#768df1"     |
+| [size](#line_color_size)                             | 可选                | Size of the line             | ``int``                                | 1<=           |
+| [style](#line_style)                                 | 可选                | 折线风格（直线、虚线、点线） | ``str`` ("normal", "dashed", "dotted") | "normal"      |
+| [style_type](#line_style_type)                       | 可选                | 实线与虚线的尺寸             | ``tuple[int, int]``                    | (10, 5),...   |
+| [point_highlight](#point_highlight)                  | 可选                | 端点高亮状态                 | ``str`` ("enabled", "disabled")        | "disabled"    |
+| [point_highlight_size](#point_highlight)             | 可选                | 高亮点的大小                 | ``int``                                | 1<=           |
+| [point_highlight_color](#point_highlight)            | 可选                | 高亮点的颜色                 | ``str``                                | "#768df1"     |
+| [fill](#fill)                                        | 可选                | 是否启用填充                 | ``str`` ("enabled", "disabled")        | "disabled"    |
+| [fill_color](#fill)                                  | 可选                | 填充部分的颜​​色             | ``str``                                | "#5d6db6"     |
 
-<br>
+
 
 ## 方法
 
-| 方法      | 描述             | 支持的参数                                |
-| --------- | ----------------|----------------------------------------|
-| configure | 更改折线图属性   | 所有属性，除了 master                      |
-| cget      | 获取指定参数的值 | attribute_name: ``str`` \| "\_\_all\_\_"  |
-|reset      | 重置线对象       | -                                        |
+| 方法      | 描述              | 支持的参数                                |   返回类型     |
+| --------- | -----------------|----------------------------------------|---------------|
+| configure | 更改折线图属性    | 所有属性，除了 master                      | ``None``    |
+| cget      | 获取指定参数的值  | attribute_name: ``str`` \| "\_\_all\_\_"  | ``any``    |
+| reset     | 重置线对象        | -                                        | ``None``    |
+| set_visible     | 改变线条的可见度   | state: ``bool``   | ``None``    |
+| get_visibility  | 获得线路的可见度   | -                 | ``bool``    |
+
+</div>
+
 </div>
 <br>
 <br>

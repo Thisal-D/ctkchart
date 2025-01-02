@@ -1,5 +1,7 @@
 <div id="top"></div>
 
+**[Check changes](CHANGES.md)**
+
 [中文说明 README](README_CN.md)
 [Chinese README](README_CN.md)
 
@@ -20,7 +22,7 @@
 
 [![Downloads](https://static.pepy.tech/badge/ctkchart)](https://pepy.tech/project/ctkchart) [![Downloads](https://static.pepy.tech/badge/ctkchart/month)](https://pepy.tech/project/ctkchart) [![Downloads](https://static.pepy.tech/badge/ctkchart/week)](https://pepy.tech/project/ctkchart)
 
-<img src="https://drive.google.com/thumbnail?id=1jOltT5qBvLmKAdSU6zb9wjh3GYa6jRvD&sz=w180">
+<img src="https://drive.google.com/thumbnail?id=1cHrsFILHJ7a2bgMXvk-PWlnLZx1vCnVR&sz=w180">
 
 </div>
 
@@ -86,72 +88,77 @@ linechart = ctkchart.CTkLineChart()
 
 ## Parameters
 
-| Parameter                     | Required / Optional | Description                                           | Types                           | Example Value(s)                    | 
-|-------------------------------|---------------------|-------------------------------------------------------|---------------------------------|-------------------------------------|
-| master                        | ***Required***      | Master Widget for LineChart                           | ``widget``                      | widget                              |
-| <a href="#x_y_axis_values">y_axis_values</a>                 | ***Required***      | Minimum and maximum values for y-axis                 | ``tuple[[int \| float], ...]``  | (-1000, 1000), ...                  |
-| <a href="#x_y_axis_values">x_axis_values</a>                 | ***Required***      | Values for x-axis                                     | ``tuple[any, ...]``             | (1, 2, 3, 4, 5), ...                |
-| width                         | ***Optional***      | Width of the chart                                    | ``int``                         | 300, ...                            |
-| height                        | ***Optional***      | Height of the chart                                   | ``int``                         | 100, ...                            |
-| <a href="#parameter_img">axis_size</a>                     | ***Optional***      | Size of the axis                                      | ``int``                         | 1<=                                 |
-| <a href="#parameter_img">axis_color</a>                    | ***Optional***      | Color of the axis                                     | ``tuple[str, str]`` \| ``str``                         | ("#FF0000", "#00FF00"), ("red", "green"), "#2C2C2C" , "blue", ...             |
-| <a href="#parameter_img">bg_color</a>                      | ***Optional***      | Background color of the chart                         | ``tuple[str, str]`` \| ``str``                         | ("#FF0000", "#00FF00"), "#191919", ...                      |
-| <a href="#parameter_img">fg_color</a>                      | ***Optional***      | Foreground color of the chart                         | ``tuple[str, str]`` \| ``str``                         | ("#FF0000", "#00FF00"), "#191919", ...                      |
-| <a href="#x_y_data">data_font_style</a>               | ***Optional***      | Font style for data labels                            | ``tuple[str, int, str]``        | ("arial", 9, "bold"), ...           |
-| <a href="#x_y_font_style">axis_font_style</a>               | ***Optional***      | Font style for axis labels                            | ``tuple[str, int, str]``        | ("arial", 8, "normal"), ...         |
-| <a href="#x_y_data">x_axis_data</a>                   | ***Optional***      | Data label for x-axis                                 | ``str``                         | "X", ...                            |
-| <a href="#x_y_data">y_axis_data</a>                   | ***Optional***      | Value for y-axi data label                            | ``any``                         | "Y", ...                            |
-| <a href="#x_y_data">x_axis_data_font_color</a>        | ***Optional***      | Font color for x-axis data label                      | ``tuple[str, str]`` \| ``str``                         | ("#FF0000", "#00FF00"), "#707070", ...                      |
-| <a href="#x_y_data">y_axis_data_font_color</a>        | ***Optional***      | Font color for y-axis data label                      | ``tuple[str, str]`` \| ``str``                         | ("#FF0000", "#00FF00"), "#707070", ...                      |
-| <a href="#data_position">x_axis_data_position</a>          | ***Optional***      | Position of x-axis data label                         | ``str`` ("top", "side")         | "top"                               |
-| <a href="#data_position">y_axis_data_position</a>          | ***Optional***      | Position of y-axis data label                         | ``str`` ("top", "side")         | "top"                               |
-| <a href="#x_y_section">x_axis_section_count</a>          | ***Optional***      | Number of sections on the x-axis                      | ``int``                         | 0<=                                 |
-| <a href="#x_y_section">y_axis_section_count</a>          | ***Optional***      | Number of sections on the y-axis                      | ``int``                         | 0<=                                 |
-| <a href="#x_y_label_count">x_axis_label_count</a>            | ***Optional***      | Number of x-axis labels                               | ``int``                         | 0<=                                 |
-| <a href="#x_y_label_count">y_axis_label_count</a>            | ***Optional***      | Number of y-axis labels                               | ``int``                         | 1<=                                 |
-| <a href="#x_y_font_style">x_axis_font_color</a>             | ***Optional***      | Font color for x-axis labels                          | ``tuple[str, str]`` \| ``str``                         | ("#FF0000", "#00FF00"), "#606060", ...                      |
-| <a href="#x_y_font_style">y_axis_font_color</a>             | ***Optional***      | Font color for y-axis labels                          | ``tuple[str, str]`` \| ``str``                         |("#FF0000", "#00FF00"), "#606060", ...                      |   
-| <a href="#x_y_section_style">x_axis_section_style</a>          | ***Optional***      | Style of sections on the x-axis                       | ``str`` ("normal", "dashed")    | "normal"                            |
-| <a href="#x_y_section_style">y_axis_section_style</a>         | ***Optional***      | Style of sections on the y-axis                       | ``str`` ("normal", "dashed")    | "normal"                            |
-| <a href="#x_y_section_style">x_axis_section_style_type</a>     | ***Optional***      | Style type for sections on the x-axis                 | ``tuple[int, int]``             | (100, 50) , (50,50), ...            |
-| <a href="#x_y_section_style">y_axis_section_style_type</a>     | ***Optional***      | Style type for sections on the y-axis                 | ``tuple[int, int]``             | (100, 50)                           |
-| <a href="#x_y_section">x_axis_section_color</a>          | ***Optional***      | Color of sections on the x-axis                       | ``tuple[str, str]`` \| ``str``                         | ("#FF0000", "#00FF00"), "#2C2C2C", ...                      |
-| <a href="#x_y_section">y_axis_section_color</a>          | ***Optional***      | Color of sections on the y-axis                       | ``tuple[str, str]`` \| ``str``                         | ("#FF0000", "#00FF00"), "#2C2C2C"                           |
-| <a href="#y_precision">y_axis_precision</a>              | ***Optional***      | Precision for y-axis values                           | ``int``                         | 0<=                                 |
-| <a href="#indices_view">x_axis_display_values_indices</div> | ***Optional***      | Indices of values to display on the x-axis            | ``tuple[int, ...]``             | (0, 1, 2, 3, 4, 5), ...             |
-| <a href="#x_axis_point_spacing">x_axis_point_spacing</a>                    | ***Optional***      | Width of lines                                        | ``int`` \| ``str`` "auto"       | "auto" <br> 1<=                     |
-| <a href="#parameter_img">x_space</a>                       | ***Optional***      | Space between x-axis and chart area                   | ``int``                         | 0<=                                 |
-| <a href="#parameter_img">y_space</a>                       | ***Optional***      | Space between y-axis and chart area                   | ``int``                         | 0<=                                 |
-| pointer_state                 | ***Optional***      | State of the pointer                                  | ``str`` ("enabled", "disabled") | "disabled"                          |
-| pointing_callback_function    | ***Optional***      | Callback function for pointer                         | ``callable``                    | function(*args) <br> function(x, y) |
-| pointer_color                 | ***Optional***      | Color of the pointer                                  | ``tuple[str, str]`` \| ``str``                         | ("#FF0000", "#00FF00"), ("#FF0000", "#00FF00"), "#606060", ...                      |
-| pointing_values_precision     | ***Optional***      | Precision for pointing values                         | ``int``                         | 0<=                                 |
-| pointer_lock                  | ***Optional***      | State of pointer lock                                 | ``str`` ("enabled", "disabled") | "enabled"                           |
-| pointer_size                  | ***Optional***      | Size of the pointer                                   | ``int``                         | 1<=                                 |  
+## Parameters for LineChart Widget
+
+| Parameter                       | Required / Optional | Description                                             | Types                             | Example Value(s)                   |
+|---------------------------------|---------------------|---------------------------------------------------------|-----------------------------------|------------------------------------|
+| master                          | ***Required***      | Master Widget for LineChart                             | ``widget``                        | widget                             |
+| [y_axis_values](#x_y_axis_values) | ***Required***      | Minimum and maximum values for y-axis                   | ``tuple[int \| float]``          | (-1000, 1000), ...                 |
+| [x_axis_values](#x_y_axis_values) | ***Required***      | Values for x-axis                                       | ``tuple[any]``                    | (1, 2, 3, 4, 5), ...               |
+| width                           | ***Optional***      | Width of the chart                                      | ``int``                           | 300, ...                           |
+| height                          | ***Optional***      | Height of the chart                                     | ``int``                           | 100, ...                           |
+| [axis_size](#parameter_img)     | ***Optional***      | Size of the axis                                        | ``int``                           | 1<=                                |
+| [axis_color](#parameter_img)    | ***Optional***      | Color of the axis                                       | ``tuple[str, str]`` \| ``str``   | ("#FF0000", "#00FF00"), ...       |
+| [bg_color](#parameter_img)      | ***Optional***      | Background color of the chart                           | ``tuple[str, str]`` \| ``str``   | ("#FF0000", "#00FF00"), ...       |
+| [fg_color](#parameter_img)      | ***Optional***      | Foreground color of the chart                           | ``tuple[str, str]`` \| ``str``   | ("#FF0000", "#00FF00"), ...       |
+| [data_font_style](#x_y_data)    | ***Optional***      | Font style for data labels                              | ``tuple[str, int, str]``         | ("arial", 9, "bold"), ...         |
+| [axis_font_style](#x_y_font_style) | ***Optional***   | Font style for axis labels                              | ``tuple[str, int, str]``         | ("arial", 8, "normal"), ...       |
+| [x_axis_data](#x_y_data)        | ***Optional***      | Data label for x-axis                                   | ``str``                           | "X", ...                           |
+| [y_axis_data](#x_y_data)        | ***Optional***      | Value for y-axi data label                              | ``any``                           | "Y", ...                           |
+| [x_axis_data_font_color](#x_y_data) | ***Optional***  | Font color for x-axis data label                        | ``tuple[str, str]`` \| ``str``   | ("#FF0000", "#00FF00"), ...       |
+| [y_axis_data_font_color](#x_y_data) | ***Optional***  | Font color for y-axis data label                        | ``tuple[str, str]`` \| ``str``   | ("#FF0000", "#00FF00"), ...       |
+| [x_axis_data_position](#data_position) | ***Optional*** | Position of x-axis data label                           | ``str`` ("top", "side")          | "top"                              |
+| [y_axis_data_position](#data_position) | ***Optional*** | Position of y-axis data label                           | ``str`` ("top", "side")          | "top"                              |
+| [x_axis_section_count](#x_y_section) | ***Optional***   | Number of sections on the x-axis                        | ``int``                           | 0<=                                |
+| [y_axis_section_count](#x_y_section) | ***Optional***   | Number of sections on the y-axis                        | ``int``                           | 0<=                                |
+| [x_axis_label_count](#x_y_label_count) | ***Optional*** | Number of x-axis labels                                 | ``int``                           | 0<=                                |
+| [y_axis_label_count](#x_y_label_count) | ***Optional*** | Number of y-axis labels                                 | ``int``                           | 1<=                                |
+| [x_axis_font_color](#x_y_font_style) | ***Optional***  | Font color for x-axis labels                            | ``tuple[str, str]`` \| ``str``   | ("#FF0000", "#00FF00"), ...       |
+| [y_axis_font_color](#x_y_font_style) | ***Optional***  | Font color for y-axis labels                            | ``tuple[str, str]`` \| ``str``   | ("#FF0000", "#00FF00"), ...       |
+| [x_axis_section_style](#x_y_section_style) | ***Optional*** | Style of sections on the x-axis                         | ``str`` ("normal", "dashed")    | "normal"                           |
+| [y_axis_section_style](#x_y_section_style) | ***Optional*** | Style of sections on the y-axis                         | ``str`` ("normal", "dashed")    | "normal"                           |
+| [x_axis_section_style_type](#x_y_section_style) | ***Optional*** | Style type for sections on the x-axis                   | ``tuple[int, int]``             | (100, 50), ...                    |
+| [y_axis_section_style_type](#x_y_section_style) | ***Optional*** | Style type for sections on the y-axis                   | ``tuple[int, int]``             | (100, 50)                         |
+| [x_axis_section_color](#x_y_section) | ***Optional***   | Color of sections on the x-axis                         | ``tuple[str, str]`` \| ``str``   | ("#FF0000", "#00FF00"), ...       |
+| [y_axis_section_color](#x_y_section) | ***Optional***   | Color of sections on the y-axis                         | ``tuple[str, str]`` \| ``str``   | ("#FF0000", "#00FF00"), ...       |
+| [y_axis_precision](#y_precision) | ***Optional***     | Precision for y-axis values                             | ``int``                           | 0<=                                |
+| [x_axis_display_values_indices](#indices_view) | ***Optional*** | Indices of values to display on the x-axis              | ``tuple[int, ...]``              | (0, 1, 2, 3, 4, 5), ...            |
+| [x_axis_point_spacing](#x_axis_point_spacing) | ***Optional*** | Width of lines                                          | ``int`` \| ``str`` "auto"       | "auto" <br> 1<=                   |
+| [x_space](#parameter_img)       | ***Optional***      | Space between x-axis and chart area                     | ``int``                           | 0<=                                |
+| [y_space](#parameter_img)       | ***Optional***      | Space between y-axis and chart area                     | ``int``                           | 0<=                                |
+| pointer_state             | ***Optional***      | State of the pointer               | ``str`` ("enabled", "disabled")   | "disabled"                     |
+| pointing_callback_function| ***Optional***      | Callback function for pointer      | ``callable``                      | function(*args) <br> function(x, y) |
+| pointer_color             | ***Optional***      | Color of the pointer               | ``tuple[str, str]`` \| ``str``   | ("#FF0000", "#00FF00"), ...   |
+| pointing_values_precision | ***Optional***      | Precision for pointing values      | ``int``                           | 0<=                            |
+| pointer_lock              | ***Optional***      | State of pointer lock              | ``str`` ("enabled", "disabled") | "enabled"                      |
+| pointer_size              | ***Optional***      | Size of the pointer                | ``int``                           | 1<=                            |                
 
 
 <br>
 
 ## Methods
 
-| Method            | Description                                        | Supported / Required Parameters                                                                                                  |
-|-------------------|----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|
-| configure         | Change LineChart attributes                        | All attributes except for master                                                                                                 |
-| <a href="#display-data">show_data</a>         | Display data                                       | data: ``list``<br> line: ``ctkchart.CTkLine``                                                                                        |
-| place             | Place LineChart                                    | x: ``int``<br>y: ``int``<br>rely: ``float or int``<br>relx: ``float or int``<br>anchor: ``str``                                  |
-| pack              | Pack LineChart                                     | pady: ``int``<br>padx: ``int``<br> before: ``widget``<br> after: ``widget``<br>side: ``str``<br>anchor: ``str``                  |
-| grid              | Grid LineChart                                     | column: ``int``<br>columnspan: ``int``<br>padx: ``int``<br>pady: ``int``<br> row: ``int``<br>rowspan: ``int``<br>sticky: ``str`` |
-| place_forget      | Place forget the chart                             | -                                                                                                                                |
-| pack_forget       | Pack forget the chart                              | -                                                                                                                                |
-| grid_forget       | Grid forget the chart                              | -                                                                                                                                |
-| place_back        | Place chart in the old location after place forget | -                                                                                                                                |
-| pack_back         | Pack chart in the old location after pack forget   | -                                                                                                                                |
-| grid_back         | Grid chart in the old location after grid forget   | -                                                                                                                                |
-| hide_all          | Hide all the lines                                 | state:  ``bool``                                                                                                                 |
-| hide              | hide a specific line                               | line:  ``ctkchart.CTkLine``<br> state:  ``bool``                                                                                     |
-| reset             | reset line chart                                   | -                                                                                                                                |
-| cget              | Get the value of the specified parameter.          | attribute_name:  ``str`` \| "\_\_all\_\_"                                                                                        |
-                                                                                                         
+| Method              | Description                           | Supported / Required Parameters                    | Return Type |
+|---------------------|---------------------------------------|----------------------------------------------------|-------------|
+| configure           | Change LineChart attributes           | All attributes except for master                   | ``None``        |
+| [show_data](#display-data) | Display data                   | data: ``list``<br> line: ``ctkchart.CTkLine``      | ``None``        |
+| place               | Place LineChart                       | x: ``int``<br>y: ``int``<br>rely: ``float or int``<br>relx: ``float or int``<br>anchor: ``str`` | ``None``        |
+| pack                | Pack LineChart                        | pady: ``int``<br>padx: ``int``<br> before: ``widget``<br> after: ``widget``<br>side: ``str``<br>anchor: ``str`` | ``None`` |
+| grid                | Grid LineChart                        | column: ``int``<br>columnspan: ``int``<br>padx: ``int``<br>pady: ``int``<br> row: ``int``<br>rowspan: ``int``<br>sticky: ``str``| ``None`` |
+| place_forget        | Place forget the chart                | -                                                   | ``None``        |
+| pack_forget         | Pack forget the chart                 | -                                                   | ``None``        |
+| grid_forget         | Grid forget the chart                 | -                                                   | ``None``        |
+| set_lines_visibility | Change the visibility of all the lines | state: ``bool``                                   | ``None``        |
+| set_line_visibility | Change the visibility of a specific line | line:  ``ctkchart.CTkLine``<br> state:  ``bool`` | ``None``        |
+| get_line_visibility | Get the visibility of a specific line | line:  ``ctkchart.CTkLine``                         | ``bool``        |
+| reset               | Reset line chart                      | -                                                   | ``None``        |
+| cget                | Get the value of the specified parameter | attribute_name:  ``str`` \| "\_\_all\_\_"        | ``any``        |
+| place_info          | Get info about place                  | attribute_name: ``str`` \| "\_\_all\_\_"            | ``any``        |
+| pack_info           | Get info about pack                   | attribute_name: ``str`` \| "\_\_all\_\_"            | ``any``        |
+| grid_info           | Get info about grid                   | attribute_name: ``str`` \| "\_\_all\_\_"            | ``any``        |
+
+
+                                                                                  
 
 
 </div>
@@ -171,28 +178,31 @@ line = ctkchart.CTkLine()
 
 ## Parameters
 
-| Parameter Name          | Required / Optional | Description                    | Types                              | Example Value(s)  |
-|-------------------------|---------------------|--------------------------------|------------------------------------|-------------------|
-| master                  | Required            | Master of the line             | ``ctkchart.CTkLine``                       | LineChart obj     |
-| <a href="#line_color_size">color</a>                   | Optional            | Color of the line              | ``tuple[str, str]`` \| ``str``                                | "#768df1"         |
-| <a href="#line_color_size">size</a>                    | Optional            | Size of the line               | ``int``                                | 1<=               |
-| <a href="#line_style">style</a>                   | Optional            | Style of the line              | ``str`` ("normal", "dashed", "dotted") | "normal"          |
-| <a href="#line_style_type">style_type</a>              | Optional            | Style type for the line        | ``tuple[int, int]``                    | (10, 5),...       |
-| <a href="#point_highlight">point_highlight</a>         | Optional            | State of point highlighting    | ``str`` ("enabled", "disabled")        | "disabled"        |
-| <a href="#point_highlight">point_highlight_size</a>    | Optional            | Size of the highlighted point  | ``int``                                | 1<=               |
-| <a href="#point_highlight">point_highlight_color</a>   | Optional            | Color of the highlighted point | ``tuple[str, str]`` \| ``str``                                | "#768df1"         |
-| <a href="#fill">fill</a>                    | Optional            | State of filling               | ``str`` ("enabled", "disabled")        | "disabled"        |
-| <a href="#fill">fill_color</a>             | Optional            | Color of the fill              | ``tuple[str, str]`` \| ``str``                                | "#5d6db6"         |
+| Parameter Name         | Required / Optional | Description                   | Types                      | Example Value(s) |
+|------------------------|---------------------|-------------------------------|----------------------------|------------------|
+| master                 | Required            | Master of the line            | ``ctkchart.CTkLine``       | LineChart obj    |
+| [color](#line_color_size) | Optional         | Color of the line             | ``tuple[str, str]`` \| ``str`` | "#768df1"    |
+| [size](#line_color_size) | Optional          | Size of the line              | ``int``                    | 1<=              |
+| [style](#line_style)   | Optional            | Style of the line             | ``str`` ("normal", "dashed", "dotted") | "normal" |
+| [style_type](#line_style_type) | Optional    | Style type for the line       | ``tuple[int, int]``        | (10, 5),...      |
+| [point_highlight](#point_highlight) m| Optional | State of point highlighting | ``str`` ("enabled", "disabled") | "disabled" |
+| [point_highlight_size](#point_highlight) | Optional | Size of the highlighted point | ``int``             | 1<=              |
+| [point_highlight_color](#point_highlight) | Optional | Color of the highlighted point | ``tuple[str, str]`` \| ``str`` | "#768df1" |
+| [fill](#fill)          | Optional            | State of filling              | ``str`` ("enabled", "disabled") | "disabled"  |
+| [fill_color](#fill)    | Optional            | Color of the fill             | ``tuple[str, str]`` \| ``str`` | "#5d6db6"    |
+
 
 <br>
 
 ## Methods
 
-| Method            | Description                                        | Supported Parameters                     |
-|-------------------|----------------------------------------------------|------------------------------------------|
-| configure         | Change LineChart attributes                        | All attributes except for master         |                                                                
-| cget              | Get the value of the specified parameter.          | attribute_name: ``str`` \| "\_\_all\_\_" |
-| reset               | reset line object                                   | -                                       |
+| Method            | Description                                       | Supported Parameters                     | Return Type |
+|-------------------|---------------------------------------------------|------------------------------------------|-------------|
+| configure         | Change LineChart attributes                       | All attributes except for master         | ``None``    |
+| cget              | Get the value of the specified parameter          | attribute_name: ``str`` \| "\_\_all\_\_" | ``any``     |
+| reset             | reset line object                                 | -                                        | ``None``    |
+| set_visible       | change the visibility of the line                 | state: ``bool``                          | ``None``    |
+| get_visibility    | get the visibility of the line                    | -                                        | ``bool``    |
 </div>
 <br>
 <br>
