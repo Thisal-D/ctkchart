@@ -5,7 +5,6 @@ import random
 root = ctk.CTk()
 root.geometry("1900x900")
 
-
 data = ([x for x in range(0,1001)])
 x_axis_values =  tuple([x for x in range(1,21)])
 line_chart = ctkchart.CTkLineChart(master=root,
@@ -101,7 +100,9 @@ row += 1
 ctk.CTkLabel(text_color=("black", "white"), master=frame, text="X Axis Values : ").grid(row=row, column=1)
 column = 2
 for x_axis_values in range(1, 90, 10):
-    ctk.CTkButton(master=frame, text="range({},{})".format(x_axis_values,x_axis_values+20), width=90, height=30, command=lambda x_axis_values_=[x for x in range(x_axis_values,x_axis_values+20)]: line_chart_configure(x_axis_values=tuple(x_axis_values_))).grid(row=row, column=column, padx=10, pady=2)
+    ctk.CTkButton(master=frame, text="range({},{})".format(x_axis_values,x_axis_values+20), width=90, height=30,
+                  command=lambda x_axis_values_=[x for x in range(x_axis_values,x_axis_values+20)]: line_chart_configure(x_axis_values=tuple(x_axis_values_))
+                  ).grid(row=row, column=column, padx=10, pady=2)
     column += 1 
 
 row += 1
@@ -551,8 +552,6 @@ column += 1
 ctk.CTkButton(master=frame, text="{}".format("disabled"), width=90, height=30, command=lambda:line_configure(fill="disabled")).grid(row=row, column=column, padx=10, pady=2)
 column += 1
 
-
-
 row += 1
 ctk.CTkFrame(master=frame ,height=2, width=1000, fg_color=("#EEEEEE", "#202020")).grid(row=row, columnspan=9)
 row += 1
@@ -567,7 +566,6 @@ column += 1
 ctk.CTkButton(master=frame, text="{}".format("#FF00FF"), width=90, height=30, command=lambda:line_configure(fill_color="#FF00FF")).grid(row=row, column=column, padx=10, pady=2)
 column += 1
 ctk.CTkButton(master=frame, text="{}".format("#00FFFF"), width=90, height=30, command=lambda:line_configure(fill_color="#00FFFF")).grid(row=row, column=column, padx=10, pady=2)
-
 
 
 root.mainloop()
