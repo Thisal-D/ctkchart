@@ -17,5 +17,5 @@ AUTO: str = "auto"
 ctkchart: a library for create live update chart for customtkinter guis.
 """
 __title__ = "ctkchart"
-__version__ = "2.1.7"
+__version__ = "2.1.8"
 __authors__ = ("Thisal Dilmith", "childeyouyu (有语)")

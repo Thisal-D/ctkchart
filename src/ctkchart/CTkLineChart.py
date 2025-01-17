@@ -1813,7 +1813,7 @@ class CTkLineChart:
             if maximum_data > max_visible_points:
                 lines_data[line] = tuple(line._CTkLine__data[maximum_data - max_visible_points::])
             else:
-                lines_data[line] = ()
+                lines_data[line] = tuple(line._CTkLine__data)
         return lines_data
     
     def get_line_visible_data(self, line: CTkLine) -> Tuple[int | float]:
