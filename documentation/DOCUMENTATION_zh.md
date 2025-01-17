@@ -1,6 +1,6 @@
 <div id="top"></div> 
 
-[English README](DOCUMENTATION_en.md) 
+[![Language](https://img.shields.io/badge/Language-English-blue)](DOCUMENTATION_en.md)
 
 ---
 

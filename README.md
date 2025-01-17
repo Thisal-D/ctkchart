@@ -1,3 +1,6 @@
+[![Chinese](https://img.shields.io/badge/Language-中文-red)](README_zh.md)
+
+
 <div align="center">
 
 [![ctkchart](https://snyk.io/advisor/python/ctkchart/badge.svg)](https://snyk.io/advisor/python/ctkchart)
@@ -14,6 +17,7 @@
 
 </div>
 
+
 **<li>ctkchart is a Python library for creating live updating line charts in customtkinter.</li>**
 
 ---
@@ -26,6 +30,9 @@
 - **Dynamic Color Change**: Dynamic Color Change for Dark & Light.
 - **Font Customization**: Adjust fonts for text elements to enhance readability.
 - **Dimension Customization**: Customize chart dimensions to fit various display sizes and layouts.
+
+
+[**Check out what's new | Changes**](./CHANGES_en.md)
 
 ---
 

@@ -1,6 +1,6 @@
 <div id="top">
 
-[中文说明 Documentation](DOCUMENTATION_zh.md) | [Chinese Documentation](DOCUMENTATION_zh.md)
+[![Chinese](https://img.shields.io/badge/Language-中文-red)](DOCUMENTATION_zh.md)
 
 </div> 
 
