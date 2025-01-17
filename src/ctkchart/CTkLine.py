@@ -151,7 +151,7 @@ class CTkLine:
             self.__master._CTkLineChart__apply_line_configuration()
             
     def get_id(self) -> int:
-        return self.__current_usable_id
+        return self.__id
 
     def __reset_positions(self) -> None:
         """
@@ -329,6 +329,7 @@ class CTkLine:
 
     def __del__(self) -> None:
         """Destructor method to delete instance attributes."""
+        del self.__id
         del self.__master
         del self.__color
         del self.__size

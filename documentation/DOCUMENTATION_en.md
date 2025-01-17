@@ -124,15 +124,12 @@ linechart = ctkchart.CTkLineChart()
 | get_line_area               | Get the are of specific line            | line: `ctkchart.CTkLine`        | ``float``    | 
 | get_lines_area               | Get the are of all lines               | -                           | ``float``    | 
 | destroy                    | Destroy the chart                        | -                           | ``None``    | 
- | get_lines_data              | Retrieves data points for all lines within a specified range with an optional step value. | start: `int` <br> end: `int` <br> step: `int` | `Dict[ctkchart.CTkLine, Tuple[int]]` |  
-  get_line_data               | Retrieves data points for a specific line within a specified range and step. | line: `ctkchart.CTkLine` <br> start: `int` <br> end: `int`<br> step: `int` | `Tuple[int \| float]` |  
- | get_x_axis_visible_point_count | Retrieves the maximum number of data points that can be visible along the X-axis. | -                                       | `int` |  
- | get_lines_visible_data      | Retrieves currently visible data points for all lines based on the maximum data length and visible points. | -                                       | `Dict[ctkchart.CTkLine, Tuple[int \| float]]` |  
- | get_line_visible_data       | Retrieves currently visible data points for a specific line. | line: `ctkchart.CTkLine`                          | `Tuple[int \| float]` |  
-
-
-
-
+| clear_data  | Clears the data for all lines within the chart, ensuring that only the most recent visible data points are retained. If the total data points exceed the maximum visible points, the older data is removed from each line's data. This method ensures that the chart displays only the relevant portion of data based on the maximum visible range.                                                           | -              | ``None``    |  
+| get_lines_data              | Retrieves data points for all lines within a specified range with an optional step value. | start: `int` <br> end: `int` <br> step: `int` | `Dict[ctkchart.CTkLine, Tuple[int]]` |  
+get_line_data               | Retrieves data points for a specific line within a specified range and step. | line: `ctkchart.CTkLine` <br> start: `int` <br> end: `int`<br> step: `int` | `Tuple[int \| float]` |  
+| get_x_axis_visible_point_count | Retrieves the maximum number of data points that can be visible along the X-axis. | -                                       | `int` |  
+| get_lines_visible_data      | Retrieves currently visible data points for all lines based on the maximum data length and visible points. | -                                       | `Dict[ctkchart.CTkLine, Tuple[int \| float]]` |  
+| get_line_visible_data       | Retrieves currently visible data points for a specific line. | line: `ctkchart.CTkLine`                          | `Tuple[int \| float]` |  
 
 </div> 
 
@@ -157,7 +154,7 @@ line = ctkchart.CTkLine()
 | [size](#line_color_size)                  | Optional            | Size of the line               | ``int``                                | 1<=              | 
 | [style](#line_style)                      | Optional            | Style of the line              | ``str`` ("normal", "dashed", "dotted") | "normal"         | 
 | [style_type](#line_style_type)            | Optional            | Style type for the line        | ``tuple[int, int]``                    | (10, 5),...      | 
-| [point_highlight](#point_highlight) m     | Optional            | State of point highlighting    | ``str`` ("enabled", "disabled")        | "disabled"       | 
+| [point_highlight](#point_highlight)     | Optional            | State of point highlighting    | ``str`` ("enabled", "disabled")        | "disabled"       | 
 | [point_highlight_size](#point_highlight)  | Optional            | Size of the highlighted point  | ``int``                                | 1<=              | 
 | [point_highlight_color](#point_highlight) | Optional            | Color of the highlighted point | ``tuple[str, str]`` \| ``str``         | "#768df1"        | 
 | [fill](#fill)                             | Optional            | State of filling               | ``str`` ("enabled", "disabled")        | "disabled"       | 
@@ -175,10 +172,12 @@ line = ctkchart.CTkLine()
 | reset          | reset line object                        | -                                          | ``None``    | 
 | set_visible    | change the visibility of the line        | state: ``bool``                            | ``None``    | 
 | get_visibility | get the visibility of the line           | -                                          | ``bool``    | 
+| clear_data     | Clears the data for a specific line, ensuring that only the most recent visible data points are retained. If the line's data exceeds the maximum visible points, the older data is trimmed. This method allows each line to independently clean its data, ensuring it remains within the visible range.                                                           | -              | ``None``    | 
 | destroy        | Destroy the line                         | -                                          | ``None``    | 
- | get_data                   | Retrieves data points from a specified range with an optional step value. If no parameters are given, it returns all available data. | start: `int` <br> end: `int` <br> step: `int` | `Tuple[int \| float]` |  
- | get_current_visible_data    | Returns the currently visible data points based on the maximum data length across all lines and the maximum number of visible points. | -                   | `Tuple[int \| float]` |  
- | get_x_axis_visible_point_count | Retrieves the maximum number of data points that can be visible along the X-axis. | -                   | `int` |  
+| get_data                   | Retrieves data points from a specified range with an optional step value. If no parameters are given, it returns all available data. | start: `int` <br> end: `int` <br> step: `int` | `Tuple[int \| float]` |  
+| get_current_visible_data    | Returns the currently visible data points based on the maximum data length across all lines and the maximum number of visible points. | -                   | `Tuple[int \| float]` |  
+| get_x_axis_visible_point_count | Retrieves the maximum number of data points that can be visible along the X-axis. | -                   | `int` |  
+
 </div> 
 
 ---

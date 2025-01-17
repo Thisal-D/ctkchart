@@ -122,13 +122,14 @@ linechart = ctkchart.CTkLineChart()
 | grid_info                  | 获取网格信息              | attribute_name: ``str`` \| "\_\_all\_\_"                                                                                         | ``any``  | 
 | get_line_area              | 获取特定线的面积         | line: `ctkchart.CTkLine` | `float`            |
 | get_lines_area             | 获取所有线的面积         | -                  | `float`           |
-| clear_data  | 清除图表中所有线的数据，确保只保留最新的可见数据点。如果数据点总数超过最大可见点，则会从每条线的数据中移除旧数据。此方法确保图表仅显示基于最大可见范围的相关数据部                                                           | -              | ``None``    |  
+| clear_data  | 清除图表中所有线的数据，确保只保留最新的可见数据点。如果数据点总数超过最大可见点，则会从每条线的数据中移除旧数据。此方法确保图表仅显示基于最大可见范围的相关数据部分。                                                           | -              | ``None``    |  
 | destroy                    | 销毁图表                | -                                                                                                                                | ``None`` | 
- | get_lines_data              | 获取指定范围内所有线条的数据点，可以选择步长值。           | start: `int` <br> end: `int` <br> step: `int` | `Dict[ctkchart.CTkLine, Tuple[int]]` |  
- | get_line_data               | 获取指定范围和步长值下某一条线的数据点。                   | line: `ctkchart.CTkLine` <br> start: `int` <br> end: `int`<br> step: `int` | `Tuple[int \| float]` |  
- | get_x_axis_visible_point_count | 获取X轴上可见数据点的最大数量。                              | -                                        | `int` |  
- | get_lines_visible_data      | 获取所有线条当前可见的数据点，基于最大数据长度和可见点数。 | -                                        | `Dict[ctkchart.CTkLine, Tuple[int \| float]]` |  
- | get_line_visible_data       | 获取某一条线当前可见的数据点。                             | line: `ctkchart.CTkLine`                  | `Tuple[int \| float]` |  
+| get_lines_data              | 获取指定范围内所有线条的数据点，可以选择步长值。           | start: `int` <br> end: `int` <br> step: `int` | `Dict[ctkchart.CTkLine, Tuple[int]]` |  
+| get_line_data               | 获取指定范围和步长值下某一条线的数据点。                   | line: `ctkchart.CTkLine` <br> start: `int` <br> end: `int`<br> step: `int` | `Tuple[int \| float]` |  
+| get_x_axis_visible_point_count | 获取X轴上可见数据点的最大数量。                              | -                                        | `int` |  
+| get_lines_visible_data      | 获取所有线条当前可见的数据点，基于最大数据长度和可见点数。 | -                                        | `Dict[ctkchart.CTkLine, Tuple[int \| float]]` |  
+| get_line_visible_data       | 获取某一条线当前可见的数据点。                             | line: `ctkchart.CTkLine`                  | `Tuple[int \| float]` |  
+
 </div> 
 
 <div id="create-line"> 
@@ -169,11 +170,11 @@ line = ctkchart.CTkLine()
 | reset          | 重置线对象    | -                                        | ``None`` | 
 | set_visible    | 改变线条的可见度 | state: ``bool``                          | ``None`` | 
 | get_visibility | 获得线路的可见度 | -                                        | ``bool`` | 
-| clear_data     | Clears the data for a specific line, ensuring that only the most recent visible data points are retained. If the line's data exceeds the maximum visible points, the older data is trimmed. This method allows each line to independently clean its data, ensuring it remains within the visible range.                                                           | -              | ``None``    | 
+| clear_data     | 清除特定线的数据，确保只保留最新的可见数据点。如果线的数据超过最大可见点，则会修剪旧数据。此方法允许每条线独立清除其数据，确保它始终保持在可见范围内。                                                           | -              | ``None``    | 
 | destroy        | 破坏线      | -                                        | ``None`` |
- | get_data                   | 获取指定范围的数据点，可以选择步长值。如果没有提供参数，将返回所有可用数据。 | start: `int` <br> end: `int` <br> step: `int` | `Tuple[int \| float]` |  
- | get_current_visible_data    | 根据所有线条的最大数据长度和最大可见点数，返回当前可见的数据点。 | -                                        | `Tuple[int \| float]` |  
- | get_x_axis_visible_point_count | 获取X轴上可见数据点的最大数量。                              | -                                        | `int` |   
+| get_data                   | 获取指定范围的数据点，可以选择步长值。如果没有提供参数，将返回所有可用数据。 | start: `int` <br> end: `int` <br> step: `int` | `Tuple[int \| float]` |  
+| get_current_visible_data    | 根据所有线条的最大数据长度和最大可见点数，返回当前可见的数据点。 | -                                        | `Tuple[int \| float]` |  
+| get_x_axis_visible_point_count | 获取X轴上可见数据点的最大数量。                              | -                                        | `int` |   
 
 </div> 
 

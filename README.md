@@ -1,6 +1,5 @@
 [![Chinese](https://img.shields.io/badge/Language-中文-red)](README_zh.md)
 
-
 <div align="center">
 
 [![ctkchart](https://snyk.io/advisor/python/ctkchart/badge.svg)](https://snyk.io/advisor/python/ctkchart)
