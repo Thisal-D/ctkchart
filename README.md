@@ -4,9 +4,13 @@
 
 # ctkchart
 
-### `v 2.1.6`
+[![PyPI version](https://badge.fury.io/py/ctkchart.svg)](https://pypi.org/project/ctkchart/)
 
-[![Downloads](https://static.pepy.tech/badge/ctkchart)](https://pepy.tech/project/ctkchart) [![Downloads](https://static.pepy.tech/badge/ctkchart/month)](https://pepy.tech/project/ctkchart) [![Downloads](https://static.pepy.tech/badge/ctkchart/week)](https://pepy.tech/project/ctkchart)
+[![Downloads](https://static.pepy.tech/badge/ctkchart)](https://pepy.tech/project/ctkchart) ![Downloads last 6 month](https://static.pepy.tech/personalized-badge/ctkchart?period=total&units=international_system&left_color=grey&right_color=BLUE&left_text=downloads%20last%206%20month) [![Downloads](https://static.pepy.tech/badge/ctkchart/month)](https://pepy.tech/project/ctkchart) [![Downloads](https://static.pepy.tech/badge/ctkchart/week)](https://pepy.tech/project/ctkchart)
+
+
+![PyPI - License](https://img.shields.io/badge/license-MIT-blue)
+![LOC](https://tokei.rs/b1/github/Thisal-D/ctkchart?category=lines)
 
 </div>
 
