@@ -31,8 +31,7 @@
 - **Font Customization**: Adjust fonts for text elements to enhance readability.
 - **Dimension Customization**: Customize chart dimensions to fit various display sizes and layouts.
 
-
-[**Check out what's new | Changes**](./CHANGES_en.md)
+[**Check out what's new | Changes**](CHANGES_en.md)
 
 ---
 

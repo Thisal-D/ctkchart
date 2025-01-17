@@ -1,3 +1,5 @@
+[![Language](https://img.shields.io/badge/Language-English-blue)](CHANGES_en.md)
+
 ## v2.1.7  
 
 - ### 新方法添加到 `CTkLineChart` 对象  
