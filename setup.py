@@ -4,7 +4,7 @@ setup(
     name='ctkchart',  # Replace with your package name
     version='2.1.8',  # Replace with your package version
     author='Thisal-D',  # Replace with your name
-    author_email='khtdilmith@example.com',  # Replace with your email
+    author_email='',  # Replace with your email
     description='Line-chart Widget for customtkinter, Python library for creating live updating line charts in CustomTkinter.',
     long_description=open('README.md').read(),  # Ensure you have a README.md file
     long_description_content_type='text/markdown',
